@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thanh toán QR Động - Thu ngân</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-primary/20 px-6 py-4 lg:px-40">
+<div class="flex items-center gap-4">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">qr_code_2</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Thanh toán QR Động</h2>
+</div>
+<div class="flex gap-3">
+<button class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<main class="flex flex-1 flex-col items-center justify-center px-4 py-8 lg:px-40">
+<div class="w-full max-w-[480px] space-y-6">
+<!-- Bill Summary Card -->
+<div class="rounded-xl bg-primary/5 p-6 border border-primary/10">
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<span class="text-slate-500 dark:text-slate-400 font-medium">Số bàn</span>
+<span class="text-xl font-bold text-primary">Bàn 08</span>
+</div>
+<div class="h-px bg-primary/10 w-full"></div>
+<div class="flex justify-between items-center">
+<span class="text-slate-500 dark:text-slate-400 font-medium text-lg">Tổng tiền</span>
+<span class="text-2xl font-black text-slate-900 dark:text-white">450.000đ</span>
+</div>
+</div>
+</div>
+<!-- QR Code Display Area -->
+<div class="flex flex-col items-center gap-4">
+<h3 class="text-xl font-bold text-center">Mã QR Thanh toán</h3>
+<div class="relative aspect-square w-full max-w-[320px] rounded-2xl bg-white p-6 shadow-2xl shadow-primary/20 flex items-center justify-center">
+<!-- Simulated Dynamic QR Code -->
+<div class="w-full h-full bg-slate-100 rounded-lg flex items-center justify-center overflow-hidden border-2 border-slate-50">
+<img alt="Mã QR thanh toán ngân hàng" class="w-full h-full object-contain" data-alt="Mã QR thanh toán ngân hàng và ví điện tử" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDif7a_45HLgH7pmu_otskz8q1iYLyJpEjq9vfqMf1qDoi8X4JYmPy11Ojoju5ei3C1ql8hBy89TXK1C4qdm7mn3LLwM63VyThHWwKPOidd3k_zlo9FjgcQ8tXDK5HgUacgQUDZlWD82w7gWjPP6v-tKF2R7eo1dGE_wyvqqHJrSKs7xqG4xBBskgcr9Qb8PksYJbQEruXOHgSeOzaKMK9DG6-n9Q4YLtESfA1ndus6qTBjePgSpN82dcKZ9MeilvsMEdQhaCJms4c"/>
+</div>
+<!-- Logo Overlay (Typical in VN QR) -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-white p-1 rounded-md shadow-md">
+<div class="bg-primary size-8 rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">account_balance_wallet</span>
+</div>
+</div>
+</div>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm text-center flex items-center gap-2">
+<span class="material-symbols-outlined text-base animate-pulse text-green-500">sync</span>
+                            Mã QR tự động cập nhật theo hóa đơn
+                        </p>
+</div>
+<!-- Supported Methods -->
+<div class="flex flex-wrap justify-center gap-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-2xl">account_balance</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Ngân hàng</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Ví MoMo</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-2xl">payments</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">VNPay-QR</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-3 pt-4">
+<button class="w-full h-14 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined">check_circle</span>
+                            Xác nhận đã nhận tiền
+                        </button>
+<a href="Cashier.html"
+   class="w-full h-12 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors">
+    <span class="material-symbols-outlined">cancel</span>
+    Hủy giao dịch
+</a>
+</div>
+</div>
+</main>
+<!-- Footer Info -->
+<footer class="p-6 text-center text-slate-500 dark:text-slate-500 text-xs">
+<p>Hệ thống POS thông minh © 2024</p>
+<div class="mt-2 flex justify-center gap-4">
+<span class="flex items-center gap-1"><span class="size-2 rounded-full bg-green-500"></span> Máy chủ: Sẵn sàng</span>
+<span class="flex items-center gap-1"><span class="size-2 rounded-full bg-primary"></span> ID: 884221</span>
+</div>
+</footer>
+</div>
+</div>
+</body></html>
