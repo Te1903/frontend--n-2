@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Delish - Trải nghiệm ẩm thực tinh hoa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-primary/20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-background-dark text-2xl">restaurant</span>
+</div>
+<span class="text-2xl font-black tracking-tight text-primary uppercase">Delish</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Trang chủ</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#menu">Thực đơn</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#about">Giới thiệu</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#contact">Liên hệ</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary hover:bg-primary/90 text-background-dark px-6 py-2.5 rounded-lg font-bold text-sm transition-all shadow-lg shadow-primary/20">
+                        Đặt bàn ngay
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[85vh] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/60 to-transparent z-10"></div>
+<img alt="Hero Dish" class="w-full h-full object-cover" data-alt="Món ăn cao cấp trình bày rực rỡ" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbB3MexQ5TpOIKKpuHtaAoFkHELGO59MpDx-s62XXLjoVhaV2aapOHY8uY33A-Enl4KJcPWwVFRZJxg8YZFB-hxFhF1AlPClZ8B1lVgziAq4lElwbLdYpQH4EewjJ-E52mCq0uSg_leNs5EsLjfyVy6BGCqYmEG3zaEFpMezc2bg48WAMXlCUPdNWCE9AaHKpYvewUWX5jSij1a59K2uFF1ObNtIGzrAPl75imbmcxNkJN7Ak0mRzXSEGtU_95F9OqpEiiZ9JO7PM"/>
+</div>
+<div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+<div class="max-w-2xl">
+<span class="inline-block py-1 px-3 rounded-full bg-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-4">Tinh hoa ẩm thực Việt</span>
+<h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
+                        Trải nghiệm <br/>
+<span class="text-primary italic">ẩm thực</span> tinh hoa
+                    </h1>
+<p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-lg">
+                        Khám phá hương vị độc bản trong không gian sang trọng và ấm cúng, nơi mỗi bữa ăn là một hành trình nghệ thuật.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary hover:bg-primary/90 text-background-dark px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 group transition-all">
+                            Khám phá Menu
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="border-2 border-slate-100/20 hover:border-primary/50 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all backdrop-blur-sm">
+                            Xem video
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-24 bg-background-light dark:bg-background-dark" id="about">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="absolute -top-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-4 pt-12">
+<img alt="Interior 1" class="rounded-2xl w-full h-64 object-cover shadow-2xl" data-alt="Không gian nhà hàng sang trọng hiện đại" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVmpDJ-eB-J-fefSkjICyusceNVktmRaUOkGE1XScN0svgXCvXS3nK6EZl1rclviSBes5_1MMSKxv9uybxGnZZ7oMhVzMYPrpNTUMg8peNBFcACHZVKtVXlMTMVdM3BMKXyrSOv4H9F82zqSAQUWj2VZYXmHZp7umVCbsxINKRQaJ20741IB0mh9SPciOeG6oZiSn3hbIWy1S-x5daT0iOI6-CrYfI3p_SnPxq1os77-WLRoKr4iW2Mo6h7zavPFIQJVL3JToNHCM"/>
+<img alt="Interior 2" class="rounded-2xl w-full h-48 object-cover shadow-2xl" data-alt="Chi tiết trang trí bàn ăn tinh tế" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxbVK6S3dpFeRdcZCdoeN--kqOLV6Y2kaUmQ_O0IjSqx9hmAVIpxMWY3kUhc7MD3paAe-EwSpzkIPLNm7R7wSaOG5lUOCVQq3nCVSSMpuf2Gf7Kh3r1p660Zdwu74byNoaKqjxfrNkWWobi5UlWTDO09442C0EzpVLz3pUTBf-bs_lJS3viCTsYl3JdbvhYqyfDXqyrOfMHNuTVKOnkQaai7XRuF_FY6i_ctr-HeiXYNr7NSKR1RrVWMegrGiak6Lv3Qd4L0NAr1o"/>
+</div>
+<div class="space-y-4">
+<img alt="Interior 3" class="rounded-2xl w-full h-48 object-cover shadow-2xl" data-alt="Ánh sáng ấm cúng trong nhà hàng" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj8aSfsm9axGt4OJvcWQl-zVOAy9u5fRmKcecUPuaQn37myTw4CHcYdiE93w9Vl2Z3kLiE6abK75hyoj_s4tercBLyLFVXQR8atCuM4Lh5Y_Vg_52V5K0t6UG2nFfUZ4AGajdrBQ2279tTm6xnUBM8Oc82xRKLxVZUuIQIDMjokx70FHc4tlbX-LHNyiUBGPm2SURY4NEqeOcpqvS3y_Q4qo8AOkXIvKEb67c-X11lPrntYuv5mscBKI0ukSqz0wReo4VdqUMK5Sg"/>
+<img alt="Interior 4" class="rounded-2xl w-full h-64 object-cover shadow-2xl" data-alt="Bếp trưởng đang chế biến món ăn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWCucJEJbLbkGeFpgAwcMAqrQw3WDaHF2sC2w5-yOg1Y0WPTALz_AR8gplnz4vThdvDiObc1lk3MuQN6yOwFjxqedzuEIO0FMQ1ajdWRnsVU9xbCWVfWH2DbS8FYJSCUBjl1i08988nySGidrNo5FCWjk93nmbsLuSeFWkUqCeb1fKlXiDqIsTpCeA0d12CQ5piyzuUaO0BxwbEhRP3etyEKX8Gmj39LbL6Cnqw8HpbiTPel3vz9R5HHbVGcj3eN-R_isyI1yRnKg"/>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<div>
+<h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Về chúng tôi</h2>
+<h3 class="text-4xl md:text-5xl font-black leading-tight">Nơi khởi nguồn của <br/> <span class="text-primary">cảm hứng</span> ẩm thực</h3>
+</div>
+<p class="text-lg text-slate-400 leading-relaxed">
+                            Tại Delish, chúng tôi không chỉ phục vụ món ăn, chúng tôi mang đến một phong cách sống. Với đội ngũ đầu bếp tận tâm và không gian decor được thiết kế theo phong cách tối giản hiện đại, mỗi vị khách khi đến đây đều được trải nghiệm sự chăm sóc chu đáo nhất.
+                        </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<span class="font-medium">Nguyên liệu hữu cơ, tươi sống mỗi ngày</span>
+</li>
+<li class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<span class="font-medium">Không gian riêng tư cho các buổi tiệc</span>
+</li>
+<li class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<span class="font-medium">Phục vụ tận tâm chuẩn 5 sao</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature Dishes -->
+<section class="py-24 bg-slate-50 dark:bg-primary/5" id="menu">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Thực đơn đặc sắc</h2>
+<h3 class="text-4xl font-black">Món ăn nổi bật</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Dish 1 -->
+<div class="group bg-background-light dark:bg-background-dark rounded-2xl overflow-hidden shadow-xl border border-primary/5 hover:border-primary/30 transition-all">
+<div class="relative h-56 overflow-hidden">
+<img alt="Dish 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Thăn bò nướng sốt vang cao cấp" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSeIMoWw9cKp70YlZ1kEc6PHH7q28GTv5bkhgaI1aHtqZHQV5mVkqOfalgmtXScZJiyd6HX4XLAEDYT-om-fckUl74NzyOcrlLHLqeibJ0W75SoO7mDNQvwGwIYQPLG7a_YyZVCPFg3yA7S351jtYP51ab_AjKilOwwFpoiXGhxLcpz6ET64K6oIt8-LZwpoehN1P1av4pel2UbmOBie0Y1_QG_aoaQ7UBKjpTLP6leEpjXxc7T9Vyix2GNcS5cgdzzHyfCRxCs9E"/>
+<div class="absolute top-4 right-4 bg-primary text-background-dark font-bold px-3 py-1 rounded-lg">
+                                450k
+                            </div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold mb-2">Thăn bò nướng sốt vang</h4>
+<p class="text-slate-400 text-sm mb-4">Thịt bò Wagyu mềm tan kết hợp cùng sốt vang đỏ đặc trưng của bếp trưởng.</p>
+<button class="w-full border border-primary/30 hover:bg-primary hover:text-background-dark py-2 rounded-lg font-bold transition-all text-sm">Thêm vào giỏ</button>
+</div>
+</div>
+<!-- Dish 2 -->
+<div class="group bg-background-light dark:bg-background-dark rounded-2xl overflow-hidden shadow-xl border border-primary/5 hover:border-primary/30 transition-all">
+<div class="relative h-56 overflow-hidden">
+<img alt="Dish 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Cá hồi áp chảo kèm măng tây" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRDYHm-6m25LRVftz5WF-AS435XS7COfqMNrKhPGafU-6n5jDQDorHAJsh5FoAWSGYOgHq0BhAzI71ywCGVaxii8C6ZkuyKK8AQibi5b3EEUDUfcJtA2ur3zLj7k3YFhYgw4ooj3wHefH77QMX0DzYezug4Wo7SbfToN2ZHRBTVi9C8VvgQ_qExmK5BFTgQ3ElxfkyqvKN9-eZlBFQTzKI8uje6Jlisf1LdjdrPhEiTSFMKfRKsboxkina499jPzyUTK10399vgOQ"/>
+<div class="absolute top-4 right-4 bg-primary text-background-dark font-bold px-3 py-1 rounded-lg">
+                                380k
+                            </div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold mb-2">Cá hồi áp chảo</h4>
+<p class="text-slate-400 text-sm mb-4">Cá hồi Na-uy tươi ngon áp chảo vừa chín tới, ăn kèm măng tây và sốt chanh dây.</p>
+<button class="w-full border border-primary/30 hover:bg-primary hover:text-background-dark py-2 rounded-lg font-bold transition-all text-sm">Thêm vào giỏ</button>
+</div>
+</div>
+<!-- Dish 3 -->
+<div class="group bg-background-light dark:bg-background-dark rounded-2xl overflow-hidden shadow-xl border border-primary/5 hover:border-primary/30 transition-all">
+<div class="relative h-56 overflow-hidden">
+<img alt="Dish 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Salad hoàng gia hữu cơ" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClxozUXqlwmBzYcC6T9wFMnpoQafhFGLmCa2tGEkI571Okog-BURsqyrb4mzsRWJ1kCLueydyWlZUY0Wv2zTn4XNZ_cEq-fiyu4JI_OMcooF_RLVL7rdmq9-4Dn61eTaMuZT3uRN42d6kVZ7-sZbUh7KtztS9vPsKZodwvZybeHzO_npuDjMjczlluPUaavU8xEt1AzwgIk_qzVSGHxJf83KwIYyUAgURTI-0HqE0dODTfNumNikBWdyUsYKdKYyVE4B5mgDHAdPY"/>
+<div class="absolute top-4 right-4 bg-primary text-background-dark font-bold px-3 py-1 rounded-lg">
+                                150k
+                            </div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold mb-2">Salad Hoàng Gia</h4>
+<p class="text-slate-400 text-sm mb-4">Sự kết hợp tinh tế giữa rau củ hữu cơ, các loại hạt và sốt giấm balsamic cao cấp.</p>
+<button class="w-full border border-primary/30 hover:bg-primary hover:text-background-dark py-2 rounded-lg font-bold transition-all text-sm">Thêm vào giỏ</button>
+</div>
+</div>
+<!-- Dish 4 -->
+<div class="group bg-background-light dark:bg-background-dark rounded-2xl overflow-hidden shadow-xl border border-primary/5 hover:border-primary/30 transition-all">
+<div class="relative h-56 overflow-hidden">
+<img alt="Dish 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Tôm hùm bỏ lò phô mai" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOJ42n4h6hqBnT52231vwDVWKteZF_iR7QFtx_W-AT-J6uVqiPisfFRTXII2geXMzln2lapsEjEJRC3rWD7Eudds9s9KJXfVeTs7cNavKjY3Xfu1rBOninQFDLNyazQr8bFX4pJRNBhpSPcbu6weMFLHeuyz8hXrEw_FMYXvlhNkJuBozfKr4LB7BBbkACffNQ5KG04anWN0V0v3qr2cWqDYAKxrjoFTp7aqUAGeAeWpXrsr0o-YFGR4U9hxCKkLSoVR_cULJqkSA"/>
+<div class="absolute top-4 right-4 bg-primary text-background-dark font-bold px-3 py-1 rounded-lg">
+                                890k
+                            </div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold mb-2">Tôm hùm bỏ lò</h4>
+<p class="text-slate-400 text-sm mb-4">Tôm hùm xanh tươi sống được nướng cùng lớp phô mai béo ngậy tan chảy.</p>
+<button class="w-full border border-primary/30 hover:bg-primary hover:text-background-dark py-2 rounded-lg font-bold transition-all text-sm">Thêm vào giỏ</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Store Info & Map -->
+<section class="py-24 bg-background-light dark:bg-background-dark" id="contact">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-primary/5 rounded-3xl overflow-hidden border border-primary/10">
+<div class="p-10 lg:p-16 space-y-10">
+<div>
+<h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Thông tin liên hệ</h2>
+<h3 class="text-4xl font-black">Ghé thăm Delish</h3>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-5">
+<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-background-dark">location_on</span>
+</div>
+<div>
+<h5 class="font-bold text-lg mb-1">Địa chỉ</h5>
+<p class="text-slate-400">123 Đường Ẩm Thực, Quận 1, TP. Hồ Chí Minh</p>
+</div>
+</div>
+<div class="flex items-start gap-5">
+<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-background-dark">call</span>
+</div>
+<div>
+<h5 class="font-bold text-lg mb-1">Số điện thoại</h5>
+<p class="text-slate-400">0123 456 789</p>
+</div>
+</div>
+<div class="flex items-start gap-5">
+<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-background-dark">schedule</span>
+</div>
+<div>
+<h5 class="font-bold text-lg mb-1">Giờ mở cửa</h5>
+<p class="text-slate-400">Thứ 2 - Chủ Nhật: 09:00 - 22:00</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative min-h-[400px]">
+<div class="absolute inset-0 grayscale contrast-125 opacity-70">
+<div class="w-full h-full bg-slate-800 flex items-center justify-center" data-location="Ho Chi Minh City" style="">
+<!-- Placeholder for Map -->
+<div class="text-center p-8">
+<span class="material-symbols-outlined text-primary text-6xl mb-4">map</span>
+<p class="text-slate-100 font-bold">Bản đồ khu vực Quận 1</p>
+</div>
+</div>
+</div>
+<!-- Decorative overlay for map -->
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-dark border-t border-primary/10 pt-20 pb-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1 space-y-6">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-background-dark text-xl">restaurant</span>
+</div>
+<span class="text-xl font-black tracking-tight text-primary uppercase">Delish</span>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed">
+                        Nơi giao thoa giữa truyền thống và hiện đại, mang đến những giá trị ẩm thực đích thực cho mỗi thực khách.
+                    </p>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-primary">Liên kết nhanh</h5>
+<ul class="space-y-4 text-sm text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Trang chủ</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Thực đơn</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Giới thiệu</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Tuyển dụng</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-primary">Dịch vụ</h5>
+<ul class="space-y-4 text-sm text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Đặt tiệc cưới</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Hội nghị &amp; Sự kiện</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Giao hàng tận nơi</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Thẻ thành viên</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-primary">Theo dõi chúng tôi</h5>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center hover:bg-primary hover:text-background-dark transition-all" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center hover:bg-primary hover:text-background-dark transition-all" href="#">
+<span class="material-symbols-outlined text-xl">thumb_up</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center hover:bg-primary hover:text-background-dark transition-all" href="#">
+<span class="material-symbols-outlined text-xl">camera_alt</span>
+</a>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+<p>© 2024 Delish Restaurant. Tất cả các quyền được bảo lưu.</p>
+<div class="flex gap-8">
+<a class="hover:text-primary" href="#">Chính sách bảo mật</a>
+<a class="hover:text-primary" href="#">Điều khoản dịch vụ</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

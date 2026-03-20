@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Báo cáo doanh thu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex flex-col min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/20 px-4 lg:px-10 py-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="p-2 bg-primary rounded-lg text-background-dark">
+<span class="material-symbols-outlined block">insights</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Báo cáo doanh thu</h2>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+<button class="flex items-center justify-center p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">calendar_today</span>
+</button>
+<div class="h-8 w-[1px] bg-primary/20 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold">Quản trị viên</p>
+<p class="text-xs text-primary/70">Cửa hàng Thời trang</p>
+</div>
+<div class="size-10 rounded-full bg-primary/20 border-2 border-primary overflow-hidden">
+<img alt="User Profile" data-alt="Ảnh đại diện quản trị viên tròn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxIuskpcjmg_jL4qgMPTk-M8Cer5iaVLfZl2sjIrHqz8T-Y-JyG6Y-gvmLngLsk9tkzFhNmgMhh-l6_rDamkk-5vxDtg5cr_ONNQfBHaci8zZPgooBNNj401k0Oip3rc80w_z1s24r8uFrMZHc8dOCpLhD6aSDHscJOvnuUsq1MaXxofTOSzU6vjQLRWXI4mjDtHNE6KLRugot3QGCYEUNpSZkj54IM5Spjxga7EZ_kOMv6eVL8g538QabTr9YG-A32ATvckUeXnc"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 flex-col lg:flex-row">
+<!-- Sidebar (Desktop) / Mobile Toggle -->
+<!-- <nav class="w-full lg:w-64 border-r border-primary/10 p-4 flex flex-col gap-2">
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary text-background-dark font-semibold">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Tổng quan</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+<span>Giao dịch</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+<span>Sản phẩm</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary">group</span>
+<span>Khách hàng</span>
+</div>
+<div class="mt-auto pt-4 border-t border-primary/10">
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary">settings</span>
+<span>Cài đặt</span>
+</div>
+</div>
+</nav> -->
+<div id="sidebar"></div>
+<script>
+  fetch("sidebar.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("sidebar").innerHTML = data;
+    });
+</script>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 p-4 lg:p-8 flex flex-col gap-6 overflow-x-hidden">
+<!-- Time Filters -->
+<div class="flex items-center gap-1 bg-primary/5 p-1 rounded-xl self-start">
+<button class="px-4 py-2 text-sm font-medium rounded-lg hover:bg-primary/10 transition-colors">Hôm nay</button>
+<button class="px-4 py-2 text-sm font-medium rounded-lg hover:bg-primary/10 transition-colors">7 ngày qua</button>
+<button class="px-4 py-2 text-sm font-bold rounded-lg bg-primary text-background-dark shadow-lg shadow-primary/20">Tháng này</button>
+<button class="px-4 py-2 text-sm font-medium rounded-lg hover:bg-primary/10 transition-colors">Tùy chỉnh</button>
+</div>
+<!-- Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+<div class="bg-primary/5 border border-primary/10 rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 text-primary/10 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined !text-7xl">payments</span>
+</div>
+<p class="text-sm font-medium text-slate-400">Tổng doanh thu</p>
+<h3 class="text-3xl font-bold mt-2">125.400.000đ</h3>
+<div class="flex items-center gap-1 mt-3 text-emerald-500 font-semibold text-sm">
+<span class="material-symbols-outlined text-base">trending_up</span>
+<span>+12.5% <span class="text-slate-500 font-normal">so với tháng trước</span></span>
+</div>
+</div>
+<div class="bg-primary/5 border border-primary/10 rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 text-primary/10 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined !text-7xl">shopping_cart</span>
+</div>
+<p class="text-sm font-medium text-slate-400">Số đơn hàng</p>
+<h3 class="text-3xl font-bold mt-2">452</h3>
+<div class="flex items-center gap-1 mt-3 text-emerald-500 font-semibold text-sm">
+<span class="material-symbols-outlined text-base">trending_up</span>
+<span>+5.2% <span class="text-slate-500 font-normal">so với tháng trước</span></span>
+</div>
+</div>
+<div class="bg-primary/5 border border-primary/10 rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 text-primary/10 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined !text-7xl">avg_pace</span>
+</div>
+<p class="text-sm font-medium text-slate-400">Giá trị trung bình</p>
+<h3 class="text-3xl font-bold mt-2">277.433đ</h3>
+<div class="flex items-center gap-1 mt-3 text-rose-500 font-semibold text-sm">
+<span class="material-symbols-outlined text-base">trending_down</span>
+<span>-2.1% <span class="text-slate-500 font-normal">so với tháng trước</span></span>
+</div>
+</div>
+</div>
+<!-- Chart Section -->
+<div class="bg-primary/5 border border-primary/10 rounded-xl p-6">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h4 class="text-lg font-bold">Biến động doanh thu</h4>
+<p class="text-sm text-slate-400">Biểu đồ chi tiết theo từng ngày trong tháng</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-2 text-xs font-medium">
+<span class="size-3 rounded-full bg-primary"></span> Doanh thu
+                            </div>
+<div class="flex items-center gap-2 text-xs font-medium opacity-50">
+<span class="size-3 rounded-full bg-primary/30"></span> Mục tiêu
+                            </div>
+</div>
+</div>
+<div class="relative w-full h-64 mt-4">
+<!-- Simulated SVG Line Chart -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 200">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#f48c25" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#f48c25" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid lines -->
+<line class="text-primary/10" stroke="currentColor" stroke-width="1" x1="0" x2="1000" y1="0" y2="0"></line>
+<line class="text-primary/10" stroke="currentColor" stroke-width="1" x1="0" x2="1000" y1="50" y2="50"></line>
+<line class="text-primary/10" stroke="currentColor" stroke-width="1" x1="0" x2="1000" y1="100" y2="100"></line>
+<line class="text-primary/10" stroke="currentColor" stroke-width="1" x1="0" x2="1000" y1="150" y2="150"></line>
+<line class="text-primary/10" stroke="currentColor" stroke-width="1" x1="0" x2="1000" y1="200" y2="200"></line>
+<!-- Area -->
+<path d="M0,150 L100,120 L200,160 L300,90 L400,110 L500,40 L600,70 L700,50 L800,90 L900,30 L1000,60 L1000,200 L0,200 Z" fill="url(#chartGradient)"></path>
+<!-- Line -->
+<path d="M0,150 L100,120 L200,160 L300,90 L400,110 L500,40 L600,70 L700,50 L800,90 L900,30 L1000,60" fill="none" stroke="#f48c25" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+<!-- X-Axis Labels -->
+<div class="flex justify-between mt-4 text-[10px] sm:text-xs font-bold text-slate-400">
+<span>01/10</span>
+<span>05/10</span>
+<span>10/10</span>
+<span>15/10</span>
+<span>20/10</span>
+<span>25/10</span>
+<span>30/10</span>
+</div>
+</div>
+</div>
+<!-- Table Section -->
+<div class="bg-primary/5 border border-primary/10 rounded-xl overflow-hidden">
+<div class="p-6 border-b border-primary/10 flex items-center justify-between flex-wrap gap-4">
+<h4 class="text-lg font-bold">Số liệu chi tiết theo ngày</h4>
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary">search</span>
+<input class="w-full bg-background-dark/50 border-primary/20 rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-primary focus:border-primary" placeholder="Tìm kiếm ngày..." type="text"/>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider">
+<th class="px-6 py-4">Ngày</th>
+<th class="px-6 py-4">Đơn hàng</th>
+<th class="px-6 py-4">Doanh thu</th>
+<th class="px-6 py-4">TB/Đơn hàng</th>
+<th class="px-6 py-4 text-right">Trạng thái</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/10">
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-medium">30/10/2023</td>
+<td class="px-6 py-4">24</td>
+<td class="px-6 py-4">6.800.000đ</td>
+<td class="px-6 py-4">283.333đ</td>
+<td class="px-6 py-4 text-right">
+<span class="bg-emerald-500/10 text-emerald-500 px-3 py-1 rounded-full text-xs font-bold">Tăng trưởng</span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-medium">29/10/2023</td>
+<td class="px-6 py-4">18</td>
+<td class="px-6 py-4">4.200.000đ</td>
+<td class="px-6 py-4">233.333đ</td>
+<td class="px-6 py-4 text-right">
+<span class="bg-rose-500/10 text-rose-500 px-3 py-1 rounded-full text-xs font-bold">Sụt giảm</span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-medium">28/10/2023</td>
+<td class="px-6 py-4">31</td>
+<td class="px-6 py-4">9.150.000đ</td>
+<td class="px-6 py-4">295.161đ</td>
+<td class="px-6 py-4 text-right">
+<span class="bg-emerald-500/10 text-emerald-500 px-3 py-1 rounded-full text-xs font-bold">Tăng trưởng</span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-medium">27/10/2023</td>
+<td class="px-6 py-4">22</td>
+<td class="px-6 py-4">5.400.000đ</td>
+<td class="px-6 py-4">245.454đ</td>
+<td class="px-6 py-4 text-right">
+<span class="bg-slate-500/10 text-slate-400 px-3 py-1 rounded-full text-xs font-bold">Ổn định</span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-medium">26/10/2023</td>
+<td class="px-6 py-4">27</td>
+<td class="px-6 py-4">7.900.000đ</td>
+<td class="px-6 py-4">292.592đ</td>
+<td class="px-6 py-4 text-right">
+<span class="bg-emerald-500/10 text-emerald-500 px-3 py-1 rounded-full text-xs font-bold">Tăng trưởng</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 border-t border-primary/10 flex items-center justify-between">
+<p class="text-sm text-slate-400">Hiển thị 5 trên 31 ngày</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">Trước</button>
+<button class="px-3 py-1 bg-primary text-background-dark rounded-lg font-bold">1</button>
+<button class="px-3 py-1 border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">2</button>
+<button class="px-3 py-1 border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">3</button>
+<button class="px-3 py-1 border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">Tiếp</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

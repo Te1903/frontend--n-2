@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thực đơn - Nhà hàng Cao Cấp</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Work Sans", sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header Section -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 px-6 py-4 md:px-20 lg:px-40">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl">restaurant</span>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight">Nhà hàng Cao Cấp</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Trang chủ</a>
+<a class="text-primary text-sm font-bold transition-colors border-b-2 border-primary" href="#">Thực đơn</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Về chúng tôi</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Liên hệ</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<label class="hidden lg:flex items-center relative">
+<span class="material-symbols-outlined absolute left-3 text-slate-400">search</span>
+<input class="form-input w-64 rounded-lg bg-slate-100 dark:bg-primary/10 border-none pl-10 text-sm focus:ring-1 focus:ring-primary" placeholder="Tìm kiếm món ăn..."/>
+</label>
+<button class="bg-primary hover:bg-primary/90 text-background-dark px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20">
+                        Đặt bàn ngay
+                    </button>
+</div>
+</header>
+<main class="flex-1 max-w-7xl mx-auto w-full px-6 md:px-20 lg:px-40 py-8">
+<!-- Banner Section -->
+<div class="relative w-full h-48 md:h-64 rounded-xl overflow-hidden mb-12 flex items-end">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="High-end restaurant interior with elegant lighting" style="background-image: linear-gradient(to top, rgba(34, 25, 16, 0.9), transparent), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzYPG6GSd4GdTHIJESSyJ4dsJ_S0wfnaQx1Yok3O_DTp1OAiZsSYm0JckBnyM1aRzwPo_UmVyiZyfVUcpTIAzHy4G5jrXqkZXDd9CocJ3mGzGdIM94a1myg0SdQzd9URjx3vWoGFc41qvWTg2GObJjhbEAPotuTbYm66y9vQoNDGjc80gZ6HkjNtMiAZn_q9Cc-nw_XP4zU2hr2qc6PzQtd2D_H_JLg-rWNN-8t6G4o_9v3EhH8OAUxrCI_bNEAA9zryt7tTA9_PY');"></div>
+<div class="relative p-8 w-full">
+<h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Thực đơn của chúng tôi</h1>
+<p class="text-primary font-medium mt-2">Trải nghiệm tinh hoa ẩm thực trong từng món ăn</p>
+</div>
+</div>
+<!-- Filter Section -->
+<div class="flex gap-3 mb-10 overflow-x-auto pb-2 no-scrollbar">
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-6 text-background-dark text-sm font-semibold">
+<span class="material-symbols-outlined text-lg">all_inclusive</span> Tất cả
+                    </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-slate-100 dark:bg-primary/10 px-6 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors text-sm font-medium">
+<span class="material-symbols-outlined text-lg">tapas</span> Khai vị
+                    </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-slate-100 dark:bg-primary/10 px-6 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors text-sm font-medium">
+<span class="material-symbols-outlined text-lg">dinner_dining</span> Món chính
+                    </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-slate-100 dark:bg-primary/10 px-6 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors text-sm font-medium">
+<span class="material-symbols-outlined text-lg">local_bar</span> Đồ uống
+                    </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-slate-100 dark:bg-primary/10 px-6 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors text-sm font-medium">
+<span class="material-symbols-outlined text-lg">icecream</span> Tráng miệng
+                    </button>
+</div>
+<!-- Menu Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Dish Card 1 -->
+<div class="group flex flex-col gap-4">
+<div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-200 dark:bg-primary/5">
+<img alt="Gỏi ngó sen tôm thịt" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Vietnamese lotus stem salad with shrimp and pork" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4ZL8sViogpgteZUZXezGFDKuKKtWye2NR-Jnjkg2PiHUNuaq-sMy5cJEKA-_Gdwy59Ue57nsz0iDhKNvc4BIe5Vj9pphs2947WtVua8hsM5Xs9fQVqezGtBVQ0lS3cGV88wRdz8zYNBNFy0gqy2F8m6Hux_TdMRSdLaZCJh2acdU_fFHM0NP6vWvzc4cQEeLlF2WsBXcFcwHizEhkdxiD7-qu_oTxGdz-utBpcsBFjfgI6cZ9QLZRJk0ajc03pOf1oSrIh7ORKBk"/>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary transition-colors">Gỏi ngó sen tôm thịt</h3>
+<span class="text-primary font-bold">125.000đ</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed italic">
+                                Ngó sen tươi, tôm sú, thịt ba chỉ, rau thơm và nước mắm chua ngọt đặc trưng.
+                            </p>
+</div>
+</div>
+<!-- Dish Card 2 -->
+<div class="group flex flex-col gap-4">
+<div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-200 dark:bg-primary/5">
+<img alt="Thăn bò nướng sốt vang" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Grilled beef tenderloin with red wine sauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_W9uXTjjnlGvPtsB1dvoyzbxXBeZP69Kcec4ELI7DfCBXwBROMm-64qJmWziRQ8xsEQRI5qX0ZDjtR2rYZM2cF_YKhe6jGwcy9FRoWKlG344yg25dk4hxe4O2AG-c3lX383-5n5sZI9NoKJS9vQ4I5EEioRtejhxY1ONs0KN-YIxwD4X-vE549QON2t88zPGurjbkPlyE7nMioj7d4_-6FwzOF9UqxVeDnG2PJUdXR0SEE-FIY453pJ6hBk_BwONg-tCYn9-dzNs"/>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary transition-colors">Thăn bò nướng sốt vang</h3>
+<span class="text-primary font-bold">450.000đ</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed italic">
+                                Bò Mỹ hảo hạng nướng medium-rare, sốt vang đỏ cô đặc kèm khoai tây nghiền mịn.
+                            </p>
+</div>
+</div>
+<!-- Dish Card 3 -->
+<div class="group flex flex-col gap-4">
+<div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-200 dark:bg-primary/5">
+<img alt="Cá hồi áp chảo sốt chanh leo" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Pan-seared salmon with passion fruit sauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9BO7n1hmqwbNUHIKR-meYCHKXlLYGjZ8lxE9MYOPtIFEa5f1_N7tRuTcleIgKulOJqrjsCouPn2MmFY01aBIkhYMI1_Y0s2a0KC0d87ohGME_zbK3TxI4_PgTy1pBkxXFEAv7Zd6WUMron0W8YFPYrQX0sNxNeoXzFAvtdjGhdfRjAUaN06KGqOVJ7gvAJWCqYx9r5QpFfnoKlDMBGx7spb7w66tHyV0PVwCw-9cPkC70bIeOn0EMPhTJD50-KI1hxW_7Pv22tRE"/>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary transition-colors">Cá hồi áp chảo</h3>
+<span class="text-primary font-bold">380.000đ</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed italic">
+                                Cá hồi Nauy tươi, sốt chanh leo chua ngọt cân bằng, măng tây nướng và cà rốt baby.
+                            </p>
+</div>
+</div>
+<!-- Dish Card 4 -->
+<div class="group flex flex-col gap-4">
+<div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-200 dark:bg-primary/5">
+<img alt="Mỳ Ý hải sản sốt cà chua" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Seafood pasta with rich tomato sauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz25QFxG8ZWH-rSuigfgYhLVXgz3ipb78WINyPeXNDZuQuO8DHUQGdcqXOA90-XWiAhlO3FbPl7lHUfsO9ek5tgXhQj2svISGglMVyR9HNSzYHTzcr1uJeP91waGz88UrGwll1v18_N4auNv6dfqNfyLzKVsets_bRgwzDCWvfcQibcYeNE5ZdBytIF3B3Bx7wdXgSa-gu5F_UJOvBoI3VK8UE8iZkGd25TZm5KLGOUELe0vI1HKmmxtDFJhGmAbakuy185somrks"/>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary transition-colors">Mỳ Ý hải sản</h3>
+<span class="text-primary font-bold">220.000đ</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed italic">
+                                Mỳ Ý thủ công dai ngon, tôm, mực, vẹm xanh tươi sống hòa quyện cùng sốt cà chua đậm đà.
+                            </p>
+</div>
+</div>
+<!-- Dish Card 5 -->
+<div class="group flex flex-col gap-4">
+<div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-200 dark:bg-primary/5">
+<img alt="Kem bơ hạt dẻ" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Avocado ice cream with pistachios" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXInNaPKoLxjyFlY5MbMZwluuuRpqvL9nBzy_tb3z3AKk0EeEqdCrQ14i6s7HvVR3xUNPVaCOzxj0KdaL0c27ZuRuC6SaYCY2HHoPLuuE0GszzburcyPh201wW-I9DmOV3wXGNXDmNq223tWjFjBXdojdCMgRbyEoYo65VALQrDVv5LziJDeAwssKM7hT38WQjoToSpMl9I9E13ulfSknTmKdbFFN_Yv1CWlyNdjq2njkYLLg_enBVAgMJ5gLh3WfAhCvzhtmMZTg"/>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary transition-colors">Kem bơ hạt dẻ</h3>
+<span class="text-primary font-bold">95.000đ</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed italic">
+                                Kem bơ sáp Daklak mịn màng kết hợp hạt dẻ cười rang thơm và sốt caramel.
+                            </p>
+</div>
+</div>
+<!-- Dish Card 6 -->
+<div class="group flex flex-col gap-4">
+<div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-200 dark:bg-primary/5">
+<img alt="Rượu vang đỏ Chile" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Luxury red wine bottle and glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyYbqkhxe-_FJsF4uOcdS7foCOjEQYcbRgPgg__SmbEMxRrcF1QMljjTfFMC9i5GU_Zp_7cFa62IzJrdBOndgmvoULL-2UAFUbtMrk8kXxB2dyf72IFA3yQGPWpP9fV7uahUWbq_AcVH9Y9LXZwI_51ccnErQfwVwR7u3lio6JU9t_UVbe-eRdYLiOUkk_uXmKS2-rkAFcHjORGkdj66-FwCF8wwSNwGvM99uli2Oa3PCO4OQQDciBFzAw9NgR8kqcRssgmQYerOA"/>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary transition-colors">Rượu vang đỏ Chile</h3>
+<span class="text-primary font-bold">850.000đ</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed italic">
+                                Cabernet Sauvignon vùng Maipo Valley, hương trái cây chín mọng, cấu trúc cân bằng tuyệt vời.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Pagination/Load more (Visual only) -->
+<div class="mt-16 flex justify-center">
+<button class="border-2 border-primary text-primary hover:bg-primary hover:text-background-dark px-12 py-3 rounded-full font-bold transition-all">
+                        Xem thêm món ăn
+                    </button>
+</div>
+</main>
+<!-- Footer Section -->
+<footer class="border-t border-primary/10 mt-20 bg-slate-50 dark:bg-primary/5">
+<div class="max-w-7xl mx-auto px-6 md:px-20 lg:px-40 py-12 flex flex-col gap-8">
+<div class="flex flex-wrap justify-between items-start gap-8">
+<div class="flex flex-col gap-4 max-w-xs">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-2xl">restaurant</span>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold">Nhà hàng Cao Cấp</h2>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400">
+                                Mang đến những trải nghiệm ẩm thực tinh túy nhất cho thực khách. Không gian sang trọng, phục vụ tận tâm.
+                            </p>
+</div>
+<div class="flex gap-16">
+<div class="flex flex-col gap-3">
+<h4 class="font-bold text-slate-900 dark:text-slate-100">Liên kết</h4>
+<a class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">Trang chủ</a>
+<a class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">Thực đơn</a>
+<a class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">Về chúng tôi</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-bold text-slate-900 dark:text-slate-100">Hỗ trợ</h4>
+<a class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">Đặt bàn</a>
+<a class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">Chính sách bảo mật</a>
+<a class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">Liên hệ</a>
+</div>
+</div>
+</div>
+<div class="border-t border-primary/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+<p class="text-sm text-slate-500 dark:text-slate-400">© 2024 Nhà hàng Cao Cấp. Tất cả quyền được bảo lưu.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 hover:text-primary cursor-pointer">social_leaderboard</span>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 hover:text-primary cursor-pointer">photo_camera</span>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 hover:text-primary cursor-pointer">alternate_email</span>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

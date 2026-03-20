@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Chỉnh sửa Bàn - Admin</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-4">
+<!-- Modal Overlay Container -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+<!-- Modal Content -->
+<div class="relative w-full max-w-[600px] bg-background-light dark:bg-[#2d2216] rounded-xl shadow-2xl overflow-hidden border border-primary/20">
+<!-- Header -->
+<header class="flex items-center justify-between border-b border-primary/20 px-6 py-4 bg-primary/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">edit_square</span>
+<h2 class="text-xl font-bold tracking-tight">Chỉnh sửa Bàn</h2>
+</div>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-slate-400">close</span>
+</button>
+</header>
+<div class="p-6 space-y-6">
+<!-- Section: Basic Info -->
+<div class="space-y-4">
+<h3 class="text-sm font-semibold uppercase tracking-wider text-primary/80">Thông tin cơ bản</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Table Name/Number -->
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium opacity-80">Tên/Số bàn</label>
+<input class="w-full rounded-lg border border-primary/30 bg-background-light dark:bg-background-dark/50 px-4 py-2.5 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="VD: Bàn 01" type="text" value="Bàn số 05"/>
+</div>
+<!-- Capacity -->
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium opacity-80">Sức chứa (người)</label>
+<input class="w-full rounded-lg border border-primary/30 bg-background-light dark:bg-background-dark/50 px-4 py-2.5 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Số lượng khách tối đa" type="number" value="4"/>
+</div>
+</div>
+<!-- Area Selection -->
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium opacity-80">Khu vực</label>
+<div class="relative">
+<select class="w-full appearance-none rounded-lg border border-primary/30 bg-background-light dark:bg-background-dark/50 px-4 py-2.5 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
+<option value="tang-1">Tầng 1 - Sảnh chính</option>
+<option selected="" value="tang-2">Tầng 2 - Ban công</option>
+<option value="vip">Phòng VIP</option>
+<option value="ngoai-troi">Ngoài trời</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-primary">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Section: QR Code -->
+<div class="pt-4 border-t border-primary/10">
+<div class="flex items-start gap-4">
+<div class="flex-1 space-y-2">
+<h3 class="text-sm font-semibold uppercase tracking-wider text-primary/80">Mã QR hiện tại</h3>
+<p class="text-xs opacity-60 leading-relaxed">Mã QR này dùng để khách hàng quét gọi món tại bàn. Bạn có thể tải xuống hoặc in lại nếu cần.</p>
+<div class="pt-2">
+<button class="flex items-center gap-2 text-primary text-sm font-semibold hover:underline">
+<span class="material-symbols-outlined text-lg">download</span>
+                                    Tải ảnh QR
+                                </button>
+</div>
+</div>
+<div class="relative p-2 bg-white rounded-lg group cursor-zoom-in">
+<img alt="Mã QR bàn số 05" class="w-24 h-24 block" data-alt="Modern QR code for digital menu access" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMjBndUCoZD95iIB1z3fFYdHA5mh3MWH2KRImWDUhC75XS8_ejav6QGARAx3IWxFkyV8UfgAlZnFc-IjVFIjWCuM2FUrTCrHXXlAyh91i0KaGowq_UUy1VkgvDL4OXICREUK323DRMCSWt6NPUXhf6iDdVlTUQd4mZ5ZBxaDIx-K_r2gntaSwd42t6CHYO3wloUV6EGwwT4DknVrvS8pYmu8SHCtxbVLTuMzBHCRA-Jxuxc_HOMs4TSbt0UKuz_BtG-nez5OXfzxg"/>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-primary bg-white rounded-full p-1 shadow-md">zoom_in</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Status Toggle -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-primary/5 border border-primary/10">
+<div>
+<p class="font-medium">Trạng thái hoạt động</p>
+<p class="text-xs opacity-60">Cho phép đặt bàn và nhận order</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-400 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Footer Actions -->
+<footer class="flex items-center justify-end gap-3 px-6 py-5 bg-primary/5 border-t border-primary/20">
+<a class="px-5 py-2.5 rounded-lg border border-primary/30 text-primary font-semibold hover:bg-primary/10 transition-colors" href="Table_Management.html">
+                    Hủy
+</a>
+<button class="px-8 py-2.5 rounded-lg bg-primary text-white font-bold shadow-lg shadow-primary/20 hover:brightness-110 active:scale-95 transition-all">
+                    Cập nhật
+                </button>
+</footer>
+</div>
+</div>
+</body></html>

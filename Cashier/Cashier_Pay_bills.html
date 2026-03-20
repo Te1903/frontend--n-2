@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Thanh toán - Bàn 08</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header Section -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 px-6 py-4 lg:px-20">
+<div class="flex items-center gap-4">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl">restaurant</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight">Thanh toán - Bàn 08</h2>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center rounded-lg h-10 bg-primary/10 hover:bg-primary/20 text-primary px-4 transition-colors">
+<span class="material-symbols-outlined mr-2">schedule</span>
+<span class="text-sm font-bold">12:45 PM</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 bg-primary/10 hover:bg-primary/20 text-primary px-4 transition-colors">
+<span class="material-symbols-outlined mr-2">person</span>
+<span class="text-sm font-bold">Thu ngân: An</span>
+</button>
+</div>
+</header>
+<main class="flex flex-1 flex-col lg:flex-row px-6 lg:px-20 py-8 gap-8">
+<!-- Left Side: Order Details -->
+<div class="flex flex-col flex-1 bg-primary/5 rounded-xl p-6 border border-primary/10">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold">Chi tiết hóa đơn</h2>
+<span class="bg-primary text-background-dark px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Đang phục vụ</span>
+</div>
+<div class="space-y-1">
+<!-- Item 1 -->
+<div class="flex items-center gap-4 bg-background-dark/40 dark:bg-white/5 px-4 min-h-[80px] py-3 rounded-lg border border-transparent hover:border-primary/30 transition-all">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-16" data-alt="Traditional Vietnamese beef pho noodle soup bowl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATtXY1ncadDfajtCU0tqWT6oeQkMOtzIPDrppZhRW7pK3VRjuZEFzqq1UDyWAAKGD6MzPUR2sXxCqSND1JN9ML0H7K0Cw11zbVKSGxL1kkXOaC5U0xqTOsgpDyzhlzSCZhu4kyqQG6dOtkScUm0k6HDsG4mH_NdYemi3IZcYliJbP3Z5DEzFR10PeePUBpxpxKihGYKqrfn3_u6IZVEoZQs5EYG_r3A6VrPoeEaey_d6K3QOqtv1VLLQs3dtrhCtOQJvHNk_n9NqU");'></div>
+<div class="flex flex-col justify-center flex-1">
+<div class="flex justify-between items-start">
+<p class="text-lg font-semibold leading-tight">Phở Bò <span class="text-primary">x2</span></p>
+<p class="text-lg font-bold">130.000đ</p>
+</div>
+<p class="text-slate-400 text-sm mt-1">Ghi chú: Không hành, nhiều nước béo</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 bg-background-dark/40 dark:bg-white/5 px-4 min-h-[80px] py-3 rounded-lg border border-transparent hover:border-primary/30 transition-all">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-16" data-alt="Vietnamese bun cha grilled pork and noodles" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQlv76LwXy9C7ipgFqPH5VrMCehIgT3WlwmosuHhUE9xhstcb1NOWfWsX2cJDsd_dpymQ07X0DB4K8UsJu2TdLaw3vr7kV_DP2NtuHyCiARpVxe3Jxa0BHFVeeVbJmTYi6PQBR4vhqEFxInHofx4IwT2NClAWxfbqPln3-vzfjkexez2WFvp2BFMiuLHmTSMmSQf8Xe58_xHlxKtjn6W1Ddzku4Pe7yTcW05t0OQhOArwSZTBa1Dh2rdaqu5kwoHMDSc7z7P7LZZY");'></div>
+<div class="flex flex-col justify-center flex-1">
+<div class="flex justify-between items-start">
+<p class="text-lg font-semibold leading-tight">Bún Chả <span class="text-primary">x1</span></p>
+<p class="text-lg font-bold">65.000đ</p>
+</div>
+<p class="text-slate-400 text-sm mt-1">Thêm chả nướng</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-4 bg-background-dark/40 dark:bg-white/5 px-4 min-h-[80px] py-3 rounded-lg border border-transparent hover:border-primary/30 transition-all">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-16" data-alt="Refreshing cold soft drinks in glass bottles" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDOcjN6bb4-_EmxfSO0U4LDiAaDggwBHYhg-BpKW0uIUi1y2Uj2fErNgbFBlfUqykLp7izn8pspuoQMWHBVr3kiSAx26dpHTf4qFxzUwW8dRB3-m0Snt0_7vDfyQIjVwN4zsOOHSylmZVGHjZCop5lmu8dGqqJivGYvGBjPmhp6-t1FFfEFf6csRVJrhMKJymlUBxU0_xKb3lRXmXp5ku4Mq7q7rGjYdD0fbfyywNVEz7hfqAceO8mv9KXvLfsgjtVocDQKBHH0IME");'></div>
+<div class="flex flex-col justify-center flex-1">
+<div class="flex justify-between items-start">
+<p class="text-lg font-semibold leading-tight">Nước Ngọt <span class="text-primary">x3</span></p>
+<p class="text-lg font-bold">45.000đ</p>
+</div>
+<p class="text-slate-400 text-sm mt-1">Coca-Cola, Pepsi, Sprite</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-center gap-4 bg-background-dark/40 dark:bg-white/5 px-4 min-h-[80px] py-3 rounded-lg border border-transparent hover:border-primary/30 transition-all">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-16" data-alt="Hot latte coffee art in ceramic cup" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBY-H36s3hy8tl8-IAlNmgdvz8-H_01JBwfSYxYxZDVPPVrxtRSDic5xAJWAhLchZA1SCXKgmk1yTaArWRn6oL-XNCdx-1iwNfUK0NsPRcRYlSW2ThEafaZJEt-1HWea6izEIo20450vg2-mz7JIcFD7mvRw2REF2SGSSbZjFehc31CpUxQBvlNwirhJLFAFi64oqcR_Pr_yPtMr0psTzmrY82oMJ6SHoPUh8eZw44W1errMP4PE-apksKZnHmEGlHmJu4buh4LDhI");'></div>
+<div class="flex flex-col justify-center flex-1">
+<div class="flex justify-between items-start">
+<p class="text-lg font-semibold leading-tight">Cà phê Sữa <span class="text-primary">x2</span></p>
+<p class="text-lg font-bold">70.000đ</p>
+</div>
+<p class="text-slate-400 text-sm mt-1">Sữa đặc nhiều đá</p>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-primary/20 space-y-2">
+<div class="flex justify-between text-slate-400">
+<span>Tạm tính</span>
+<span>310.000đ</span>
+</div>
+<div class="flex justify-between text-slate-400">
+<span>VAT (10%)</span>
+<span>31.000đ</span>
+</div>
+<div class="flex justify-between text-slate-400">
+<span>Phí dịch vụ</span>
+<span>9.000đ</span>
+</div>
+</div>
+</div>
+<!-- Right Side: Checkout Panel -->
+<div class="flex flex-col w-full lg:w-[400px] gap-6">
+<!-- Payment Summary Card -->
+<div class="bg-primary rounded-xl p-6 text-background-dark shadow-xl shadow-primary/10">
+<p class="text-background-dark/80 font-medium mb-1">Tổng cộng cần thanh toán</p>
+<h1 class="text-5xl font-black tracking-tight">350.000đ</h1>
+</div>
+<!-- Input Section -->
+<div class="bg-primary/5 rounded-xl p-6 border border-primary/20 space-y-5">
+<div>
+<label class="block text-sm font-semibold mb-2 text-slate-400 uppercase tracking-wider">Số tiền khách đưa</label>
+<div class="relative">
+<input class="w-full bg-background-dark border-2 border-primary/30 rounded-lg h-14 px-4 text-2xl font-bold focus:border-primary focus:ring-0 text-white outline-none" type="text" value="500.000"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-primary font-bold">VND</span>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-2 text-slate-400 uppercase tracking-wider">Tiền thối lại</label>
+<div class="bg-primary/10 border-2 border-dashed border-primary/30 rounded-lg h-14 flex items-center px-4">
+<span class="text-2xl font-bold text-primary">150.000đ</span>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-3 text-slate-400 uppercase tracking-wider">Phương thức thanh toán</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl border-2 border-primary bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">payments</span>
+<span class="font-bold text-sm">Tiền mặt</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl border-2 border-primary/20 bg-background-dark hover:bg-primary/5 transition-colors text-slate-400">
+<span class="material-symbols-outlined text-3xl">qr_code_2</span>
+<span class="font-bold text-sm">QR Code / CK</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-black text-xl py-6 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-3 transition-transform active:scale-[0.98]">
+<span class="material-symbols-outlined text-3xl">check_circle</span>
+                    XÁC NHẬN THANH TOÁN
+                </button>
+<!-- Quick Buttons -->
+<div class="grid grid-cols-3 gap-2">
+<button class="bg-primary/10 text-primary py-2 rounded font-bold text-xs hover:bg-primary/20 transition-colors">IN TẠM TÍNH</button>
+<button class="bg-primary/10 text-primary py-2 rounded font-bold text-xs hover:bg-primary/20 transition-colors">TÁCH ĐƠN</button>
+<button class="bg-red-500/10 text-red-500 py-2 rounded font-bold text-xs hover:bg-red-500/20 transition-colors">HỦY HÓA ĐƠN</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="px-6 lg:px-20 py-4 border-t border-primary/10 text-slate-500 text-xs flex justify-between">
+<p>© 2024 Restaurant POS System - Version 2.4.0</p>
+<p>Hệ thống đang hoạt động ổn định • Server: VN-SOUTH-01</p>
+</footer>
+</div>
+</body></html>

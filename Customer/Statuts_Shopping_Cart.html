@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 py-4">
+<div class="flex items-center justify-between max-w-md mx-auto">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight">Trạng thái đơn hàng</h1>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+</div>
+</header>
+<main class="flex-1 max-w-md mx-auto w-full px-4 pb-24">
+<!-- Hero Status Section -->
+<div class="py-8 text-center">
+<div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/20 mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">cooking</span>
+</div>
+<h2 class="text-2xl font-bold mb-2">Đang chuẩn bị món ăn!</h2>
+<p class="text-slate-600 dark:text-slate-400">Đầu bếp đang chăm chút cho bữa ăn của bạn.</p>
+</div>
+<!-- Stepper Visualization -->
+<div class="bg-primary/5 rounded-xl p-6 mb-8 border border-primary/10">
+<div class="flex flex-col gap-1">
+<!-- Step 1: Preparing -->
+<div class="grid grid-cols-[40px_1fr] gap-x-4">
+<div class="flex flex-col items-center">
+<div class="z-10 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white">
+<span class="material-symbols-outlined text-sm fill-icon">restaurant</span>
+</div>
+<div class="w-0.5 bg-primary h-12"></div>
+</div>
+<div class="pb-6">
+<h3 class="text-base font-bold text-primary">Đang chuẩn bị</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400">Thời gian dự kiến: 10-15 phút</p>
+</div>
+</div>
+<!-- Step 2: Ready -->
+<div class="grid grid-cols-[40px_1fr] gap-x-4">
+<div class="flex flex-col items-center">
+<div class="z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark text-slate-400">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+</div>
+</div>
+<div>
+<h3 class="text-base font-medium text-slate-500 dark:text-slate-500">Hoàn thành</h3>
+<p class="text-sm text-slate-500 dark:text-slate-500 italic">Chờ lấy món</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Order List Section -->
+<div class="space-y-4">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-lg font-bold">Chi tiết món ăn</h3>
+<span class="text-xs font-medium px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded text-slate-600 dark:text-slate-400">Mã: #ORD-7721</span>
+</div>
+<!-- Item 1 -->
+<div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="A delicious fresh salad bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCblC9l_5lv4LXddzFR3LeE1dp3Ehij0roz4bz_brkoQD-AHQEhe46S1jYoe-zZ75Bw25R0WeZGA01IZp65FOhlVgKeckskWn8DneH-raVfqzNhZwZbncdMQ2ecB0NDT8d190WV4PYsYqxrCBWyc9XNa-IUG1VQbN50VKRReS92L-rIcVPCa5fMp7bjLESsnEngXRiQwf4FUy2aDOiHBdpAvYKOJBCDDkvh4aJ6g2exiDUz9XCKphbDXG95W8rXWSBrxYW1HVnJSy4"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-semibold text-base">Salad Ức Gà</h4>
+<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">Đang nấu</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Số lượng: 1 • Ít sốt</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 shadow-sm opacity-80">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="Iced tea with lemon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtYZhrhUzPMldgMm24iRfy7-C-0WgfmL4rkn2oVDwKfD7m6io18AiWrwEFWjzXBKWZv-saWN5VhTQpCXajfX-04WUDt6DSgxp424GoSUXTTnnyVoAWjnTx58kYdnjjzVi0-6U2EZiG1mNSfpeBczWL4WkgNHBU4ob0T1HbHewtSSj2v1sHPtTp6J6QEBhghdhjphZaYmxzmCs63I_lgM4JcQcUWC8o0MUB-CgmPYOXnZCnKHSFRceX-4vv55REU6K1mME63DwSFuw"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-semibold text-base">Trà Đào Cam Sả</h4>
+<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Xong</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Số lượng: 1 • Đá riêng</p>
+</div>
+</div>
+</div>
+<!-- Support Info -->
+<div class="mt-10 p-4 rounded-xl border border-dashed border-primary/30 text-center">
+<p class="text-sm text-slate-600 dark:text-slate-400">Bạn có câu hỏi về đơn hàng?</p>
+<button class="mt-2 text-primary font-bold text-sm underline decoration-primary/30">Liên hệ nhân viên</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-primary/10 pb-6 pt-2 px-6">
+<div class="max-w-md mx-auto flex justify-between items-center">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Trang chủ</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-icon">receipt_long</span>
+<span class="text-[10px] font-medium">Đơn hàng</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">featured_seasonal_and_gifts</span>
+<span class="text-[10px] font-medium">Ưu đãi</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Cá nhân</span>
+</a>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Revenue Report | Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<!-- <aside class="w-64 border-r border-primary/10 bg-white dark:bg-background-dark flex flex-col fixed h-full">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-tight">Admin Dash</h1>
+<p class="text-xs text-slate-500 dark:text-primary/60">Management Portal</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary text-white font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="Table_Management.html">
+<span class="material-symbols-outlined">table_restaurant</span>
+<span>Bàn ăn</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="Invoice_management.html">
+<span class="material-symbols-outlined">receipt_long</span>
+<span>Hóa đơn</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="Menu_Management.html">
+<span class="material-symbols-outlined">menu_book</span>
+<span>Thực đơn</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="Employee_management.html">
+<span class="material-symbols-outlined">group</span>
+<span>Nhân viên</span>
+</a>
+</nav>
+<div class="p-4 border-t border-primary/10">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Cài đặt</span>
+</a>
+<div class="mt-4 flex items-center gap-3 px-3">
+<div class="size-8 rounded-full bg-slate-200 dark:bg-primary/20" data-alt="User avatar profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATZVXdv7cIkDYh8ayOyUq9DoSKlBNRmLURDK1g5TFoSaJTCkE3rsJx9cgAxdJYp9IXdQcjTAqGlQpZoqGD_OMTSmuTjElrFY-NdgPhDuiAbhFKSOQU7yAtjYRp8LVBPd1xAJt4VlWv1VIbXKZA0wzDa4XZtMSY2Ivks39Y0LSB-Uf_lRqVtemCpwPE2PMx5X6xdQEGWOevQ1LWrROw-INAJ4q42Nl8MrAqlYoXlv1WAHKCLrT1a94V018OFYHGmWv4A9zHj9FMj0s");'></div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium truncate">Manager Name</p>
+</div>
+<span class="material-symbols-outlined text-sm">logout</span>
+</div>
+</div>
+</aside> -->
+
+<div id="sidebar"></div>
+<script>
+  fetch("sidebar.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("sidebar").innerHTML = data;
+    });
+</script>
+
+
+<!-- Main Content Area -->
+<main class="ml-64flex-1 overflow-y-auto bg-background-light dark:bg-background-dark">
+<div class="max-w-6xl mx-auto p-6 lg:p-10 space-y-8">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="text-3xl font-black tracking-tight dark:text-slate-100">Revenue Report</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Real-time analysis of your financial performance.</p>
+</div>
+<div class="flex items-center gap-3 bg-white dark:bg-slate-800/50 p-1.5 rounded-xl border border-primary/10 shadow-sm">
+<button class="px-4 py-2 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700">7 Days</button>
+<button class="px-4 py-2 text-sm font-medium rounded-lg bg-primary text-background-dark shadow-lg shadow-primary/20">30 Days</button>
+<button class="px-4 py-2 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700">90 Days</button>
+<div class="h-6 w-px bg-slate-300 dark:bg-slate-700 mx-1"></div>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+<span>Custom Range</span>
+</button>
+</div>
+</div>
+<!-- Stats Summary Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="p-6 rounded-xl border border-primary/10 bg-white dark:bg-slate-800/40">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Revenue</span>
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<p class="text-2xl font-bold">$128,430.00</p>
+<div class="mt-2 flex items-center gap-1 text-emerald-500 text-sm font-semibold">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+<span>+12.5%</span>
+<span class="text-slate-400 font-normal ml-1">vs last month</span>
+</div>
+</div>
+<div class="p-6 rounded-xl border border-primary/10 bg-white dark:bg-slate-800/40">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">Avg. Order Value</span>
+<span class="material-symbols-outlined text-primary">shopping_cart</span>
+</div>
+<p class="text-2xl font-bold">$84.20</p>
+<div class="mt-2 flex items-center gap-1 text-rose-500 text-sm font-semibold">
+<span class="material-symbols-outlined text-xs">trending_down</span>
+<span>-2.1%</span>
+<span class="text-slate-400 font-normal ml-1">vs last month</span>
+</div>
+</div>
+<div class="p-6 rounded-xl border border-primary/10 bg-white dark:bg-slate-800/40">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">Conversion Rate</span>
+<span class="material-symbols-outlined text-primary">ads_click</span>
+</div>
+<p class="text-2xl font-bold">3.24%</p>
+<div class="mt-2 flex items-center gap-1 text-emerald-500 text-sm font-semibold">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+<span>+0.4%</span>
+<span class="text-slate-400 font-normal ml-1">vs last month</span>
+</div>
+</div>
+<div class="p-6 rounded-xl border border-primary/10 bg-white dark:bg-slate-800/40">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">Active Subscriptions</span>
+<span class="material-symbols-outlined text-primary">autorenew</span>
+</div>
+<p class="text-2xl font-bold">1,842</p>
+<div class="mt-2 flex items-center gap-1 text-emerald-500 text-sm font-semibold">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+<span>+8.2%</span>
+<span class="text-slate-400 font-normal ml-1">vs last month</span>
+</div>
+</div>
+</div>
+<!-- Main Chart Card -->
+<div class="rounded-xl border border-primary/10 bg-white dark:bg-slate-800/40 p-6">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-lg font-bold">Revenue Trends</h3>
+<p class="text-sm text-slate-500">October 1 - October 31, 2023</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-primary"></div>
+<span class="text-xs font-medium text-slate-500">This Month</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+<span class="text-xs font-medium text-slate-500">Last Month</span>
+</div>
+</div>
+</div>
+<div class="h-80 w-full relative">
+<!-- Simplified SVG Chart Representation -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 300">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#f48c25" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#f48c25" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid Lines -->
+<line class="stroke-slate-200 dark:stroke-slate-700" stroke-dasharray="4" stroke-width="1" x1="0" x2="1000" y1="50" y2="50"></line>
+<line class="stroke-slate-200 dark:stroke-slate-700" stroke-dasharray="4" stroke-width="1" x1="0" x2="1000" y1="125" y2="125"></line>
+<line class="stroke-slate-200 dark:stroke-slate-700" stroke-dasharray="4" stroke-width="1" x1="0" x2="1000" y1="200" y2="200"></line>
+<line class="stroke-slate-200 dark:stroke-slate-700" stroke-width="1" x1="0" x2="1000" y1="275" y2="275"></line>
+<!-- Area Fill -->
+<path d="M0,220 C100,200 200,250 300,180 C400,150 500,210 600,120 C700,100 800,160 900,80 L1000,60 L1000,275 L0,275 Z" fill="url(#chartGradient)"></path>
+<!-- Main Line -->
+<path d="M0,220 C100,200 200,250 300,180 C400,150 500,210 600,120 C700,100 800,160 900,80 L1000,60" fill="none" stroke="#f48c25" stroke-linecap="round" stroke-width="3"></path>
+<!-- Previous Month Line (Dashed) -->
+<path class="stroke-slate-400" d="M0,250 C100,230 200,260 300,220 C400,200 500,240 600,180 C700,160 800,190 900,150 L1000,140" fill="none" stroke-dasharray="6" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+<!-- X-Axis Labels -->
+<div class="flex justify-between mt-4 px-2">
+<span class="text-[10px] font-bold text-slate-400">OCT 01</span>
+<span class="text-[10px] font-bold text-slate-400">OCT 07</span>
+<span class="text-[10px] font-bold text-slate-400">OCT 14</span>
+<span class="text-[10px] font-bold text-slate-400">OCT 21</span>
+<span class="text-[10px] font-bold text-slate-400">OCT 31</span>
+</div>
+</div>
+</div>
+<!-- Daily Breakdown Table -->
+<div class="rounded-xl border border-primary/10 bg-white dark:bg-slate-800/40 overflow-hidden">
+<div class="p-6 border-b border-primary/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<h3 class="text-lg font-bold">Daily Breakdown</h3>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-3 py-1.5 text-xs font-bold border border-primary/20 rounded-lg hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+                                CSV
+                            </button>
+<button class="flex items-center gap-2 px-3 py-1.5 text-xs font-bold border border-primary/20 rounded-lg hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-sm">filter_alt</span>
+                                Filters
+                            </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-900/50">
+<th class="p-4 text-xs font-black uppercase tracking-wider text-slate-500">Date</th>
+<th class="p-4 text-xs font-black uppercase tracking-wider text-slate-500">Orders</th>
+<th class="p-4 text-xs font-black uppercase tracking-wider text-slate-500">Refunds</th>
+<th class="p-4 text-xs font-black uppercase tracking-wider text-slate-500">Gross Rev.</th>
+<th class="p-4 text-xs font-black uppercase tracking-wider text-slate-500">Net Rev.</th>
+<th class="p-4 text-xs font-black uppercase tracking-wider text-slate-500">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="p-4 text-sm font-medium">Oct 31, 2023</td>
+<td class="p-4 text-sm">142</td>
+<td class="p-4 text-sm text-slate-400">$120.00</td>
+<td class="p-4 text-sm font-semibold">$12,430.20</td>
+<td class="p-4 text-sm font-bold text-primary">$12,310.20</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                            COMPLETE
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="p-4 text-sm font-medium">Oct 30, 2023</td>
+<td class="p-4 text-sm">128</td>
+<td class="p-4 text-sm text-slate-400">$0.00</td>
+<td class="p-4 text-sm font-semibold">$10,920.00</td>
+<td class="p-4 text-sm font-bold text-primary">$10,920.00</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                            COMPLETE
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="p-4 text-sm font-medium">Oct 29, 2023</td>
+<td class="p-4 text-sm">86</td>
+<td class="p-4 text-sm text-slate-400">$45.00</td>
+<td class="p-4 text-sm font-semibold">$7,430.50</td>
+<td class="p-4 text-sm font-bold text-primary">$7,385.50</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+<span class="size-1.5 rounded-full bg-amber-500"></span>
+                                            PENDING
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="p-4 text-sm font-medium">Oct 28, 2023</td>
+<td class="p-4 text-sm">114</td>
+<td class="p-4 text-sm text-slate-400">$310.00</td>
+<td class="p-4 text-sm font-semibold">$9,240.00</td>
+<td class="p-4 text-sm font-bold text-primary">$8,930.00</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                            COMPLETE
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="p-4 text-sm font-medium">Oct 27, 2023</td>
+<td class="p-4 text-sm">102</td>
+<td class="p-4 text-sm text-slate-400">$12.00</td>
+<td class="p-4 text-sm font-semibold">$8,120.40</td>
+<td class="p-4 text-sm font-bold text-primary">$8,108.40</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                            COMPLETE
+                                        </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-primary/10 flex items-center justify-between">
+<p class="text-xs text-slate-500">Showing 1-5 of 31 days</p>
+<div class="flex gap-2">
+<button class="size-8 rounded border border-primary/20 flex items-center justify-center hover:bg-primary/10 disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="size-8 rounded border border-primary/20 flex items-center justify-center hover:bg-primary/10">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gourmet Bistro - Digital Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<!-- Main Container -->
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden max-w-md mx-auto shadow-2xl">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-20 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-primary/10 cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center">Gourmet Bistro</h2>
+<div class="flex w-10 items-center justify-end">
+<div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-primary/10 cursor-pointer">
+<span class="material-symbols-outlined">info</span>
+</div>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full overflow-hidden shadow-sm">
+<div class="text-primary/70 flex border-none bg-primary/5 dark:bg-primary/10 items-center justify-center pl-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden border-none bg-primary/5 dark:bg-primary/10 text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-0 placeholder:text-slate-400 dark:placeholder:text-slate-500 px-4 pl-2 text-base font-normal leading-normal" placeholder="Search for dishes, drinks..." value=""/>
+</div>
+</label>
+</div>
+<!-- Tabs -->
+<div class="pb-1">
+<div class="flex border-b border-slate-200 dark:border-primary/20 px-4 gap-6">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-primary pb-3 pt-2" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">All</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-2" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">Food</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-2" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">Drinks</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-2" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">Desserts</p>
+</a>
+</div>
+</div>
+</div>
+<!-- Hero Section -->
+<div class="px-4 py-4">
+<div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden rounded-xl min-h-[180px] shadow-lg relative group" data-alt="Interior of a modern cozy restaurant with warm lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDaVD3NvCo_vo-RY-TyZql98DdNTxAYJyqxobCwdLa2x14r3JN4-YLnaeQHO54EgcwJv9nz3uyoYlCX9tI_yYaEzCe40Pt50ql3xAj78nR0ku9WKwT5zFvqnHhTOCNT_6bx0urObklq-fFH9KxeB9R9HnVrlruqRrVLekqLc2QnO_aEGHoEPCipXBZ_hOaKlcp89ZEBznod3qqaLppwLUXyZXibXRyDKT_XsRVZWNH6IRMrgfo42WAT9RBAuYwYL_YyjL3bNZWQ1HQ");'>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
+<div class="relative p-4">
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-widest mb-2 inline-block">Table #12</span>
+<h1 class="text-white text-2xl font-bold">Today's Specials</h1>
+<p class="text-slate-200 text-sm">Chef's recommended curated selection</p>
+</div>
+</div>
+</div>
+<!-- Dish Grid Section -->
+<div class="px-4 pb-24">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight pb-4 pt-2">Popular Dishes</h3>
+<div class="grid grid-cols-2 gap-4">
+<!-- Dish Item 1 -->
+<div class="flex flex-col bg-white dark:bg-primary/5 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-primary/10">
+<div class="h-32 w-full bg-cover bg-center" data-alt="Healthy bowl with fresh greens and salmon" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB50FQqEnFivHUdF9_nqnYWNGWJo9MySzzoBSCmziTF0IKecrYY7KnZhrYv8ehd-pJOCAilduGCvXnuh2Zu92xqxa-_htYbqOaUonB4NoSZ4fXj-tBvKRbEIzxf1Be2X_LxB8V3SoKi86TkeqaU6zejpyHRbyYo_d39Y5ydW-9l0FumMSIzkCAtoV65dH0oxL1Gt3d2I7bvYbWdh0q-hyKoUXbZ-Jr6JhjW6OtZytvx7oppDthnYMHj44Oba5k-OJfSqY5kK9xYdG0");'></div>
+<div class="p-3 flex flex-col flex-1">
+<h4 class="text-slate-900 dark:text-slate-100 font-bold text-sm mb-1 leading-tight">Salmon Poke Bowl</h4>
+<p class="text-slate-500 dark:text-slate-400 text-xs mb-3 line-clamp-1">Fresh salmon, avocado, rice</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-primary font-bold text-base">$18.50</span>
+<button class="bg-primary hover:bg-primary/90 text-white size-8 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dish Item 2 -->
+<div class="flex flex-col bg-white dark:bg-primary/5 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-primary/10">
+<div class="h-32 w-full bg-cover bg-center" data-alt="Gourmet cheeseburger with crisp lettuce and tomato" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHW2MOUDwpIBVh3VhtX1FRr0UTbmygcCLUpS4NDO9FAcPVD1n_Njq-XiHtorafFqQJoi1GevU2uHa7-Z5EBmPGFsDXTXY8rfv3wxH1gZZjhEpBcrIXTuk0dhNrEtB2z4w7k3spY78LFQVLHL_YFrg8ul_X1tioAFZDKiJA7NYwKTZnGiyfARGKDLbNoQ3T2UUW2qTxYZuEupQvNVJWrEYVAQxWLqt6HgHS3Wn0tDnKv-qUcRJ1oBFTH36A7fIZWSVuFE6d7VgA-pQ");'></div>
+<div class="p-3 flex flex-col flex-1">
+<h4 class="text-slate-900 dark:text-slate-100 font-bold text-sm mb-1 leading-tight">Wagyu Beef Burger</h4>
+<p class="text-slate-500 dark:text-slate-400 text-xs mb-3 line-clamp-1">Caramelized onions, truffle mayo</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-primary font-bold text-base">$22.00</span>
+<button class="bg-primary hover:bg-primary/90 text-white size-8 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dish Item 3 -->
+<div class="flex flex-col bg-white dark:bg-primary/5 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-primary/10">
+<div class="h-32 w-full bg-cover bg-center" data-alt="Latte art in a white ceramic cup" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuARyd6Faf8UoaaGaqXk6gmZxlRFY4RHB1sSqXTxLo-I0W7vftakuyNdASIFryuUco5G2mz86JVe3-9FwpW53a4dV0o0uayGNSz_TznDuL48ZtvqPQofFd6FHiqMfhi233241eyj_I4KRy5OD6ru7UMiwtBLUm3xdQ7zwYUiw5DT6lO5FGIuduUtqrykyMZXoxYEr9lqK7-gqDqiU3d4Ft1JMTVYwsbzgp6tpWMbC48HE5C4EmAk3GKV6hd3uDFaZzHHX9SD1QjFqz8");'></div>
+<div class="p-3 flex flex-col flex-1">
+<h4 class="text-slate-900 dark:text-slate-100 font-bold text-sm mb-1 leading-tight">Artisan Latte</h4>
+<p class="text-slate-500 dark:text-slate-400 text-xs mb-3 line-clamp-1">Single origin oat milk latte</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-primary font-bold text-base">$6.50</span>
+<button class="bg-primary hover:bg-primary/90 text-white size-8 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dish Item 4 -->
+<div class="flex flex-col bg-white dark:bg-primary/5 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-primary/10">
+<div class="h-32 w-full bg-cover bg-center" data-alt="Fresh Margherita pizza with basil leaves" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAU5sIPxlQXs5BWgGVNft0qm6jgXhxfnbRzL4VW3KSjkD9rcSdsONB7TMeReyFs0bZX_CB2pk0jU6esErhtsUwfxJ2AXUkOSl5n4ruiVJF9yYwlUQ32c9zB-dP9BaNcibGbQJUU-atHbwd-K8x9UTa-dV2oUn1hg_spqWmObgl8VvZQu_j8apiyY5yaD05OfLLc1CAzb5nQXcQLH_OYPMUaTpktxbnB5km8UIPeiij7YFU-C7ezkhTJDM1ouAzVPOA5Qy0LORaej6g");'></div>
+<div class="p-3 flex flex-col flex-1">
+<h4 class="text-slate-900 dark:text-slate-100 font-bold text-sm mb-1 leading-tight">Classic Margherita</h4>
+<p class="text-slate-500 dark:text-slate-400 text-xs mb-3 line-clamp-1">Buffalo mozzarella, basil</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-primary font-bold text-base">$16.00</span>
+<button class="bg-primary hover:bg-primary/90 text-white size-8 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dish Item 5 -->
+<div class="flex flex-col bg-white dark:bg-primary/5 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-primary/10">
+<div class="h-32 w-full bg-cover bg-center" data-alt="Chocolate glazed donuts with sprinkles" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCXp9XAmtk4rNbGS7PC5GuO_mwxRrJ07p1HrIXyWxuxwdniC3e2Etp8ePYHP0RO5WPwOJ0qRuJRdKDlXkmpH_f6Lqxp3LXyDxI4xGLx_6YhrnyCqUOQoTEtevJgAn1PGFIwJARE0nKUodDblXi_pie7DoeipK8GLcCcc0fI-0x_5JncbBxOXgppO22h1mu0wCrji4XWv-mlVnNWadLpwc0gDLatnlfosDqX2CbAvgh5h607xM3w_EshYzNZgloRByCZw_9kJzB7VJk");'></div>
+<div class="p-3 flex flex-col flex-1">
+<h4 class="text-slate-900 dark:text-slate-100 font-bold text-sm mb-1 leading-tight">Glazed Donuts</h4>
+<p class="text-slate-500 dark:text-slate-400 text-xs mb-3 line-clamp-1">Trio of house-made donuts</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-primary font-bold text-base">$9.00</span>
+<button class="bg-primary hover:bg-primary/90 text-white size-8 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dish Item 6 -->
+<div class="flex flex-col bg-white dark:bg-primary/5 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-primary/10">
+<div class="h-32 w-full bg-cover bg-center" data-alt="Classic cocktail with orange peel garnish" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCmhcwyyo_61jfzWCeXXRkDfnSbK-z_198VcQpTVeV8W-33tjVr8GnYll3TFxIyiqspW1-LN09k4bK9DYcxawHvC8k0OdceeEO9lVlk7xzCd-joO01HMRj7rlfthJkNDHHZC592Gmhd2tAZ2ZCyXNVB6YKMTP8olZdEEuKlXoI2eCCHhR-oMLX5qBHTz_MtOCS_wD735EajK7Kt3F6bCcEBMj845o2pOnH1D7oKO0dFU_vUyFlwvC52fnVoDSZiR-iAzUWQkkbP58w");'></div>
+<div class="p-3 flex flex-col flex-1">
+<h4 class="text-slate-900 dark:text-slate-100 font-bold text-sm mb-1 leading-tight">Old Fashioned</h4>
+<p class="text-slate-500 dark:text-slate-400 text-xs mb-3 line-clamp-1">Bourbon, bitters, orange zest</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-primary font-bold text-base">$14.00</span>
+<button class="bg-primary hover:bg-primary/90 text-white size-8 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Cart Button -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-md px-4 z-30">
+<button class="w-full bg-primary text-white h-14 rounded-xl shadow-xl flex items-center justify-between px-6 active:scale-95 transition-transform">
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-white text-primary text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center">2</span>
+</div>
+<span class="font-bold">View Cart</span>
+</div>
+<span class="font-bold">$40.50</span>
+</button>
+</div>
+<!-- Chatbot Component -->
+<div class="fixed bottom-24 right-4 z-40 md:right-[calc(50%-210px)]">
+<!-- Chat Toggle Button -->
+<button class="bg-primary text-white size-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all" id="chat-toggle">
+<span class="material-symbols-outlined text-3xl">chat</span>
+</button>
+<!-- Chat Interface (Hidden by default) -->
+<div class="hidden absolute bottom-16 right-0 w-80 bg-background-light dark:bg-background-dark border border-slate-200 dark:border-primary/20 rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 transform origin-bottom-right" id="chat-window">
+<!-- Chat Header -->
+<div class="bg-primary p-4 flex items-center justify-between text-white">
+<div class="flex items-center gap-2">
+<div class="size-8 bg-white/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">smart_toy</span>
+</div>
+<div>
+<p class="font-bold text-sm">Bistro Assistant</p>
+<p class="text-[10px] opacity-80">Online</p>
+</div>
+</div>
+<button class="hover:bg-white/20 rounded-full p-1" onclick="document.getElementById('chat-window').classList.add('hidden')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Message Area -->
+<div class="h-80 overflow-y-auto p-4 space-y-4 bg-slate-50/50 dark:bg-white/5">
+<div class="flex items-start gap-2">
+<div class="bg-slate-200 dark:bg-primary/20 text-slate-800 dark:text-slate-100 p-3 rounded-2xl rounded-tl-none text-xs max-w-[80%]">
+          Hi there! 👋 I'm your Gourmet Bistro assistant. How can I help you with your order or recommendations today?
+        </div>
+</div>
+</div>
+<!-- Chat Input -->
+<div class="p-3 border-t border-slate-200 dark:border-primary/20 bg-background-light dark:bg-background-dark">
+<div class="flex items-center gap-2 bg-primary/5 dark:bg-primary/10 rounded-xl px-3 py-1">
+<input class="bg-transparent border-none focus:ring-0 text-sm flex-1 py-2 text-slate-900 dark:text-slate-100 placeholder:text-slate-400" placeholder="Type a message..." type="text"/>
+<button class="text-primary">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  const chatToggle = document.getElementById('chat-toggle');
+  const chatWindow = document.getElementById('chat-window');
+  
+  chatToggle.addEventListener('click', () => {
+    chatWindow.classList.toggle('hidden');
+  });
+</script></div>
+</body></html>

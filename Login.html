@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col items-center justify-center p-4">
+<!-- Main Container -->
+<div class="w-full max-w-md">
+<!-- Header/Logo Section -->
+<div class="flex flex-col items-center mb-8">
+<div class="bg-primary/10 p-4 rounded-full mb-4">
+<div class="size-12 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+</div>
+<h1 class="text-slate-900 dark:text-slate-100 text-3xl font-bold tracking-tight">Admin Portal</h1>
+<p class="text-slate-600 dark:text-primary/70 mt-2 font-medium">Hệ thống quản lý nhà hàng</p>
+</div>
+<!-- Login Card -->
+<div class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-8 shadow-xl backdrop-blur-sm">
+<div class="mb-6">
+<h2 class="text-xl font-bold text-slate-900 dark:text-slate-100">Đăng nhập</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Vui lòng nhập thông tin quản trị viên</p>
+</div>
+<form class="space-y-5">
+<!-- Username Field -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-200 text-sm font-semibold">Tên đăng nhập</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-primary/50 text-[20px]">person</span>
+<input class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-primary/10 border border-slate-200 dark:border-primary/30 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-primary/30" placeholder="Nhập tên đăng nhập" type="text"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<label class="text-slate-700 dark:text-slate-200 text-sm font-semibold">Mật khẩu</label>
+<a class="text-primary text-xs font-medium hover:underline" href="#">Quên mật khẩu?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-primary/50 text-[20px]">lock</span>
+<input class="w-full pl-10 pr-12 py-3 bg-slate-50 dark:bg-primary/10 border border-slate-200 dark:border-primary/30 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-primary/30" placeholder="Nhập mật khẩu" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-primary/50 hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center gap-2 py-1">
+<input class="rounded border-slate-300 dark:border-primary/40 text-primary focus:ring-primary bg-transparent" id="remember" type="checkbox"/>
+<label class="text-sm text-slate-600 dark:text-slate-400 cursor-pointer" for="remember">Ghi nhớ đăng nhập</label>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 rounded-lg shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2 mt-4" type="submit">
+<span>Đăng nhập</span>
+<span class="material-symbols-outlined text-[20px]">login</span>
+</button>
+</form>
+<!-- Help/Support -->
+<div class="mt-8 pt-6 border-t border-slate-100 dark:border-primary/10 flex items-center justify-center gap-4">
+<button class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]">help</span>
+                    Trợ giúp
+                </button>
+<div class="w-1 h-1 bg-slate-300 dark:bg-primary/20 rounded-full"></div>
+<button class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]">language</span>
+                    Tiếng Việt
+                </button>
+</div>
+</div>
+<!-- Footer Info -->
+<p class="text-center text-slate-500 dark:text-primary/40 text-xs mt-8 font-medium">
+            © 2024 Restaurant Admin System. All rights reserved.
+        </p>
+</div>
+<!-- Decorative Background Elements -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none opacity-20 dark:opacity-10">
+<div class="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[30%] h-[30%] bg-primary rounded-full blur-[100px]"></div>
+</div>
+</body></html>

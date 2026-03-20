@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 z-10 flex items-center justify-between p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="flex items-center gap-3">
+<div class="size-10 flex items-center justify-center bg-primary rounded-lg text-background-dark">
+<span class="material-symbols-outlined font-bold">restaurant</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-tight tracking-tight">Bàn số 12</h1>
+<p class="text-xs text-primary font-medium">QR Order System</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">info</span>
+</button>
+</div>
+</nav>
+<!-- Chat Container -->
+<main class="flex-1 overflow-y-auto p-4 space-y-6 pb-24">
+<!-- 1. Chatbot Welcome -->
+<div class="flex items-end gap-3 max-w-[85%]">
+<div class="size-8 shrink-0 bg-primary/20 rounded-full flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary text-lg">smart_toy</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[11px] font-semibold text-primary uppercase tracking-wider ml-1">Chatbot</span>
+<div class="bg-primary/10 dark:bg-primary/5 border border-primary/20 rounded-xl rounded-bl-none px-4 py-3 text-slate-900 dark:text-slate-100 shadow-sm">
+                    Xin chào! Quý khách đang ngồi tại <strong>Bàn số 12</strong>. Em có thể giúp gì cho mình gọi món hôm nay ạ?
+                </div>
+</div>
+</div>
+<!-- 2. Customer Inquiry 1 -->
+<div class="flex items-end gap-3 justify-end ml-auto max-w-[85%]">
+<div class="flex flex-col gap-1 items-end">
+<span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mr-1">Khách hàng</span>
+<div class="bg-primary text-background-dark font-medium rounded-xl rounded-br-none px-4 py-3 shadow-md">
+                    Hôm nay có món gì đặc biệt không?
+                </div>
+</div>
+<div class="size-8 shrink-0 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300 text-lg">person</span>
+</div>
+</div>
+<!-- 3. Chatbot Suggestion -->
+<div class="flex items-end gap-3 max-w-[90%]">
+<div class="size-8 shrink-0 bg-primary/20 rounded-full flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary text-lg">smart_toy</span>
+</div>
+<div class="flex flex-col gap-3 w-full">
+<div class="flex flex-col gap-1">
+<span class="text-[11px] font-semibold text-primary uppercase tracking-wider ml-1">Chatbot</span>
+<div class="bg-primary/10 dark:bg-primary/5 border border-primary/20 rounded-xl rounded-bl-none px-4 py-3 text-slate-900 dark:text-slate-100 shadow-sm">
+                        Dạ hôm nay nhà hàng có 2 món đặc biệt cực kỳ hấp dẫn ạ:
+                    </div>
+</div>
+<!-- Product Cards -->
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-background-light dark:bg-background-dark border border-primary/20 rounded-xl overflow-hidden shadow-sm">
+<div class="aspect-square bg-cover bg-center" data-alt="Delicious Wagyu Beef Burger on a plate" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMQorQablrbSzd-52v-J-6D5ZaDLP6T4ZKWEiV6sVHgH15r7_Z2y3QjBsXYZ9DUk2ivsJon-uZW7Cnr2Yb_RRrjlcC2DpUnCFDtQyx1To4VjKnQN-uGGexAA12Yy5oSf-0vQizabJ_CXJb1A1rEkHrhbBK0PstGk5b32RPPK1woCU11keugTHTifux41_ndnCZ2ihPmrke9f-tvVoj0EhGe4Osvl9ue-ZfkD1ug0ZyVJdg-efEfQ81eaDbcV9z1ltPsRX7uAEWpSg');"></div>
+<div class="p-3">
+<h3 class="font-bold text-sm leading-tight mb-1">Wagyu Beef Burger</h3>
+<p class="text-primary font-bold text-sm">250.000đ</p>
+<button class="mt-2 w-full py-1.5 bg-primary/20 text-primary text-xs font-bold rounded-lg border border-primary/30">Thêm món</button>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark border border-primary/20 rounded-xl overflow-hidden shadow-sm">
+<div class="aspect-square bg-cover bg-center" data-alt="Fresh Salmon Poke Bowl with vegetables" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAnnIpNSk6_LH7T8O_oAfYjGjT-VIOJw0Tbe_ANRypfbIzhEZOop4ZGf-dQrlD38zpK-5FVsQGzzG2HKDaiUGz8isN7MEXygnG5WSh4aFyy77AxpdjebnGK9Nwpj0zhx38FEvhZdno2YRfa3pWJevXY5pNW2BLKQjCkXGdxfiPlRMh6IV13b0MDW5lDqRG6wwQRFqhJMaf_uPrS7BPHtXLBGo-9G7og5tn2V_4Bhylef9s8soP0-bYw47NPEKJKU-MT63Zu6J_UBxc');"></div>
+<div class="p-3">
+<h3 class="font-bold text-sm leading-tight mb-1">Salmon Poke Bowl</h3>
+<p class="text-primary font-bold text-sm">180.000đ</p>
+<button class="mt-2 w-full py-1.5 bg-primary/20 text-primary text-xs font-bold rounded-lg border border-primary/30">Thêm món</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Customer Inquiry 2 -->
+<div class="flex items-end gap-3 justify-end ml-auto max-w-[85%]">
+<div class="flex flex-col gap-1 items-end">
+<span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mr-1">Khách hàng</span>
+<div class="bg-primary text-background-dark font-medium rounded-xl rounded-br-none px-4 py-3 shadow-md">
+                    Cho mình hỏi món Burger có hành tây không?
+                </div>
+</div>
+<div class="size-8 shrink-0 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300 text-lg">person</span>
+</div>
+</div>
+<!-- 5. Chatbot Response -->
+<div class="flex items-end gap-3 max-w-[85%]">
+<div class="size-8 shrink-0 bg-primary/20 rounded-full flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary text-lg">smart_toy</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[11px] font-semibold text-primary uppercase tracking-wider ml-1">Chatbot</span>
+<div class="bg-primary/10 dark:bg-primary/5 border border-primary/20 rounded-xl rounded-bl-none px-4 py-3 text-slate-900 dark:text-slate-100 shadow-sm">
+                    Dạ, món Burger mặc định có hành tây, nhưng mình có thể ghi chú <span class="text-primary font-bold">'Không hành'</span> khi thêm vào giỏ hàng ạ!
+                </div>
+</div>
+</div>
+</main>
+<!-- Bottom Input Area -->
+<footer class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-primary/10 p-4 pb-6">
+<div class="flex items-center gap-2">
+<button class="p-2 text-primary hover:bg-primary/10 rounded-full">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<div class="flex-1 relative">
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-full py-3 px-5 focus:ring-2 focus:ring-primary text-sm placeholder:text-slate-500" placeholder="Hỏi thêm về món ăn..." type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-primary text-background-dark rounded-full">
+<span class="material-symbols-outlined text-sm font-bold">send</span>
+</button>
+</div>
+<button class="p-2 text-primary hover:bg-primary/10 rounded-full">
+<span class="material-symbols-outlined">mic</span>
+</button>
+</div>
+<!-- Quick Actions -->
+<div class="flex gap-2 mt-3 overflow-x-auto no-scrollbar">
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-primary/30 text-xs font-medium text-primary bg-primary/5">Xem menu</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-primary/30 text-xs font-medium text-primary bg-primary/5">Gọi nhân viên</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-primary/30 text-xs font-medium text-primary bg-primary/5">Thanh toán</button>
+</div>
+</footer>
+</body></html>

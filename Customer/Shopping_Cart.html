@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Giỏ hàng - Nhà hàng</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-2xl">
+<!-- Header -->
+<header class="sticky top-0 z-10 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 border-b border-slate-200 dark:border-primary/10">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back</span>
+</button>
+<h1 class="text-slate-900 dark:text-slate-100 text-lg font-bold flex-1 text-center pr-10">Đơn hàng của bạn</h1>
+</header>
+<!-- Cart Items List -->
+<main class="flex-1 overflow-y-auto p-4 space-y-4">
+<!-- Item 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-primary/5 p-3 rounded-xl border border-slate-100 dark:border-primary/10">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-20 shrink-0 shadow-sm" data-alt="A delicious steaming bowl of beef pho with herbs" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsV1lEVIKAPPOkL4BGILs7PDNNOip4LPYUpkMiScMKTjwNYsmm5bSHoPpvC7EMPobrLDJJfuUSrShA26rg-Kf_gna9mitJDpKUVc4SkTL6l9aMOlOsFwYxDGNXQzDClrDJDomUv-w8AVwk9MXovvg4mbpFdAOMHiAV1sJzLRGT9m16DFZnwLGRpmyZ6VlN--fGTWh02uFJFvETpuOb8RNJuqQeWK1sKIrYjG42YbGNdwPPltjRUtRJNUSALG6wfFWnC37-syHDAf8");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-tight truncate">Phở Bò Tái Lăn</p>
+<p class="text-primary text-sm font-medium mt-1">125.000đ</p>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-3 bg-slate-100 dark:bg-primary/20 rounded-full px-2 py-1">
+<button class="flex h-6 w-6 items-center justify-center rounded-full bg-white dark:bg-background-dark text-slate-900 dark:text-slate-100 shadow-sm">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="text-sm font-bold w-4 text-center">1</span>
+<button class="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<button class="text-slate-400 dark:text-slate-500 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-primary/5 p-3 rounded-xl border border-slate-100 dark:border-primary/10">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-20 shrink-0 shadow-sm" data-alt="Fresh Vietnamese spring rolls with shrimp and pork" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA4Ux_k2LgDYLdOoMreLtNjtbs1cswCHgCteTzKAyYDoCnoW3_Yiia5VMdrniWBWgKBvwMZgPJE8wQYdW7zJnBFZFmhVslm5QRiD5ZQv3WmZPTuYYwy8gMj1bJd_7XJ5JGU0CgmJQpX7uopV8MzGXi-xTs6GHh8Y9F8Xw9wla8gB3A8cDkBaH-MCVaI6GDHezgQvGJTyVwPw_cbq1I3YlmHIeS7YRbYjrV1QpakH3Ep5S4_BkZa8xztx6V5-4jZwSgPdhyRWessFT0");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-tight truncate">Gỏi Cuốn Tôm Thịt</p>
+<p class="text-primary text-sm font-medium mt-1">85.000đ</p>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-3 bg-slate-100 dark:bg-primary/20 rounded-full px-2 py-1">
+<button class="flex h-6 w-6 items-center justify-center rounded-full bg-white dark:bg-background-dark text-slate-900 dark:text-slate-100 shadow-sm">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="text-sm font-bold w-4 text-center">2</span>
+<button class="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<button class="text-slate-400 dark:text-slate-500 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-4 bg-white dark:bg-primary/5 p-3 rounded-xl border border-slate-100 dark:border-primary/10">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-20 shrink-0 shadow-sm" data-alt="Traditional Vietnamese iced coffee with condensed milk" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC5lkg0-CK2luI29KvPOz_oCJ6UDu3yJLHWQJwFxyfY6IqUmF6iv1-63HNcsjFfSWlldhDu-FkMa8Gjx7JMrDR1riLtVcNApnEl315I05qUhZQqS5iamWY1JwhHIrbmqgATSPES53klDUGLASU8p4IiOGbKfqzN4CF3Xj0EJWRQfMqhL8iomk7ooE5zyzD7m44gl0t6f81f6C9wCH4Bh2tvae-je4Q60aj2ORnEhEXS99eNHXBVGrZwi_8Ws_Xx-d8Bn9yOay3pLpQ");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-tight truncate">Cà Phê Sữa Đá</p>
+<p class="text-primary text-sm font-medium mt-1">45.000đ</p>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-3 bg-slate-100 dark:bg-primary/20 rounded-full px-2 py-1">
+<button class="flex h-6 w-6 items-center justify-center rounded-full bg-white dark:bg-background-dark text-slate-900 dark:text-slate-100 shadow-sm">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="text-sm font-bold w-4 text-center">1</span>
+<button class="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<button class="text-slate-400 dark:text-slate-500 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Note section -->
+<div class="pt-4">
+<label class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-2 px-1">Ghi chú cho nhà bếp</label>
+<textarea class="w-full bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/10 rounded-xl p-3 text-sm focus:ring-primary focus:border-primary dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600" placeholder="Ví dụ: Không hành, ít cay..." rows="2"></textarea>
+</div>
+</main>
+<!-- Footer / Checkout -->
+<footer class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-primary/10 p-6 space-y-4">
+<div class="space-y-2">
+<div class="flex justify-between items-center text-slate-500 dark:text-slate-400">
+<span class="text-sm">Tạm tính</span>
+<span class="text-sm font-medium text-slate-900 dark:text-slate-100">340.000đ</span>
+</div>
+<div class="flex justify-between items-center text-slate-500 dark:text-slate-400">
+<span class="text-sm">Phí dịch vụ (5%)</span>
+<span class="text-sm font-medium text-slate-900 dark:text-slate-100">17.000đ</span>
+</div>
+<div class="flex justify-between items-center pt-2 mt-2 border-t border-slate-100 dark:border-primary/5">
+<span class="text-lg font-bold text-slate-900 dark:text-slate-100">Tổng cộng</span>
+<span class="text-xl font-bold text-primary">357.000đ</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">shopping_cart_checkout</span>
+<span>Gửi Order</span>
+</button>
+<p class="text-center text-xs text-slate-400 dark:text-slate-500">
+                Bằng việc nhấn đặt hàng, bạn đồng ý với các điều khoản của chúng tôi.
+            </p>
+</footer>
+</div>
+</body></html>

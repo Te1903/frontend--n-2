@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thêm/Sửa Bàn - Admin Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Work Sans", sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-4">
+<!-- Modal Container -->
+<div class="relative w-full max-w-[560px] bg-white dark:bg-[#2d2218] rounded-xl shadow-2xl overflow-hidden border border-slate-200 dark:border-primary/20">
+<!-- Header -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-primary/20 px-6 py-4 bg-slate-50 dark:bg-[#342618]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">table_restaurant</span>
+<h2 class="text-xl font-bold tracking-tight">Thêm/Sửa Bàn</h2>
+</div>
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-primary/20 rounded-full transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</header>
+<!-- Form Content -->
+<div class="p-6 space-y-6">
+<!-- Table Number Input -->
+<div class="space-y-2">
+<label class="block text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-primary/70">Số hiệu bàn</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400">tag</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-lg border border-slate-200 dark:border-primary/30 bg-white dark:bg-[#231a10] focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="VD: 01, 02, VIP-01..." type="text"/>
+</div>
+</div>
+<!-- Area Selection -->
+<div class="space-y-3">
+<label class="block text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-primary/70">Khu vực</label>
+<div class="grid grid-cols-2 gap-3 p-1.5 bg-slate-100 dark:bg-[#342618] rounded-xl">
+<label class="relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="area" type="radio" value="normal"/>
+<div class="flex items-center justify-center gap-2 py-3 rounded-lg bg-transparent peer-checked:bg-white dark:peer-checked:bg-primary peer-checked:shadow-sm text-slate-600 dark:text-slate-300 peer-checked:text-primary dark:peer-checked:text-white transition-all font-medium">
+<span class="material-symbols-outlined text-xl">person</span>
+<span>Thường</span>
+</div>
+</label>
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="area" type="radio" value="vip"/>
+<div class="flex items-center justify-center gap-2 py-3 rounded-lg bg-transparent peer-checked:bg-white dark:peer-checked:bg-primary peer-checked:shadow-sm text-slate-600 dark:text-slate-300 peer-checked:text-primary dark:peer-checked:text-white transition-all font-medium">
+<span class="material-symbols-outlined text-xl">star</span>
+<span>VIP</span>
+</div>
+</label>
+</div>
+</div>
+<!-- QR Code Section -->
+<div class="space-y-3 pt-2">
+<label class="block text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-primary/70">Mã QR Định Danh</label>
+<div class="flex flex-col items-center justify-center p-8 border-2 border-dashed border-slate-200 dark:border-primary/20 rounded-xl bg-slate-50 dark:bg-[#231a10]/50 text-center">
+<!-- Placeholder QR Code Representation -->
+<div class="relative w-40 h-40 bg-white p-3 rounded-lg shadow-inner mb-4 flex items-center justify-center">
+<div class="w-full h-full bg-slate-100 flex items-center justify-center text-slate-300">
+<span class="material-symbols-outlined text-6xl">qr_code_2</span>
+</div>
+<div class="absolute inset-0 bg-primary/10 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer rounded-lg">
+<span class="bg-primary text-white p-2 rounded-full material-symbols-outlined">refresh</span>
+</div>
+</div>
+<p class="text-xs text-slate-400 dark:text-slate-500">Mã QR sẽ được tự động tạo dựa trên số hiệu bàn và khu vực.</p>
+<button class="mt-4 text-primary text-sm font-semibold flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-lg">download</span>
+                        Tải mã QR mẫu
+                    </button>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<footer class="flex items-center justify-end gap-3 px-6 py-5 bg-slate-50 dark:bg-[#342618] border-t border-slate-200 dark:border-primary/20">
+<a href="Table_Management.html" class="px-5 py-2.5 rounded-lg border border-slate-300 dark:border-primary/30 text-slate-600 dark:text-slate-300 font-semibold hover:bg-slate-100 dark:hover:bg-primary/10 transition-colors">
+                Hủy bỏ
+            </a>
+<button class="px-8 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-white font-bold shadow-lg shadow-primary/20 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">save</span>
+                Lưu thay đổi
+            </button>
+</footer>
+</div>
+<!-- Background Decorative Elements -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 opacity-30 pointer-events-none">
+<div class="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-primary/20 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] right-[-5%] w-[30%] h-[30%] bg-primary/10 blur-[100px] rounded-full"></div>
+</div>
+</body></html>

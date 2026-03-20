@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quản lý Thực đơn - Nhà hàng</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<!-- <aside class="w-64 flex-shrink-0 bg-white dark:bg-stone-900 border-r border-stone-200 dark:border-stone-800 hidden md:flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined font-bold">restaurant</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight">Culinaro</h1>
+</div>
+<nav class="flex-1 px-4 space-y-2 py-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-stone-500">dashboard</span>
+<span class="font-medium">Tổng quan</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-medium">Thực đơn</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-stone-500">list_alt</span>
+<span class="font-medium">Đơn hàng</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-stone-500">group</span>
+<span class="font-medium">Nhân viên</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-stone-500">settings</span>
+<span class="font-medium">Cài đặt</span>
+</a>
+</nav>
+<div class="p-4 border-t border-stone-200 dark:border-stone-800">
+<div class="flex items-center gap-3 px-2">
+<div class="size-10 rounded-full bg-stone-200 dark:bg-stone-700 flex items-center justify-center">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Admin User</p>
+<p class="text-xs text-stone-500 dark:text-stone-400 truncate">Quản trị viên</p>
+</div>
+</div>
+</div>
+</aside> -->
+<div id="sidebar"></div>
+<script>
+  fetch("sidebar.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("sidebar").innerHTML = data;
+    });
+</script>
+
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- Top Header -->
+<header class="h-16 flex items-center justify-between px-8 bg-white dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
+<h2 class="text-lg font-semibold">Quản lý Menu</h2>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full"></span>
+</button>
+<button class="bg-primary hover:bg-primary/90 text-background-dark font-bold py-2 px-4 rounded-lg flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-lg">add</span> 
+<a href="addmenu.html" class="text-white">Thêm món mới</a>
+
+<button class="bg-primary hover:bg-primary/90 text-background-dark font-bold py-2 px-4 rounded-lg flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-lg">add</span> 
+<a href="editmenu.html" class="text-white">Chỉnh sửa món ăn</a>
+
+</button>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="flex-1 overflow-y-auto p-8 space-y-6">
+<!-- Filters and Search -->
+<div class="flex flex-col md:flex-row gap-4 items-center justify-between bg-white dark:bg-stone-900 p-4 rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-stone-50 dark:bg-stone-800 border-none rounded-lg focus:ring-2 focus:ring-primary text-sm" placeholder="Tìm kiếm tên món ăn..." type="text"/>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
+<button class="px-4 py-2 rounded-lg bg-primary text-background-dark text-sm font-medium whitespace-nowrap">Tất cả</button>
+<button class="px-4 py-2 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-sm font-medium whitespace-nowrap transition-colors">Món chính</button>
+<button class="px-4 py-2 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-sm font-medium whitespace-nowrap transition-colors">Khai vị</button>
+<button class="px-4 py-2 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-sm font-medium whitespace-nowrap transition-colors">Đồ uống</button>
+<button class="px-4 py-2 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-sm font-medium whitespace-nowrap transition-colors">Tráng miệng</button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="bg-white dark:bg-stone-900 rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-stone-50 dark:bg-stone-800/50 text-stone-500 dark:text-stone-400 text-xs font-semibold uppercase tracking-wider">
+<th class="px-6 py-4">Món ăn</th>
+<th class="px-6 py-4">Loại</th>
+<th class="px-6 py-4">Giá bán</th>
+<th class="px-6 py-4 text-center">Trạng thái</th>
+<th class="px-6 py-4 text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-stone-100 dark:divide-stone-800">
+<!-- Row 1 -->
+<tr class="hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-lg bg-stone-100 dark:bg-stone-800 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Bát phở bò truyền thống thơm ngon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAux7MCvs27Lh_P44fhyh5RuKyguKCPipkRBqHWoFF0cOavj_CG6szRUiyJ8cZaqG4zbyRInWwuUU2H13YlyuH3p3HIKxO9yu1d0pYZJsG5o6xFXRaGTMNN05JtYOiVuMdzDYDhp8TyJIO32ffV-pHNdJpVi6yIrEUj2ZtikmcJ5FaEq456-jwqtf43GedDTRJwmCSF6Ifr7oiKRfvow5UdUMOEn6jcnveRuUKYMkuw8I-z8oDFiacr-oo_m89tUrkdPUsY4kLQ0sc"/>
+</div>
+<div>
+<p class="font-semibold">Phở Bò Tái Lăn</p>
+<p class="text-xs text-stone-500">Đặc sản Hà Nội</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Món chính</td>
+<td class="px-6 py-4 font-medium text-primary">65.000đ</td>
+<td class="px-6 py-4">
+<div class="flex justify-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-stone-300 dark:bg-stone-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-3 text-sm font-medium text-stone-600 dark:text-stone-400 min-w-[70px]">Đang bán</span>
+</label>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-stone-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-stone-500 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-lg bg-stone-100 dark:bg-stone-800 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Gỏi cuốn tôm thịt tươi ngon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGSjRktyhjPjbuDq3Fx3I5XPO9y6LdYRk6aRB8w-RkOZP1O6SZsaK58RjNfi4b1qvfSu5sfClb5k3n8-XCPhl_TfAA_MkujHsiWud1426OwA-1KA3irxwQuam2uavI-mhirIosdiCeBoy89dH4oHF1bWhzLdJcFrDqttAjaKDeOyNjEyc80UfSYIxYok5d6Ttjdu05kWZY9yVw2tOzWPTbMecCa1rk3_60nAcnJTz8iq4GfbNOGL5VG5x7DQSNAK3xAE0-HJQSMDk"/>
+</div>
+<div>
+<p class="font-semibold">Gỏi Cuốn Tôm Thịt</p>
+<p class="text-xs text-stone-500">Kèm nước chấm bơ đậu phộng</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Khai vị</td>
+<td class="px-6 py-4 font-medium text-primary">35.000đ</td>
+<td class="px-6 py-4">
+<div class="flex justify-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-stone-300 dark:bg-stone-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-3 text-sm font-medium text-stone-600 dark:text-stone-400 min-w-[70px]">Đang bán</span>
+</label>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-stone-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-stone-500 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-lg bg-stone-100 dark:bg-stone-800 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Cà phê sữa đá đặc trưng Việt Nam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYkPDFKG-exrYEhsYTb-h-xBldzNNuq7qdWLn6H_aE4HzZTETcMCN9v6lCK3FyceuB_CrTFgAGvPZwQvu9xLyKcDEJ3ISXdhrjZ0Hl4Vfn-mDAvCaT930bQdAvN9FsxHH1diZKitjgBXNmZ_w_RyLnznjM6Oc1ISEkNK8GDY2SoNSeRw-rykQutTsaNnWs8DqZYlZ0JnbVf_AnpLgSXarNV7GmJ0Id0hBT2zNMiDo2jQeA9sRRDBGTvkZC7qW2_oBdDv7FjYwSDV0"/>
+</div>
+<div>
+<p class="font-semibold">Cà Phê Sữa Đá</p>
+<p class="text-xs text-stone-500">Cà phê rang xay nguyên chất</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Đồ uống</td>
+<td class="px-6 py-4 font-medium text-primary">25.000đ</td>
+<td class="px-6 py-4">
+<div class="flex justify-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-stone-300 dark:bg-stone-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-3 text-sm font-medium text-stone-600 dark:text-stone-400 min-w-[70px]">Ngừng bán</span>
+</label>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-stone-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-stone-500 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-lg bg-stone-100 dark:bg-stone-800 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Bánh mì kẹp đầy đặn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBOG12Aee1UBVw74UM9KumiscJPNS6iIUjJXuonBxrIzD2eLTfX2dFUbaDN5jV-zeHtDg8KiMyngDAmQ7Fc3lCW3nhUJJmObZl-rJl_qvWOgYOe5woAjtrb3Wle8ZpzzmGi8aGgsOC1clNiBYoYfG9M3Ho8Juy_rW7mTMEl0-rOfd4KEg9PF8hnV4S9utPIpDTSEGaJl9CZTlBIluwRRBat27xC8d2sAmVuFeoypdzHmLxCGj3LeHM3iLSWw0mOY592jRCZe39MsU"/>
+</div>
+<div>
+<p class="font-semibold">Bánh Mì Thập Cẩm</p>
+<p class="text-xs text-stone-500">Giò lụa, pate, bơ đặc biệt</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Món chính</td>
+<td class="px-6 py-4 font-medium text-primary">30.000đ</td>
+<td class="px-6 py-4">
+<div class="flex justify-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-stone-300 dark:bg-stone-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-3 text-sm font-medium text-stone-600 dark:text-stone-400 min-w-[70px]">Đang bán</span>
+</label>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 text-stone-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-stone-500 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="px-6 py-4 bg-stone-50 dark:bg-stone-800/50 flex items-center justify-between border-t border-stone-100 dark:border-stone-800">
+<p class="text-sm text-stone-500">Hiển thị 1-4 trên 24 món</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 rounded border border-stone-200 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-50">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="px-3 py-1 rounded bg-primary text-background-dark font-medium text-sm">1</button>
+<button class="px-3 py-1 rounded border border-stone-200 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 text-sm">2</button>
+<button class="px-3 py-1 rounded border border-stone-200 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 text-sm">3</button>
+<button class="px-3 py-1 rounded border border-stone-200 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
