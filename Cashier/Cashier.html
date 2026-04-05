@@ -26,12 +26,66 @@
             },
         }
     </script>
+    <style>
+/* ===== TOAST SUCCESS ===== */
+/* ===== TOAST CENTER RƠI TỪ TRÊN XUỐNG ===== */
+.toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -200%); /* bắt đầu phía trên */
+
+    padding: 16px 22px;
+    border-radius: 14px;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    z-index: 9999;
+
+    opacity: 0;
+    animation: slideDown 0.4s ease forwards, fadeOut 0.4s ease 2.5s forwards;
+}
+
+.toast-success {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+}
+
+.toast-error {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+/* rơi từ trên xuống */
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -200%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+/* bay lên mất */
+@keyframes fadeOut {
+    to {
+        transform: translate(-50%, -150%);
+        opacity: 0;
+    }
+}
+</style>
 <style>
         body { font-family: 'Work Sans', sans-serif; }
         .custom-scrollbar::-webkit-scrollbar { width: 4px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: rgba(244, 140, 37, 0.05); }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #493622; border-radius: 10px; }
+        /* ===== TOAST ERROR ===== */
     </style>
+    
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
 <header class="flex items-center justify-between border-b border-white/10 px-6 py-3 bg-background-light dark:bg-background-dark/50 backdrop-blur-md sticky top-0 z-50">
@@ -42,7 +96,7 @@
 </div>
 <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-white/5 border border-white/10">
 <span class="material-symbols-outlined text-primary text-sm">storefront</span>
-<span class="text-sm font-medium">Nhà hàng ABC - Chi nhánh Quận 1</span>
+<span class="text-sm font-medium">Nhà hàng ABC - Chi nhánh Quận Bình Thủy</span>
 </div>
 </div>
 <div class="flex items-center gap-4">
@@ -54,16 +108,21 @@
 </span>
 </div>
 <span class="material-symbols-outlined p-2 rounded-lg hover:bg-white/5 cursor-pointer text-slate-500 dark:text-slate-400">settings</span>
-<div class="h-8 w-[1px] bg-white/10 mx-2"></div>
-<div class="flex items-center gap-3">
-<div class="text-right">
-<p class="text-xs font-semibold">Nguyễn Văn A</p>
-<p class="text-[10px] text-slate-400">Thu ngân ca sáng</p>
+<div class="relative">
+    <img src="../assets/image/avt thu ngan.jpg" alt="avt"
+            onclick="toggleMenu()"
+            class="w-10 h-10 rounded-full cursor-pointer">
+        <div id="menu" class="hidden absolute right-0 mt-2 w-40 bg-slate-800 rounded-lg shadow-lg">
+        <a href="Reportlastday.html" class="block px-4 py-2 hover:bg-slate-700">Báo cáo cuối ngày</a>
+        <a href="../Login.html" class="block px-4 py-2 hover:bg-slate-700">Đăng xuất</a>    
+    </div>
 </div>
-<div class="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 overflow-hidden">
-<img alt="Avatar" class="w-full h-full object-cover" data-alt="Ảnh đại diện nhân viên thu ngân" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0vF0tLXouFo1V6K-K_fYCrEw8REz2STaS0ed_vSrMg9_2zSjQKPhZMdji4wHPRQxpS_9-WGYgnp2wBDwPlIS9KKnfA6yLHCZEyFeQKmR9cOryA5XKtB3sgH8PQyKgZ8B3NqTueRrw-1ngSPqScoo7F2X50mQgHzf3d9gKFoFys0MfAqvJCTzflzhD1tSMfA8fw97ITZHqMsNCzgLP2H1wmjO-Rn4LWYwQv9XqL7tfKEmsZzUFEW8YSgkBgroo6tknOvrYMcafiXg"/>
-</div>
-</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("hidden");
+}
+</script>
 </div>
 </header>
 <main class="flex flex-1 overflow-hidden h-[calc(100vh-64px)]">
@@ -75,48 +134,53 @@
 </div>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
-<input class="w-full pl-9 pr-4 py-2 bg-black/20 border border-white/10 rounded-lg text-sm focus:ring-primary focus:border-primary" placeholder="Tìm số bàn..." type="text"/>
+<input id="search-table"
+       class="w-full pl-9 pr-4 py-2 bg-black/20 border border-white/10 rounded-lg text-sm focus:ring-primary focus:border-primary"
+       placeholder="Tìm số bàn..."
+       type="text"/>
+    </div>
 </div>
+<div class="table-item p-4 rounded-xl bg-primary border-primary border-2 shadow-lg cursor-pointer"
+     data-id="05">
+    <div class="flex justify-between items-start mb-2">
+        <span class="text-xl font-bold text-white">Bàn 05</span>
+        <span class="text-xs font-bold bg-white/20 px-2 py-1 rounded-full text-white">05:20</span>
+    </div>
+    <div class="flex justify-between items-end">
+        <p class="text-sm text-white/80">3 khách • 5 món</p>
+        <p class="text-lg font-bold text-white price">0đ</p>
+    </div>
 </div>
-<div class="flex-1 overflow-y-auto custom-scrollbar p-2 space-y-2">
-<div class="p-4 rounded-xl bg-primary border-primary border-2 shadow-lg shadow-primary/20 group cursor-pointer">
-<div class="flex justify-between items-start mb-2">
-<span class="text-xl font-bold text-white">Bàn 05</span>
-<span class="text-xs font-bold bg-white/20 px-2 py-1 rounded-full text-white">05:20</span>
-</div>
-<div class="flex justify-between items-end">
-<p class="text-sm text-white/80">3 khách • 5 món</p>
-<p class="text-lg font-bold text-white">1.250.000đ</p>
-</div>
-</div>
-<div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all cursor-pointer">
-<div class="flex justify-between items-start mb-2">
-<span class="text-xl font-bold">Bàn 12</span>
-<span class="text-xs font-medium text-slate-500">02:15</span>
-</div>
+<div class="table-item p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all cursor-pointer"
+     data-id="12">
+    <div class="flex justify-between items-start mb-2">
+        <span class="text-xl font-bold">Bàn 12</span>
+        <span class="text-xs font-medium text-slate-500">02:15</span>
+    </div>
 <div class="flex justify-between items-end">
 <p class="text-sm text-slate-400">2 khách • 3 món</p>
-<p class="text-lg font-bold">450.000đ</p>
+<p class="text-lg font-bold text-white price">0đ</p>
 </div>
 </div>
-<div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all cursor-pointer">
+<div class="table-item p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all cursor-pointer"
+     data-id="21">
 <div class="flex justify-between items-start mb-2">
-<span class="text-xl font-bold">Bàn 21</span>
+<span class="text-xl font-bold text-white table-item" data-id="21">Bàn 21</span>
 <span class="text-xs font-medium text-slate-500">01:05</span>
 </div>
 <div class="flex justify-between items-end">
 <p class="text-sm text-slate-400">4 khách • 8 món</p>
-<p class="text-lg font-bold">2.180.000đ</p>
+<p class="text-lg font-bold text-white price">0đ</p>
 </div>
 </div>
-<div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all cursor-pointer opacity-80">
+<div class="table-item p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all cursor-pointer opacity-80" data-id="takeaway">
 <div class="flex justify-between items-start mb-2">
 <span class="text-xl font-bold">Mang về - #92</span>
 <span class="text-xs font-medium text-slate-500">Mới nhận</span>
 </div>
 <div class="flex justify-between items-end">
 <p class="text-sm text-slate-400">Giao hàng • 2 món</p>
-<p class="text-lg font-bold">185.000đ</p>
+<p class="text-lg font-bold text-white price">0đ</p>
 </div>
 </div>
 </div>
@@ -132,8 +196,11 @@
 </div>
 <button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
 <span class="material-symbols-outlined text-sm">print</span>
-<span class="text-sm font-medium">Tạm tính</span>
-</button>
+<a href="Invoice details.html" 
+   class="text-sm font-medium"
+   onclick="saveInvoice()">
+   Chi Tiết hóa đơn
+</a></button>
 </div>
 <div class="flex-1 overflow-y-auto custom-scrollbar p-6">
 <table class="w-full text-left border-collapse">
@@ -197,8 +264,8 @@
 </div>
 <div class="h-[1px] bg-white/10 my-2"></div>
 <div class="flex justify-between text-xl font-bold text-primary">
-<span>TỔNG CỘNG</span>
-<span>1.250.000đ</span>
+    <span>TỔNG CỘNG</span>
+    <span id="total-money">1.250.000đ</span>
 </div>
 </div>
 </div>
@@ -208,15 +275,18 @@
 <div>
 <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Số tiền khách đưa</label>
 <div class="relative">
-<input class="w-full bg-black/40 border-white/10 rounded-xl text-2xl font-bold py-3 px-4 focus:ring-primary focus:border-primary text-slate-100" type="text" value="1.500.000"/>
-<span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 font-bold">đ</span>
+<input id="customer-money"
+       class="w-full bg-black/40 border-white/10 rounded-xl text-2xl font-bold py-3 px-4 focus:ring-primary focus:border-primary text-slate-100"
+       type="text"
+       value="1500000"/><span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 font-bold">đ</span>
 </div>
 </div>
 <div>
 <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Tiền thối lại</label>
-<div class="w-full bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-2xl font-bold py-3 px-4 text-emerald-500">
-                            250.000đ
-                        </div>
+<div id="change-money"
+     class="w-full bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-2xl font-bold py-3 px-4 text-emerald-500">
+    0đ
+</div>
 </div>
 </div>
 <div class="flex gap-4">
@@ -230,8 +300,8 @@
 <a href="qrcodepay.html">Chuyển khoản / QR</a>
 </button>
 </div>
-<button class="flex-[1.5] bg-primary hover:bg-primary/90 text-white rounded-xl flex items-center justify-center gap-4 transition-transform active:scale-95 shadow-xl shadow-primary/20">
-<span class="material-symbols-outlined text-3xl">print_connect</span>
+<button id="btn-pay"
+        class="flex-[1.5] bg-primary hover:bg-primary/90 text-white rounded-xl flex items-center justify-center gap-4 transition-transform active:scale-95 shadow-xl shadow-primary/20"><span class="material-symbols-outlined text-3xl">print_connect</span>
 <span class="text-xl font-bold uppercase tracking-wider">Xác nhận &amp; In hóa đơn</span>
 
 <!-- <button class="bg-primary hover:bg-primary/90 text-background-dark font-bold py-2 px-4 rounded-lg flex items-center gap-2 transition-all">
@@ -311,4 +381,305 @@
 <span>HỆ THỐNG POS V2.4.0 • 2024 © NHÀ HÀNG ABC</span>
 </div>
 </footer>
+<script>
+// ===== DATA =====
+const tableData = {
+    "05": {
+        items: [
+            { name: "Lẩu Cá Kèo", qty: 1, price: 450000 },
+            { name: "Sườn nướng", qty: 1, price: 380000 }
+        ]
+    },
+    "12": {
+        items: [
+            { name: "Cơm chiên", qty: 2, price: 80000 },
+            { name: "Trà đá", qty: 2, price: 5000 }
+        ]
+    },
+    "21": {
+        items: [
+            { name: "Bia", qty: 5, price: 35000 }
+        ]
+    },
+    "takeaway": {
+    items: [
+        { name: "Cơm gà", qty: 1, price: 85000 },
+        { name: "Trà sữa", qty: 1, price: 30000 }
+    ]
+}
+};
+
+// ===== FORMAT =====
+function formatMoney(num) {
+    return num.toLocaleString('vi-VN') + "đ";
+}
+
+function parseMoney(str) {
+    return Number(str.replace(/\D/g, ""));
+}
+
+// ===== ELEMENT =====
+const inputMoney = document.getElementById("customer-money");
+const changeMoney = document.getElementById("change-money");
+const totalMoneyEl = document.getElementById("total-money");
+
+// ===== CLICK BÀN =====
+document.querySelectorAll(".table-item").forEach(item => {
+    item.addEventListener("click", function () {
+
+        // reset tất cả bàn
+        document.querySelectorAll(".table-item").forEach(el => {
+            el.classList.remove("bg-primary", "border-primary", "text-white");
+            el.classList.add("bg-white/5");
+        });
+
+        // bàn được chọn
+        this.classList.remove("bg-white/5");
+        this.classList.add("bg-primary", "border-primary", "text-white");
+
+        const tableId = this.dataset.id;
+        const data = tableData[tableId];
+        if (!data) return;
+        let html = "";
+        let total = 0;
+
+        data.items.forEach(item => {
+            const thanhTien = item.qty * item.price;
+            total += thanhTien;
+
+            html += `
+            <tr>
+                <td class="py-4">${item.name}</td>
+                <td class="py-4 text-center">${item.qty}</td>
+                <td class="py-4 text-right">${formatMoney(item.price)}</td>
+                <td class="py-4 text-right font-semibold">${formatMoney(thanhTien)}</td>
+            </tr>
+            `;
+        });
+
+        document.querySelector("tbody").innerHTML = html;
+
+        const vat = total * 0.05;
+        const finalTotal = total + vat;
+
+        totalMoneyEl.innerText = formatMoney(finalTotal);
+
+        inputMoney.value = "";
+        changeMoney.innerText = "0đ";
+    });
+});
+// ===== TÍNH TIỀN THỐI =====
+inputMoney.addEventListener("input", function () {
+
+let raw = this.value.replace(/\D/g, "");
+
+// format lại có dấu chấm
+this.value = Number(raw).toLocaleString('vi-VN');
+
+    const customer = Number(raw);
+    const total = parseMoney(totalMoneyEl.innerText);
+
+    const change = customer - total;
+
+    if (change >= 0) {
+        changeMoney.innerText = formatMoney(change);
+    } else {
+        changeMoney.innerText = "Thiếu " + formatMoney(Math.abs(change));
+    }
+});
+</script>
+<script>
+// ===== THANH TOÁN =====
+document.getElementById("btn-pay").addEventListener("click", function () {
+
+    const total = parseMoney(totalMoneyEl.innerText);
+    const customer = parseMoney(inputMoney.value);
+
+    if (!customer) {
+        showToast("error", "Vui lòng nhập tiền khách đưa!");
+        return;
+    }
+
+    if (customer < total) {
+        showToast("error", "Khách đưa chưa đủ tiền!");
+        return;
+    }
+
+    // ===== LẤY THÔNG TIN =====
+    const tableName = document.querySelector(".table-item.bg-primary span").innerText;
+
+    // ===== TẠO HÓA ĐƠN THẬT =====
+    let list = JSON.parse(localStorage.getItem("invoiceList")) || [];
+
+    list.push({
+        id: Date.now(),
+        table: tableName,
+        time: new Date().toLocaleTimeString(),
+        total: formatMoney(total),
+        method: "Tiền mặt" // hoặc lấy theo nút bạn chọn
+    });
+
+    localStorage.setItem("invoiceList", JSON.stringify(list));
+
+    // ===== THÔNG BÁO =====
+    showToast("success", "Thanh toán thành công!", customer, customer - total);
+
+    // reset bill
+    document.querySelector("tbody").innerHTML = "";
+    totalMoneyEl.innerText = "0đ";
+    inputMoney.value = "";
+    changeMoney.innerText = "0đ";
+});
+let paymentMethod = "Tiền mặt";
+
+document.querySelectorAll(".payment-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+        paymentMethod = this.innerText;
+        method: paymentMethod
+    });
+});
+function showSuccessToast(customer, change) {
+    const toast = document.createElement("div");
+
+    toast.className = "toast-success";
+    toast.innerHTML = `
+        <span class="material-symbols-outlined text-2xl">check_circle</span>
+        <div>
+            <div>Thanh toán thành công!</div>
+            <div class="text-sm opacity-90">
+                Khách đưa: ${formatMoney(customer)} • Thối: ${formatMoney(change)}
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
+function showToast(type, message, customer = 0, change = 0) {
+    const toast = document.createElement("div");
+
+    toast.className = `toast ${type === "success" ? "toast-success" : "toast-error"}`;
+
+    let extra = "";
+
+    if (type === "success") {
+        extra = `
+            <div class="text-sm opacity-90">
+                Khách đưa: ${formatMoney(customer)} • Thối: ${formatMoney(change)}
+            </div>
+        `;
+    }
+
+    toast.innerHTML = `
+        <span class="material-symbols-outlined text-2xl">
+            ${type === "success" ? "check_circle" : "error"}
+        </span>
+        <div>
+            <div>${message}</div>
+            ${extra}
+        </div>
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => toast.remove(), 3000);
+}
+function saveInvoice() {
+    const rows = document.querySelectorAll("tbody tr");
+    const items = [];
+
+    rows.forEach(row => {
+        const cols = row.querySelectorAll("td");
+        items.push({
+            name: cols[0].innerText,
+            qty: cols[1].innerText,
+            price: cols[2].innerText,
+            total: cols[3].innerText
+        });
+    });
+
+    const invoice = {
+        id: "HD-" + Date.now(),
+        table: document.querySelector(".table-item.bg-primary span").innerText,
+        time: new Date().toLocaleTimeString(),
+        total: document.getElementById("total-money").innerText,
+        method: "Tiền mặt" // hoặc QR nếu bạn chọn
+    };
+
+    // lấy danh sách cũ
+    let list = JSON.parse(localStorage.getItem("invoiceList")) || [];
+
+    list.push(invoice);
+
+    localStorage.setItem("invoiceList", JSON.stringify(list));
+}
+window.onload = function () {
+    const data = JSON.parse(localStorage.getItem("invoiceData"));
+
+    if (!data) return;
+
+    const tbody = document.getElementById("invoice-body");
+
+    let html = "";
+
+    data.items.forEach(item => {
+        html += `
+            <tr>
+                <td>${item.name}</td>
+                <td>${item.qty}</td>
+                <td>${item.price}</td>
+                <td>${item.total}</td>
+            </tr>
+        `;
+    });
+
+    tbody.innerHTML = html;
+
+    document.getElementById("inv-total").innerText = data.total;
+    document.getElementById("inv-customer").innerText = data.customer;
+    document.getElementById("inv-change").innerText = data.change;
+    document.getElementById("inv-time").innerText = data.time;
+};
+// ===== LOAD GIÁ CHO SIDEBAR =====
+document.querySelectorAll(".table-item").forEach(item => {
+    const tableId = item.dataset.id;
+    const data = tableData[tableId];
+    if (!data) return;
+
+    let total = 0;
+
+    data.items.forEach(i => {
+        total += i.qty * i.price;
+    });
+
+    const vat = total * 0.05;
+    const finalTotal = total + vat;
+
+    const priceEl = item.querySelector(".price");
+    if (priceEl) {
+        priceEl.innerText = formatMoney(finalTotal);
+    }
+});
+</script>
+<script>
+// ===== SEARCH TABLE =====
+const searchInput = document.getElementById("search-table");
+
+searchInput.addEventListener("input", function () {
+    const keyword = this.value.toLowerCase();
+
+    document.querySelectorAll(".table-item").forEach(item => {
+        const tableName = item.innerText.toLowerCase();
+
+        if (tableName.includes(keyword)) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
+});
+</script>
 </body></html>

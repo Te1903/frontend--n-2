@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+        #confirm-modal {
+    backdrop-filter: blur(4px);
+}
+
+#confirm-modal .modal-box {
+    animation: zoomIn 0.25s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- CONFIRM MODAL -->
+<div id="confirm-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="bg-white dark:bg-background-dark rounded-xl p-6 w-[350px] shadow-2xl border border-primary/20">
+        
+        <h3 class="text-lg font-bold mb-2 text-slate-900 dark:text-white">
+            Xác nhận kết thúc ca
+        </h3>
+        
+        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">
+            Bạn có chắc muốn kết thúc ca và in báo cáo không?
+        </p>
+
+        <div class="flex justify-end gap-3">
+            <button id="btn-cancel"
+                class="px-4 py-2 rounded-lg border border-slate-300 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-white/10">
+                Hủy
+            </button>
+
+            <button id="btn-confirm"
+                class="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90">
+                Xác nhận
+            </button>
+        </div>
+
+    </div>
+</div>
+<!-- Header Section -->
+<header class="flex items-center justify-between border-b border-primary/20 bg-background-light dark:bg-background-dark px-6 py-4 md:px-10">
+<div class="flex items-center gap-4">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<div>
+<a class="text-xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100" href="Cashier.html">Báo cáo Ca làm việc</a>
+<p class="text-xs text-slate-500 dark:text-primary/70 uppercase tracking-widest font-semibold">Shift Revenue Report</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:block text-right">
+<p class="text-sm font-medium text-slate-900 dark:text-slate-100">Nguyễn Văn A</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Ca sáng: 08:00 - 16:00</p>
+</div>
+<div class="h-10 w-10 rounded-full bg-primary/10 border border-primary/20 overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="Profile picture of cashier staff" src="../assets/image/avt thu ngan.jpg"/>
+</div>
+</div>
+</header>
+<main class="flex-1 px-6 py-8 md:px-10 max-w-7xl mx-auto w-full">
+<!-- Quick Info -->
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Tổng quan doanh thu</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Dữ liệu cập nhật đến 15:45 hôm nay</p>
+</div>
+<div class="flex gap-2">
+<button id="btn-refresh"
+class="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-colors">
+    <span class="material-symbols-outlined text-sm">refresh</span>
+    <span class="text-sm font-semibold">Làm mới</span>
+</button>
+
+</div>
+</div>
+<!-- Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<div class="flex flex-col gap-3 rounded-xl p-8 bg-primary dark:bg-primary text-white shadow-xl shadow-primary/10">
+<div class="flex items-center justify-between">
+<div id="total-bill" class="text-sm font-medium text-primary">0 giao dịch</div>
+<p class="text-sm font-medium opacity-90 uppercase tracking-wider">Tổng doanh thu ca</p>
+<span class="material-symbols-outlined opacity-80">payments</span>
+</div>
+<p class="text-4xl font-bold leading-tight">15.450.000đ</p>
+<div class="flex items-center gap-1 text-white/90 text-sm">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+12% so với hôm qua</span>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl p-8 bg-white dark:bg-primary/10 border border-slate-200 dark:border-primary/20">
+<div class="flex items-center justify-between">
+<p class="text-sm font-medium text-slate-500 dark:text-primary uppercase tracking-wider">Tiền mặt</p>
+<span class="material-symbols-outlined text-slate-400 dark:text-primary/60">account_balance_wallet</span>
+</div>
+<p class="text-3xl font-bold text-slate-900 dark:text-slate-100">8.200.000đ</p>
+<p class="text-slate-400 dark:text-slate-500 text-sm">53% tổng doanh thu</p>
+</div>
+<div class="flex flex-col gap-3 rounded-xl p-8 bg-white dark:bg-primary/10 border border-slate-200 dark:border-primary/20">
+<div class="flex items-center justify-between">
+<p class="text-sm font-medium text-slate-500 dark:text-primary uppercase tracking-wider">Chuyển khoản / QR</p>
+<span class="material-symbols-outlined text-slate-400 dark:text-primary/60">qr_code_2</span>
+</div>
+<p class="text-3xl font-bold text-slate-900 dark:text-slate-100">7.250.000đ</p>
+<p class="text-slate-400 dark:text-slate-500 text-sm">47% tổng doanh thu</p>
+</div>
+</div>
+<!-- Transactions Table -->
+<div class="mb-10">
+<div class="flex items-center justify-between mb-4 px-2">
+<h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Danh sách hóa đơn</h3>
+<div class="text-sm font-medium text-primary">54 giao dịch</div>
+</div>
+<div class="overflow-hidden rounded-xl border border-slate-200 dark:border-primary/20 bg-white dark:bg-background-dark shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-primary/5 border-bottom border-slate-200 dark:border-primary/10">
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-primary/70">Mã HD</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-primary/70">Bàn</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-primary/70">Giờ</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-primary/70">Tổng tiền</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-primary/70 text-right">PTTT</th>
+</tr>
+</thead>
+<tbody id="report-body">
+<tr class="hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-slate-100">#HD-8291</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">Bàn 05</td>
+<td class="px-6 py-4 text-sm text-slate-500">15:30</td>
+<td class="px-6 py-4 text-sm font-semibold text-slate-900 dark:text-slate-100">450.000đ</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center rounded-full bg-slate-100 dark:bg-primary/20 px-3 py-1 text-xs font-bold text-slate-600 dark:text-primary">Tiền mặt</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-slate-100">#HD-8290</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">Bàn 12</td>
+<td class="px-6 py-4 text-sm text-slate-500">15:15</td>
+<td class="px-6 py-4 text-sm font-semibold text-slate-900 dark:text-slate-100">1.200.000đ</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center rounded-full bg-primary/10 dark:bg-primary/30 px-3 py-1 text-xs font-bold text-primary">Chuyển khoản</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-slate-100">#HD-8289</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">Bàn 02</td>
+<td class="px-6 py-4 text-sm text-slate-500">15:05</td>
+<td class="px-6 py-4 text-sm font-semibold text-slate-900 dark:text-slate-100">320.000đ</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center rounded-full bg-primary/10 dark:bg-primary/30 px-3 py-1 text-xs font-bold text-primary">QR Code</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-slate-100">#HD-8288</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">Mang về</td>
+<td class="px-6 py-4 text-sm text-slate-500">14:45</td>
+<td class="px-6 py-4 text-sm font-semibold text-slate-900 dark:text-slate-100">150.000đ</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center rounded-full bg-slate-100 dark:bg-primary/20 px-3 py-1 text-xs font-bold text-slate-600 dark:text-primary">Tiền mặt</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-slate-50 dark:bg-primary/5 px-6 py-3 border-t border-slate-200 dark:border-primary/10 text-center">
+<button class="text-sm font-bold text-primary hover:underline">Xem tất cả hóa đơn</button>
+</div>
+</div>
+</div>
+<!-- Footer Action -->
+ 
+<div class="sticky bottom-8 mt-12 flex justify-center md:justify-end">
+<button id="btn-end-shift" class="group relative flex items-center justify-center gap-3 overflow-hidden rounded-xl bg-primary px-10 py-5 text-white shadow-2xl shadow-primary/40 transition-all hover:scale-[1.02] active:scale-[0.98]">
+<span class="material-symbols-outlined text-2xl">print</span>
+<span class="text-lg font-bold">Kết thúc ca &amp; In báo cáo</span>
+<div class="absolute inset-0 h-full w-full bg-white/10 opacity-0 transition-opacity group-hover:opacity-100"></div>
+</button>
+</div>
+</main>
+<!-- Bottom Navbar (Mobile only) -->
+<nav class="md:hidden sticky bottom-0 flex justify-around items-center bg-background-light dark:bg-background-dark border-t border-primary/10 px-4 py-3 z-50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-bold">Báo cáo</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">point_of_sale</span>
+<span class="text-[10px] font-bold">Bán hàng</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">Cài đặt</span>
+</button>
+</nav>
+</div>
+</div>
+<script>
+// ===== FORMAT =====
+function parseMoney(str) {
+    return Number(str.replace(/\D/g, ""));
+}
+
+function formatMoney(num) {
+    return num.toLocaleString('vi-VN') + "đ";
+}
+
+function loadReport() {
+    const list = JSON.parse(localStorage.getItem("invoiceList")) || [];
+
+    let totalRevenue = 0;
+    let cash = 0;
+    let bank = 0;
+
+    let html = "";
+
+    list.forEach(inv => {
+        const money = parseMoney(inv.total);
+        totalRevenue += money;
+
+        const method = inv.method.toLowerCase();
+
+        // ✅ CHỈ check đúng "tiền mặt"
+        if (method.includes("tiền mặt")) {
+            cash += money;
+        } else {
+            bank += money;
+        }
+
+        html += `
+        <tr class="hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors">
+            <td class="px-6 py-4 font-bold">#${inv.id}</td>
+            <td class="px-6 py-4">${inv.table}</td>
+            <td class="px-6 py-4">${inv.time}</td>
+            <td class="px-6 py-4 font-semibold">${inv.total}</td>
+            <td class="px-6 py-4 text-right">
+                <span class="px-3 py-1 text-xs font-bold rounded-full bg-primary/10 text-primary">
+                    ${inv.method}
+                </span>
+            </td>
+        </tr>
+        `;
+    });
+
+    // render bảng
+    document.getElementById("report-body").innerHTML = html;
+
+    // cập nhật tiền
+    document.querySelectorAll(".text-4xl")[0].innerText = formatMoney(totalRevenue);
+    document.querySelectorAll(".text-3xl")[0].innerText = formatMoney(cash);
+    document.querySelectorAll(".text-3xl")[1].innerText = formatMoney(bank);
+
+    // ✅ cập nhật số giao dịch đúng chỗ
+    document.getElementById("total-bill").innerText = list.length + " giao dịch";
+}
+
+// ===== LOAD REPORT =====
+window.onload = function () {
+
+    const shift = JSON.parse(localStorage.getItem("lastShift"));
+
+    if (!shift) return;
+
+    let total = 0;
+
+    shift.data.forEach(inv => {
+        total += Number(inv.total.replace(/\D/g, ""));
+    });
+
+    document.getElementById("shift-time").innerText = shift.time;
+    document.getElementById("shift-total").innerText = total.toLocaleString('vi-VN') + "đ";
+    document.getElementById("shift-count").innerText = shift.totalBill + " hóa đơn";
+
+    // tự động in
+    setTimeout(() => {
+        window.print();
+    }, 500);
+};
+
+window.onafterprint = function () {
+    localStorage.removeItem("invoiceList"); // reset ca
+};
+
+// ===== END SHIFT =====
+document.getElementById("btn-end-shift")
+.addEventListener("click", function () {
+
+    const list = JSON.parse(localStorage.getItem("invoiceList")) || [];
+
+    if (list.length === 0) {
+        alert("Chưa có giao dịch nào!");
+        return;
+    }
+    if (!confirm("Bạn có chắc muốn kết thúc ca và in báo cáo?")) return;
+
+    // lưu ca
+    localStorage.setItem("lastShift", JSON.stringify({
+        time: new Date().toLocaleString(),
+        totalBill: list.length,
+        data: list
+    }));
+
+    // chuyển trang
+    window.location.href = "Reportlastday.html";
+});
+</script>
+
+</body></html>

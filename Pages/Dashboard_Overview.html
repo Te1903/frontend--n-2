@@ -38,7 +38,7 @@
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
 <div class="flex flex-col min-h-screen">
 <!-- Top Navigation Bar -->
-<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/20 px-4 lg:px-10 py-4 flex items-center justify-between">
+<!-- <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/20 px-4 lg:px-10 py-4 flex items-center justify-between">
 <div class="flex items-center gap-4">
 <div class="p-2 bg-primary rounded-lg text-background-dark">
 <span class="material-symbols-outlined block">insights</span>
@@ -57,13 +57,13 @@
 <div class="text-right hidden sm:block">
 <p class="text-sm font-semibold">Quản trị viên</p>
 <p class="text-xs text-primary/70">Cửa hàng Thời trang</p>
-</div>
+</div>=
 <div class="size-10 rounded-full bg-primary/20 border-2 border-primary overflow-hidden">
 <img alt="User Profile" data-alt="Ảnh đại diện quản trị viên tròn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxIuskpcjmg_jL4qgMPTk-M8Cer5iaVLfZl2sjIrHqz8T-Y-JyG6Y-gvmLngLsk9tkzFhNmgMhh-l6_rDamkk-5vxDtg5cr_ONNQfBHaci8zZPgooBNNj401k0Oip3rc80w_z1s24r8uFrMZHc8dOCpLhD6aSDHscJOvnuUsq1MaXxofTOSzU6vjQLRWXI4mjDtHNE6KLRugot3QGCYEUNpSZkj54IM5Spjxga7EZ_kOMv6eVL8g538QabTr9YG-A32ATvckUeXnc"/>
 </div>
 </div>
 </div>
-</header>
+</header> -->
 <div class="flex flex-1 flex-col lg:flex-row">
 <!-- Sidebar (Desktop) / Mobile Toggle -->
 <!-- <nav class="w-full lg:w-64 border-r border-primary/10 p-4 flex flex-col gap-2">
@@ -92,11 +92,32 @@
 </nav> -->
 <div id="sidebar"></div>
 <script>
-  fetch("sidebar.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("sidebar").innerHTML = data;
-    });
+fetch("./sidebar.html") // ⚠️ dùng ./ cho chắc
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("sidebar").innerHTML = data;
+
+    // Delay nhẹ để DOM render xong
+    setTimeout(setActiveMenu, 50);
+  });
+
+function setActiveMenu() {
+  const currentPage = window.location.pathname.split("/").pop();
+
+  document.querySelectorAll(".menu-item").forEach(item => {
+    const link = item.getAttribute("href");
+
+    // So sánh chính xác tên file
+    if (link && link.split("/").pop() === currentPage) {
+      item.classList.add(
+        "bg-primary",
+        "text-white",
+        "shadow-lg",
+        "font-semibold"
+      );
+    }
+  });
+}
 </script>
 <!-- Main Content Area -->
 <main class="ml-64 flex-1 p-4 lg:p-8 flex flex-col gap-6 overflow-x-hidden">

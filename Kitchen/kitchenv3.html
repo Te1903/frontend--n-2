@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Màn hình Bếp V3 - Professional</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-hidden">
+<div class="flex h-screen flex-col">
+<!-- TopNavBar -->
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-full">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 px-6 py-4 lg:px-10">
+<div class="flex items-center gap-4">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined font-bold">soup_kitchen</span>
+</div>
+<a href="Kitchen_manager.html" class="text-xl font-bold leading-tight tracking-tight">Màn hình Bếp</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-lg border border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm">schedule</span>
+<span class="text-sm font-medium">14:45</span>
+</div>
+<button class="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="relative">
+    <img src="../assets/image/avt thu ngan.jpg" alt="avt"
+            onclick="toggleMenu()"
+            class="w-10 h-10 rounded-full cursor-pointer">
+        <div id="menu" class="hidden absolute right-0 mt-2 w-40 bg-slate-800 rounded-lg shadow-lg">
+        <a href="kitchenV3.html" class="block px-4 py-2 hover:bg-slate-700">kitchenV3</a>
+        <a href="#" class="block px-4 py-2 hover:bg-slate-700">Đăng xuất</a>    
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("hidden");
+}
+</script>
+</div>  
+</header>
+<main class="flex-1 p-4 lg:p-8">
+<div class="max-w-6xl mx-auto flex flex-col gap-6">
+<div class="flex border-b border-primary/10 gap-8 overflow-x-auto no-scrollbar">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-primary pb-3 pt-2 whitespace-nowrap" href="#">
+<span class="text-sm font-bold uppercase tracking-wider">Đang chờ (12)</span>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 hover:text-primary pb-3 pt-2 whitespace-nowrap transition-colors" href="#">
+<span class="text-sm font-bold uppercase tracking-wider">Đang nấu (5)</span>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 hover:text-primary pb-3 pt-2 whitespace-nowrap transition-colors" href="#">
+<span class="text-sm font-bold uppercase tracking-wider">Hoàn thành</span>
+</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<label class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary/60">search</span>
+<input class="w-64 rounded-lg border-none bg-primary/10 pl-10 text-sm focus:ring-1 focus:ring-primary text-slate-100 placeholder:text-primary/40" placeholder="Tìm đơn hàng, món ăn..." type="text"/>
+</label>
+<div class="flex gap-2">
+<button class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>   
+<button class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-10 w-10 rounded-full border-2 border-primary bg-cover bg-center" data-alt="Avatar đầu bếp trưởng" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3zAJFSkOVcn3ZwtSTzygQLlwzcwn03U6Y-mi1tXyUOxqKp5fJJcXx6Kcm_nw9i00GU5e14M9ZR6yVUROzkSHGNV2D1G81D_Y0LUkmZtyMx4tgL7dDqiBgfV_XrInWu7fM9TJiDfSljNR0l5QS2xUF2SUAVukBBTHj2ly7b2XnYl4LQeYztoyLfr4-rs7Ss349CCX8BlPn92u-hklkfkQ4Dp0bwP2Daig4h2Yk5YCNlbxvS-LrPxv4HaluNa1JWkhDz2ZFcCW0YuU')"></div>
+</div>
+</header>
+<!-- Main Dashboard Area -->
+<main class="ml-64flex-1 flex overflow-hidden p-4 gap-4">
+<!-- Column 1: Chờ chế biến -->
+<section class="flex flex-col w-1/3 bg-primary/5 rounded-xl border border-primary/10">
+<div class="p-4 flex items-center justify-between border-b border-primary/10 bg-primary/10 rounded-t-xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<h3 class="font-bold text-slate-100 uppercase tracking-wider">Chờ chế biến</h3>
+</div>
+<span class="bg-primary text-background-dark px-2 py-0.5 rounded text-xs font-bold">5 ĐƠN</span>
+</div>
+<div class="flex-1 overflow-y-auto p-3 space-y-3">
+<!-- Order Card 1 (Warning State) -->
+<div class="bg-background-dark border-l-4 border-red-500 rounded-lg p-4 shadow-lg @container">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold bg-red-500/20 text-red-500 px-2 py-1 rounded">CẢNH BÁO: 12:45</span>
+<span class="text-sm font-bold text-slate-400">BÀN 05</span>
+</div>
+<h4 class="text-lg font-bold text-slate-100">Bún Bò Huế (Đặc biệt)</h4>
+<p class="text-primary font-bold text-2xl my-1">x2</p>
+<p class="text-slate-400 text-sm italic mb-4">Ghi chú: Không rau sống, thêm ớt</p>
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold py-2 rounded-lg flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined">play_arrow</span>
+                            BẮT ĐẦU NẤU
+                        </button>
+</div>
+<!-- Order Card 2 -->
+<div class="bg-background-dark border-l-4 border-primary rounded-lg p-4 shadow-lg">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-primary italic">Chờ: 05:20</span>
+<span class="text-sm font-bold text-slate-400">BÀN 12</span>
+</div>
+<h4 class="text-lg font-bold text-slate-100">Phở Bò Tái Lăn</h4>
+<p class="text-primary font-bold text-2xl my-1">x1</p>
+<p class="text-slate-400 text-sm italic mb-4">Ghi chú: Ít hành</p>
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold py-2 rounded-lg flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined">play_arrow</span>
+                            BẮT ĐẦU NẤU
+                        </button>
+</div>
+<!-- Order Card 3 -->
+<div class="bg-background-dark border-l-4 border-primary rounded-lg p-4 shadow-lg">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-primary italic">Chờ: 02:10</span>
+<span class="text-sm font-bold text-slate-400">MANG VỀ</span>
+</div>
+<h4 class="text-lg font-bold text-slate-100">Cơm Tấm Sườn Bì Chả</h4>
+<p class="text-primary font-bold text-2xl my-1">x3</p>
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold py-2 rounded-lg flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined">play_arrow</span>
+                            BẮT ĐẦU NẤU
+                        </button>
+</div>
+</div>
+</section>
+<!-- Column 2: Đang nấu -->
+<section class="flex flex-col w-1/3 bg-blue-500/5 rounded-xl border border-blue-500/10">
+<div class="p-4 flex items-center justify-between border-b border-blue-500/10 bg-blue-500/10 rounded-t-xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-400">cooking</span>
+<h3 class="font-bold text-slate-100 uppercase tracking-wider">Đang nấu</h3>
+</div>
+<span class="bg-blue-500 text-white px-2 py-0.5 rounded text-xs font-bold">3 MÓN</span>
+</div>
+<div class="flex-1 overflow-y-auto p-3 space-y-3">
+<!-- Cooking Card 1 -->
+<div class="bg-background-dark border-l-4 border-blue-500 rounded-lg p-4 shadow-lg">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-blue-400 animate-pulse">● ĐANG CHẾ BIẾN (08:30)</span>
+<span class="text-sm font-bold text-slate-400">BÀN 02</span>
+</div>
+<div class="flex gap-3 mb-4">
+<div class="size-16 rounded-lg bg-cover bg-center shrink-0" data-alt="Hình ảnh lẩu thái hải sản" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzpX-SAKu3yvVwTsM9DQbsJvoGBCqx1pu1FkTPEIj4o1Hjbj88F31X5RfNarhJlJNahky2NDxg2GA-tDHom_ENyqrQ6UYnAQi1RSTEr_kZMpcWXuTsxRFgkbLVkKXPbIEdQQ2GRF3kjqRchbxvaal_8GG-7J7KL-JFJZZ7ue9QT83EYLVvXN7wbpf8UIc8rQ8RsupKhq0AQvRKse9GUFlxWw7Thsfas1TWhcgbbCvM0G7FiQhghWhYxgOCwE-M0yWv0ZWkWs8NzVQ')"></div>
+<div>
+<h4 class="text-lg font-bold text-slate-100">Lẩu Thái Hải Sản</h4>
+<p class="text-primary font-bold text-xl">x1</p>
+</div>
+</div>
+<div class="w-full bg-slate-700 h-1.5 rounded-full overflow-hidden mb-4">
+<div class="bg-blue-500 h-full w-2/3"></div>
+</div>
+<button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-lg flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined">check_circle</span>
+                            HOÀN THÀNH
+                        </button>
+</div>
+<!-- Cooking Card 2 -->
+<div class="bg-background-dark border-l-4 border-blue-500 rounded-lg p-4 shadow-lg">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-blue-400 animate-pulse">● ĐANG CHẾ BIẾN (04:15)</span>
+<span class="text-sm font-bold text-slate-400">BÀN 08</span>
+</div>
+<h4 class="text-lg font-bold text-slate-100">Gà Nướng Mật Ong</h4>
+<p class="text-primary font-bold text-xl mb-4">x2</p>
+<button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-lg flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined">check_circle</span>
+                            HOÀN THÀNH
+                        </button>
+</div>
+</div>
+</section>
+<!-- Column 3: Hoàn thành -->
+<section class="flex flex-col w-1/3 bg-green-500/5 rounded-xl border border-green-500/10">
+<div class="p-4 flex items-center justify-between border-b border-green-500/10 bg-green-500/10 rounded-t-xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-green-400">verified</span>
+<h3 class="font-bold text-slate-100 uppercase tracking-wider">Hoàn thành</h3>
+</div>
+<span class="bg-green-500 text-white px-2 py-0.5 rounded text-xs font-bold">12 XONG</span>
+</div>
+<div class="flex-1 overflow-y-auto p-3 space-y-3">
+<!-- Finished Card 1 -->
+<div class="bg-background-dark/60 border-l-4 border-green-500/50 rounded-lg p-4 shadow-sm opacity-80">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-green-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">done_all</span> ĐÃ TRẢ MÓN
+                            </span>
+<span class="text-sm font-bold text-slate-500">BÀN 01</span>
+</div>
+<h4 class="text-lg font-bold text-slate-400 line-through decoration-1">Mì Quảng Gà</h4>
+<p class="text-primary/60 font-bold text-lg">x1</p>
+</div>
+<!-- Finished Card 2 -->
+<div class="bg-background-dark border-l-4 border-green-500 rounded-lg p-4 shadow-lg border border-green-500/20">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-green-400">CHỜ PHỤC VỤ (00:45)</span>
+<span class="text-sm font-bold text-slate-400">BÀN 15</span>
+</div>
+<h4 class="text-lg font-bold text-slate-100">Bò Lúc Lắc Khoai Tây</h4>
+<p class="text-primary font-bold text-xl mb-4">x1</p>
+<button class="w-full border border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-bold py-2 rounded-lg flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined">back_hand</span>
+                            GỌI PHỤC VỤ
+                        </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Status Footer -->
+<footer class="bg-background-dark border-t border-primary/20 px-6 py-3 flex items-center justify-between shrink-0">
+<div class="flex gap-8">
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-primary animate-ping"></div>
+<span class="text-sm text-slate-400">Hệ thống: <span class="text-green-400 font-bold uppercase">Trực tuyến</span></span>
+</div>
+<div class="flex items-center gap-2 border-l border-primary/20 pl-8">
+<span class="material-symbols-outlined text-primary text-sm">timer</span>
+<span class="text-sm text-slate-400">Thời gian chuẩn bị trung bình: <span class="text-white font-bold">14:20 phút</span></span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-sm text-slate-500">v3.2.0 - Stable Edition</span>
+<div class="flex gap-1">
+<div class="w-8 h-1 bg-primary rounded-full"></div>
+<div class="w-8 h-1 bg-primary/20 rounded-full"></div>
+<div class="w-8 h-1 bg-primary/20 rounded-full"></div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
