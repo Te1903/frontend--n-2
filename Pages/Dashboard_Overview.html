@@ -123,10 +123,10 @@ function setActiveMenu() {
 <main class="ml-64 flex-1 p-4 lg:p-8 flex flex-col gap-6 overflow-x-hidden">
 <!-- Time Filters -->
 <div class="flex items-center gap-1 bg-primary/5 p-1 rounded-xl self-start">
-<button class="px-4 py-2 text-sm font-medium rounded-lg hover:bg-primary/10 transition-colors">Hôm nay</button>
-<button class="px-4 py-2 text-sm font-medium rounded-lg hover:bg-primary/10 transition-colors">7 ngày qua</button>
-<button class="px-4 py-2 text-sm font-bold rounded-lg bg-primary text-background-dark shadow-lg shadow-primary/20">Tháng này</button>
-<button class="px-4 py-2 text-sm font-medium rounded-lg hover:bg-primary/10 transition-colors">Tùy chỉnh</button>
+<button id="todayBtn" class="filter-btn px-4 py-2 rounded-lg">Hôm nay</button>
+<button id="weekBtn" class="filter-btn px-4 py-2 rounded-lg">7 ngày qua</button>
+<button id="monthBtn" class="filter-btn px-4 py-2 rounded-lg">Tháng này</button>
+<button id="customBtn" class="filter-btn px-4 py-2 rounded-lg">Tùy chỉnh</button>
 </div>
 <!-- Summary Cards -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
@@ -134,6 +134,10 @@ function setActiveMenu() {
 <div class="absolute -right-4 -top-4 text-primary/10 transition-transform group-hover:scale-110">
 <span class="material-symbols-outlined !text-7xl">payments</span>
 </div>
+<h3 id="totalRevenue"></h3>
+<h3 id="totalOrders"></h3>
+<h3 id="avgValue"></h3>
+
 <p class="text-sm font-medium text-slate-400">Tổng doanh thu</p>
 <h3 class="text-3xl font-bold mt-2">125.400.000đ</h3>
 <div class="flex items-center gap-1 mt-3 text-emerald-500 font-semibold text-sm">
@@ -218,7 +222,7 @@ function setActiveMenu() {
 <h4 class="text-lg font-bold">Số liệu chi tiết theo ngày</h4>
 <div class="relative w-full sm:w-64">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary">search</span>
-<input class="w-full bg-background-dark/50 border-primary/20 rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-primary focus:border-primary" placeholder="Tìm kiếm ngày..." type="text"/>
+<input  id="searchInput" class="w-full bg-background-dark/50 border-primary/20 rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-primary focus:border-primary" placeholder="Tìm kiếm ngày..." type="text"/>
 </div>
 </div>
 <div class="overflow-x-auto">
@@ -232,7 +236,7 @@ function setActiveMenu() {
 <th class="px-6 py-4 text-right">Trạng thái</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-primary/10">
+<tbody id="table-body"></tbody>
 <tr class="hover:bg-primary/5 transition-colors">
 <td class="px-6 py-4 font-medium">30/10/2023</td>
 <td class="px-6 py-4">24</td>
@@ -295,4 +299,9 @@ function setActiveMenu() {
 </main>
 </div>
 </div>
-</body></html>
+</body>
+<script src="../js/auth.js"></script>
+<script>
+  checkRole("admin"); // chỉ admin mới vào được
+  showUser();
+</script></html>

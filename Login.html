@@ -122,60 +122,6 @@
 <!-- END: Footer Copyright -->
 </main>
 <!-- END: Main Login Container -->
-<script data-purpose="ui-logic">
-    /**
-     * Toggles between Admin and Staff roles
-     * @param {string} role - 'admin' or 'staff'
-     */
-    function switchRole(role) {
-      const adminTab = document.getElementById('admin-tab');
-      const staffTab = document.getElementById('staff-tab');
-      const title = document.getElementById('login-title');
-
-      if (role === 'admin') {
-        adminTab.classList.add('active');
-        staffTab.classList.remove('active');
-        title.innerText = 'Đăng nhập Quản trị viên';
-      } else {
-        staffTab.classList.add('active');
-        adminTab.classList.remove('active');
-        title.innerText = 'Đăng nhập Nhân viên';
-      }
-     }
-function login() {
-  let user = document.getElementById("username").value;
-  let pass = document.getElementById("password").value;
-
-  if (user === "thungan" && pass === "123") {
-    window.location.href = "Cashier/cashier.html";
-  } else if (user === "quanly" && pass === "123") {
-    window.location.href = "./Pages/Dashboard_Overview.html";
-  } else {
-    alert("Sai tài khoản hoặc mật khẩu!");
-  }
-}
-
-    /**
-     * Toggles password visibility
-      */
-  function togglePassword() {
-    const passwordInput = document.getElementById('password');
-    const icon = document.getElementById('password-icon');
-
-    if (passwordInput.type === 'password') {
-      passwordInput.type = 'text';
-      icon.classList.replace('fa-eye', 'fa-eye-slash');
-    } else {
-      passwordInput.type = 'password';
-      icon.classList.replace('fa-eye-slash', 'fa-eye');
-    }
-  }
-
-    // Prevent form submission for demo purposes
-    document.getElementById('login-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      login();
-    });
-  </script>
 </body>
+<script src="../js/login.js"></script>
 </html>

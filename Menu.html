@@ -3,9 +3,9 @@
 <html class="dark" lang="vi"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Thực đơn - Nhà hàng Cao Cấp</title>
+<title>Delish - Trải nghiệm ẩm thực tinh hoa</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -21,48 +21,48 @@
                     fontFamily: {
                         "display": ["Work Sans"]
                     },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
                 },
             },
         }
     </script>
 <style>
         body {
-            font-family: "Work Sans", sans-serif;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-family: 'Work Sans', sans-serif;
         }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
-<div class="relative flex min-h-screen flex-col overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<!-- Header Section -->
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 px-6 py-4 md:px-20 lg:px-40">
-<div class="flex items-center gap-8">
-<div class="flex items-center gap-3 text-primary">
-<span class="material-symbols-outlined text-3xl">restaurant</span>
-<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight">Nhà hàng Cao Cấp</h2>
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-primary/20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-background-dark text-2xl">restaurant</span>
 </div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Trang chủ</a>
-<a class="text-primary text-sm font-bold transition-colors border-b-2 border-primary" href="#">Thực đơn</a>
-<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Về chúng tôi</a>
-<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Liên hệ</a>
+<span class="text-2xl font-black tracking-tight text-primary uppercase">Delish</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="index.html">Trang chủ</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="Menu.html">Thực đơn</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#about">Giới thiệu</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#contact">Liên hệ</a>
 </nav>
-</div>
 <div class="flex items-center gap-4">
-<label class="hidden lg:flex items-center relative">
-<span class="material-symbols-outlined absolute left-3 text-slate-400">search</span>
-<input class="form-input w-64 rounded-lg bg-slate-100 dark:bg-primary/10 border-none pl-10 text-sm focus:ring-1 focus:ring-primary" placeholder="Tìm kiếm món ăn..."/>
-</label>
-<button class="bg-primary hover:bg-primary/90 text-background-dark px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20">
-                        Đặt bàn ngay
-                    </button>
+<a class="bg-primary hover:bg-primary/90 text-background-dark px-6 py-2.5 rounded-lg font-bold text-sm transition-all shadow-lg shadow-primary/20" href="#">
+                        Đặt Bàn Ngay
+</a>
+</div>
+</div>
 </div>
 </header>
-<main class="flex-1 max-w-7xl mx-auto w-full px-6 md:px-20 lg:px-40 py-8">
+<main>
 <!-- Banner Section -->
 <div class="relative w-full h-48 md:h-64 rounded-xl overflow-hidden mb-12 flex items-end">
 <div class="absolute inset-0 bg-cover bg-center" data-alt="High-end restaurant interior with elegant lighting" style="background-image: linear-gradient(to top, rgba(34, 25, 16, 0.9), transparent), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzYPG6GSd4GdTHIJESSyJ4dsJ_S0wfnaQx1Yok3O_DTp1OAiZsSYm0JckBnyM1aRzwPo_UmVyiZyfVUcpTIAzHy4G5jrXqkZXDd9CocJ3mGzGdIM94a1myg0SdQzd9URjx3vWoGFc41qvWTg2GObJjhbEAPotuTbYm66y9vQoNDGjc80gZ6HkjNtMiAZn_q9Cc-nw_XP4zU2hr2qc6PzQtd2D_H_JLg-rWNN-8t6G4o_9v3EhH8OAUxrCI_bNEAA9zryt7tTA9_PY');"></div>
@@ -73,26 +73,26 @@
 </div>
 <!-- Filter Section -->
 <div class="flex gap-3 mb-10 overflow-x-auto pb-2 no-scrollbar">
-<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-6 text-background-dark text-sm font-semibold">
-<span class="material-symbols-outlined text-lg">all_inclusive</span> Tất cả
+<button data-filter="all" class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-6 text-background-white text-sm font-semibold">
+<span   class="material-symbols-outlined text-lg">all_inclusive</span> Tất cả 
                     </button>
-<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-slate-100 dark:bg-primary/10 px-6 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors text-sm font-medium">
-<span class="material-symbols-outlined text-lg">tapas</span> Khai vị
+<button data-filter="khaivi"class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-slate-100 dark:bg-primary/10 px-6 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors text-sm font-medium">
+<span  class="material-symbols-outlined text-lg">tapas</span> Khai vị
                     </button>
-<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-slate-100 dark:bg-primary/10 px-6 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors text-sm font-medium">
-<span class="material-symbols-outlined text-lg">dinner_dining</span> Món chính
+<button data-filter="monchinh" class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-slate-100 dark:bg-primary/10 px-6 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors text-sm font-medium">
+<span  class="material-symbols-outlined text-lg">dinner_dining</span> Món chính
                     </button>
-<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-slate-100 dark:bg-primary/10 px-6 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors text-sm font-medium">
-<span class="material-symbols-outlined text-lg">local_bar</span> Đồ uống
+<button data-filter="douong"class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-slate-100 dark:bg-primary/10 px-6 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors text-sm font-medium">
+<span  class="material-symbols-outlined text-lg">local_bar</span> Đồ uống
                     </button>
-<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-slate-100 dark:bg-primary/10 px-6 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors text-sm font-medium">
+<button data-filter="trangmieng" class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-slate-100 dark:bg-primary/10 px-6 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors text-sm font-medium">
 <span class="material-symbols-outlined text-lg">icecream</span> Tráng miệng
                     </button>
 </div>
 <!-- Menu Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">    
 <!-- Dish Card 1 -->
-<div class="group flex flex-col gap-4">
+<div class="group flex flex-col gap-4"  data-category="khaivi">
 <div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-200 dark:bg-primary/5">
 <img alt="Gỏi ngó sen tôm thịt" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Vietnamese lotus stem salad with shrimp and pork" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4ZL8sViogpgteZUZXezGFDKuKKtWye2NR-Jnjkg2PiHUNuaq-sMy5cJEKA-_Gdwy59Ue57nsz0iDhKNvc4BIe5Vj9pphs2947WtVua8hsM5Xs9fQVqezGtBVQ0lS3cGV88wRdz8zYNBNFy0gqy2F8m6Hux_TdMRSdLaZCJh2acdU_fFHM0NP6vWvzc4cQEeLlF2WsBXcFcwHizEhkdxiD7-qu_oTxGdz-utBpcsBFjfgI6cZ9QLZRJk0ajc03pOf1oSrIh7ORKBk"/>
 </div>
@@ -107,7 +107,7 @@
 </div>
 </div>
 <!-- Dish Card 2 -->
-<div class="group flex flex-col gap-4">
+<div class="group flex flex-col gap-4" data-category="monchinh">
 <div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-200 dark:bg-primary/5">
 <img alt="Thăn bò nướng sốt vang" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Grilled beef tenderloin with red wine sauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_W9uXTjjnlGvPtsB1dvoyzbxXBeZP69Kcec4ELI7DfCBXwBROMm-64qJmWziRQ8xsEQRI5qX0ZDjtR2rYZM2cF_YKhe6jGwcy9FRoWKlG344yg25dk4hxe4O2AG-c3lX383-5n5sZI9NoKJS9vQ4I5EEioRtejhxY1ONs0KN-YIxwD4X-vE549QON2t88zPGurjbkPlyE7nMioj7d4_-6FwzOF9UqxVeDnG2PJUdXR0SEE-FIY453pJ6hBk_BwONg-tCYn9-dzNs"/>
 </div>
@@ -122,7 +122,7 @@
 </div>
 </div>
 <!-- Dish Card 3 -->
-<div class="group flex flex-col gap-4">
+<div class="group flex flex-col gap-4" data-category="monchinh">
 <div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-200 dark:bg-primary/5">
 <img alt="Cá hồi áp chảo sốt chanh leo" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Pan-seared salmon with passion fruit sauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9BO7n1hmqwbNUHIKR-meYCHKXlLYGjZ8lxE9MYOPtIFEa5f1_N7tRuTcleIgKulOJqrjsCouPn2MmFY01aBIkhYMI1_Y0s2a0KC0d87ohGME_zbK3TxI4_PgTy1pBkxXFEAv7Zd6WUMron0W8YFPYrQX0sNxNeoXzFAvtdjGhdfRjAUaN06KGqOVJ7gvAJWCqYx9r5QpFfnoKlDMBGx7spb7w66tHyV0PVwCw-9cPkC70bIeOn0EMPhTJD50-KI1hxW_7Pv22tRE"/>
 </div>
@@ -137,7 +137,7 @@
 </div>
 </div>
 <!-- Dish Card 4 -->
-<div class="group flex flex-col gap-4">
+<div class="group flex flex-col gap-4"  data-category="monchinh">
 <div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-200 dark:bg-primary/5">
 <img alt="Mỳ Ý hải sản sốt cà chua" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Seafood pasta with rich tomato sauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz25QFxG8ZWH-rSuigfgYhLVXgz3ipb78WINyPeXNDZuQuO8DHUQGdcqXOA90-XWiAhlO3FbPl7lHUfsO9ek5tgXhQj2svISGglMVyR9HNSzYHTzcr1uJeP91waGz88UrGwll1v18_N4auNv6dfqNfyLzKVsets_bRgwzDCWvfcQibcYeNE5ZdBytIF3B3Bx7wdXgSa-gu5F_UJOvBoI3VK8UE8iZkGd25TZm5KLGOUELe0vI1HKmmxtDFJhGmAbakuy185somrks"/>
 </div>
@@ -152,7 +152,7 @@
 </div>
 </div>
 <!-- Dish Card 5 -->
-<div class="group flex flex-col gap-4">
+<div class="group flex flex-col gap-4"  data-category="trangmieng">
 <div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-200 dark:bg-primary/5">
 <img alt="Kem bơ hạt dẻ" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Avocado ice cream with pistachios" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXInNaPKoLxjyFlY5MbMZwluuuRpqvL9nBzy_tb3z3AKk0EeEqdCrQ14i6s7HvVR3xUNPVaCOzxj0KdaL0c27ZuRuC6SaYCY2HHoPLuuE0GszzburcyPh201wW-I9DmOV3wXGNXDmNq223tWjFjBXdojdCMgRbyEoYo65VALQrDVv5LziJDeAwssKM7hT38WQjoToSpMl9I9E13ulfSknTmKdbFFN_Yv1CWlyNdjq2njkYLLg_enBVAgMJ5gLh3WfAhCvzhtmMZTg"/>
 </div>
@@ -167,7 +167,7 @@
 </div>
 </div>
 <!-- Dish Card 6 -->
-<div class="group flex flex-col gap-4">
+<div class="group flex flex-col gap-4" data-category="douong">
 <div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-200 dark:bg-primary/5">
 <img alt="Rượu vang đỏ Chile" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Luxury red wine bottle and glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyYbqkhxe-_FJsF4uOcdS7foCOjEQYcbRgPgg__SmbEMxRrcF1QMljjTfFMC9i5GU_Zp_7cFa62IzJrdBOndgmvoULL-2UAFUbtMrk8kXxB2dyf72IFA3yQGPWpP9fV7uahUWbq_AcVH9Y9LXZwI_51ccnErQfwVwR7u3lio6JU9t_UVbe-eRdYLiOUkk_uXmKS2-rkAFcHjORGkdj66-FwCF8wwSNwGvM99uli2Oa3PCO4OQQDciBFzAw9NgR8kqcRssgmQYerOA"/>
 </div>
@@ -227,6 +227,55 @@
 </div>
 </div>
 </footer>
+<!-- BEGIN: Chatbot -->
+<div class="fixed bottom-6 right-6 z-[100]" data-purpose="chatbot-bubble">
+<button class="bg-primary hover:scale-110 transition-transform w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-white" id="chat-toggle">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
 </div>
 </div>
-</body></html>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // ===== FILTER =====
+    
+const buttons = document.querySelectorAll("[data-filter]");
+const items = document.querySelectorAll("[data-category]");
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const filter = btn.dataset.filter;
+
+        // FILTER
+        items.forEach(item => {
+            if (filter === "all" || item.dataset.category === filter) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+
+        // ACTIVE MÀU CAM
+        buttons.forEach(b => {
+            b.classList.remove("bg-primary", "text-background-dark");
+            b.classList.add("bg-slate-100", "dark:bg-primary/10");
+        });
+
+        btn.classList.add("bg-primary", "text-background-dark");
+        btn.classList.remove("bg-slate-100", "dark:bg-primary/10");
+    });
+});
+
+    // ===== ĐẶT BÀN =====
+    const bookingBtn = document.querySelector("a[href='#']");
+    bookingBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Đặt bàn thành công! Chúng tôi sẽ liên hệ bạn.");
+    });
+
+});
+</script>
+</html>
