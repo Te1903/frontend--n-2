@@ -37,59 +37,7 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
 <div class="flex flex-col min-h-screen">
-<!-- Top Navigation Bar -->
-<!-- <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/20 px-4 lg:px-10 py-4 flex items-center justify-between">
-<div class="flex items-center gap-4">
-<div class="p-2 bg-primary rounded-lg text-background-dark">
-<span class="material-symbols-outlined block">insights</span>
-</div>
-<h2 class="text-xl font-bold tracking-tight">Báo cáo doanh thu</h2>
-</div>
-<div class="flex items-center gap-3">
-<button class="flex items-center justify-center p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
-<span class="material-symbols-outlined">download</span>
-</button>
-<button class="flex items-center justify-center p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
-<span class="material-symbols-outlined">calendar_today</span>
-</button>
-<div class="h-8 w-[1px] bg-primary/20 mx-2"></div>
-<div class="flex items-center gap-3">
-<div class="text-right hidden sm:block">
-<p class="text-sm font-semibold">Quản trị viên</p>
-<p class="text-xs text-primary/70">Cửa hàng Thời trang</p>
-</div>=
-<div class="size-10 rounded-full bg-primary/20 border-2 border-primary overflow-hidden">
-<img alt="User Profile" data-alt="Ảnh đại diện quản trị viên tròn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxIuskpcjmg_jL4qgMPTk-M8Cer5iaVLfZl2sjIrHqz8T-Y-JyG6Y-gvmLngLsk9tkzFhNmgMhh-l6_rDamkk-5vxDtg5cr_ONNQfBHaci8zZPgooBNNj401k0Oip3rc80w_z1s24r8uFrMZHc8dOCpLhD6aSDHscJOvnuUsq1MaXxofTOSzU6vjQLRWXI4mjDtHNE6KLRugot3QGCYEUNpSZkj54IM5Spjxga7EZ_kOMv6eVL8g538QabTr9YG-A32ATvckUeXnc"/>
-</div>
-</div>
-</div>
-</header> -->
 <div class="flex flex-1 flex-col lg:flex-row">
-<!-- Sidebar (Desktop) / Mobile Toggle -->
-<!-- <nav class="w-full lg:w-64 border-r border-primary/10 p-4 flex flex-col gap-2">
-<div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary text-background-dark font-semibold">
-<span class="material-symbols-outlined">dashboard</span>
-<span>Tổng quan</span>
-</div>
-<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors">
-<span class="material-symbols-outlined text-primary">receipt_long</span>
-<span>Giao dịch</span>
-</div>
-<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors">
-<span class="material-symbols-outlined text-primary">inventory_2</span>
-<span>Sản phẩm</span>
-</div>
-<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors">
-<span class="material-symbols-outlined text-primary">group</span>
-<span>Khách hàng</span>
-</div>
-<div class="mt-auto pt-4 border-t border-primary/10">
-<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors">
-<span class="material-symbols-outlined text-primary">settings</span>
-<span>Cài đặt</span>
-</div>
-</div>
-</nav> -->
 <div id="sidebar"></div>
 <script>
 fetch("./sidebar.html") // ⚠️ dùng ./ cho chắc
@@ -227,72 +175,35 @@ function setActiveMenu() {
 </div>
 <div class="overflow-x-auto">
 <table class="w-full text-left">
-<thead>
-<tr class="bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider">
-<th class="px-6 py-4">Ngày</th>
-<th class="px-6 py-4">Đơn hàng</th>
-<th class="px-6 py-4">Doanh thu</th>
-<th class="px-6 py-4">TB/Đơn hàng</th>
-<th class="px-6 py-4 text-right">Trạng thái</th>
-</tr>
-</thead>
-<tbody id="table-body"></tbody>
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="px-6 py-4 font-medium">30/10/2023</td>
-<td class="px-6 py-4">24</td>
-<td class="px-6 py-4">6.800.000đ</td>
-<td class="px-6 py-4">283.333đ</td>
-<td class="px-6 py-4 text-right">
-<span class="bg-emerald-500/10 text-emerald-500 px-3 py-1 rounded-full text-xs font-bold">Tăng trưởng</span>
-</td>
-</tr>
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="px-6 py-4 font-medium">29/10/2023</td>
-<td class="px-6 py-4">18</td>
-<td class="px-6 py-4">4.200.000đ</td>
-<td class="px-6 py-4">233.333đ</td>
-<td class="px-6 py-4 text-right">
-<span class="bg-rose-500/10 text-rose-500 px-3 py-1 rounded-full text-xs font-bold">Sụt giảm</span>
-</td>
-</tr>
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="px-6 py-4 font-medium">28/10/2023</td>
-<td class="px-6 py-4">31</td>
-<td class="px-6 py-4">9.150.000đ</td>
-<td class="px-6 py-4">295.161đ</td>
-<td class="px-6 py-4 text-right">
-<span class="bg-emerald-500/10 text-emerald-500 px-3 py-1 rounded-full text-xs font-bold">Tăng trưởng</span>
-</td>
-</tr>
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="px-6 py-4 font-medium">27/10/2023</td>
-<td class="px-6 py-4">22</td>
-<td class="px-6 py-4">5.400.000đ</td>
-<td class="px-6 py-4">245.454đ</td>
-<td class="px-6 py-4 text-right">
-<span class="bg-slate-500/10 text-slate-400 px-3 py-1 rounded-full text-xs font-bold">Ổn định</span>
-</td>
-</tr>
-<tr class="hover:bg-primary/5 transition-colors">
-<td class="px-6 py-4 font-medium">26/10/2023</td>
-<td class="px-6 py-4">27</td>
-<td class="px-6 py-4">7.900.000đ</td>
-<td class="px-6 py-4">292.592đ</td>
-<td class="px-6 py-4 text-right">
-<span class="bg-emerald-500/10 text-emerald-500 px-3 py-1 rounded-full text-xs font-bold">Tăng trưởng</span>
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr class="bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider">
+      <th class="px-6 py-4">Ngày</th>
+      <th class="px-6 py-4">Đơn hàng</th>
+      <th class="px-6 py-4">Doanh thu</th>
+      <th class="px-6 py-4">TB/Đơn hàng</th>
+      <th class="px-6 py-4 text-right">Trạng thái</th>
+    </tr>
+  </thead>
+
+  <tbody id="table-body">
+    <!-- JS sẽ render ở đây -->
+  </tbody>
 </table>
 </div>
 <div class="p-6 border-t border-primary/10 flex items-center justify-between">
 <p class="text-sm text-slate-400">Hiển thị 5 trên 31 ngày</p>
-<div class="flex gap-2">
-<button class="px-3 py-1 border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">Trước</button>
-<button class="px-3 py-1 bg-primary text-background-dark rounded-lg font-bold">1</button>
-<button class="px-3 py-1 border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">2</button>
-<button class="px-3 py-1 border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">3</button>
-<button class="px-3 py-1 border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">Tiếp</button>
+<div class="flex gap-2 relative" id="paginationWrapper">
+
+  <!-- nền cam chạy -->
+  <div id="activePageBg"
+       class="absolute bg-primary rounded-lg transition-all duration-300"></div>
+
+  <button class="pagination-btn px-3 py-1 relative z-10" data-page="prev">Trước</button>
+  <button class="pagination-btn px-3 py-1 relative z-10" data-page="1">1</button>
+  <button class="pagination-btn px-3 py-1 relative z-10" data-page="2">2</button>
+  <button class="pagination-btn px-3 py-1 relative z-10" data-page="3">3</button>
+  <button class="pagination-btn px-3 py-1 relative z-10" data-page="next">Tiếp</button>
+
 </div>
 </div>
 </div>
@@ -304,4 +215,6 @@ function setActiveMenu() {
 <script>
   checkRole("admin"); // chỉ admin mới vào được
   showUser();
-</script></html>
+</script>
+
+</html>
