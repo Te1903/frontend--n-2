@@ -82,7 +82,22 @@
     .then(res => res.text())
     .then(data => {
       document.getElementById("sidebar").innerHTML = data;
-    });
+        const currentPage = window.location.pathname.split("/").pop();
+
+  document.querySelectorAll(".menu-item").forEach(item => {
+    const link = item.getAttribute("href");
+
+    // So sánh chính xác tên file
+    if (link && link.split("/").pop() === currentPage) {
+      item.classList.add(
+        "bg-primary",
+        "text-white",
+        "shadow-lg",
+        "font-semibold"
+      );
+    }
+  });
+});
 </script>
 
 <!-- Main Content -->
@@ -120,14 +135,14 @@
 </div>
 <!-- Filters -->
 <div class="flex gap-3 mb-6 overflow-x-auto pb-2">
-<button class="px-5 py-2 rounded-full bg-primary text-white font-medium text-sm">Tất cả</button>
-<button class="px-5 py-2 rounded-full bg-primary/10 hover:bg-primary/20 text-slate-700 dark:text-slate-300 font-medium text-sm transition-colors flex items-center gap-2">
+<button  data-role="all" class="px-5 py-2 rounded-full bg-primary text-white font-medium text-sm">Tất cả</button>
+<button  data-role="Quản lý" class="px-5 py-2 rounded-full bg-primary/10 hover:bg-primary/20 text-slate-700 dark:text-slate-300 font-medium text-sm transition-colors flex items-center gap-2">
                             Quản lý <span class="material-symbols-outlined text-xs">keyboard_arrow_down</span>
 </button>
-<button class="px-5 py-2 rounded-full bg-primary/10 hover:bg-primary/20 text-slate-700 dark:text-slate-300 font-medium text-sm transition-colors flex items-center gap-2">
+<button  data-role="Thu ngân" class="px-5 py-2 rounded-full bg-primary/10 hover:bg-primary/20 text-slate-700 dark:text-slate-300 font-medium text-sm transition-colors flex items-center gap-2">
                             Thu ngân <span class="material-symbols-outlined text-xs">keyboard_arrow_down</span>
 </button>
-<button class="px-5 py-2 rounded-full bg-primary/10 hover:bg-primary/20 text-slate-700 dark:text-slate-300 font-medium text-sm transition-colors flex items-center gap-2">
+<button  data-role="Bếp" class="px-5 py-2 rounded-full bg-primary/10 hover:bg-primary/20 text-slate-700 dark:text-slate-300 font-medium text-sm transition-colors flex items-center gap-2">
                             Bếp <span class="material-symbols-outlined text-xs">keyboard_arrow_down</span>
 </button>
 </div>
@@ -286,4 +301,5 @@
 </main>
 </div>
 </body>
+<script src="../js/employee.js"></script>
 </html>

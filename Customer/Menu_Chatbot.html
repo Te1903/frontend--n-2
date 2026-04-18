@@ -107,7 +107,7 @@
 <div class="p-3">
 <h3 class="font-bold text-sm leading-tight mb-1">Wagyu Beef Burger</h3>
 <p class="text-primary font-bold text-sm">250.000đ</p>
-<button class="mt-2 w-full py-1.5 bg-primary/20 text-primary text-xs font-bold rounded-lg border border-primary/30">Thêm món</button>
+<button  onclick="addToCart('Wagyu Beef Burger', 250000)" class="mt-2 w-full py-1.5 bg-primary/20 text-primary text-xs font-bold rounded-lg border border-primary/30">Thêm món</button>
 </div>
 </div>
 <div class="bg-background-light dark:bg-background-dark border border-primary/20 rounded-xl overflow-hidden shadow-sm">
@@ -153,8 +153,8 @@
 <span class="material-symbols-outlined">add_circle</span>
 </button>
 <div class="flex-1 relative">
-<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-full py-3 px-5 focus:ring-2 focus:ring-primary text-sm placeholder:text-slate-500" placeholder="Hỏi thêm về món ăn..." type="text"/>
-<button class="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-primary text-background-dark rounded-full">
+<input id="chat-input" class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-full py-3 px-5 focus:ring-2 focus:ring-primary text-sm placeholder:text-slate-500" placeholder="Hỏi thêm về món ăn..." type="text"/>
+<button onclick="sendChat()" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-primary text-background-dark rounded-full">
 <span class="material-symbols-outlined text-sm font-bold">send</span>
 </button>
 </div>
@@ -169,4 +169,6 @@
 <button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-primary/30 text-xs font-medium text-primary bg-primary/5">Thanh toán</button>
 </div>
 </footer>
-</body></html>
+</body>
+<script src="mobile.js"></script>
+</html>

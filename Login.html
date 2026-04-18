@@ -105,14 +105,36 @@
 </div>
 </div>
 <!-- Forgot Password Link -->
-<div class="flex justify-end">
-<a class="text-sm text-brand-orange hover:underline" href="#">Quên mật khẩu?</a>
-</div>
 <!-- Submit Button -->
 <button class="gradient-btn w-full py-3 px-4 rounded-round-eight text-white font-bold text-lg shadow-lg" type="submit">
           Đăng nhập
         </button>
 </form>
+
+<div class="flex justify-center mt-6">
+    <a href="index.html"
+       class="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 text-gray-300 hover:text-brand-orange hover:border-brand-orange transition-all">
+        <i class="fas fa-arrow-left"></i>
+        Trang chủ
+    </a>
+</div>
+<a onclick="showForgot()" 
+   class="text-sm text-brand-orange hover:underline cursor-pointer">
+   Quên mật khẩu?
+</a>
+<div id="forgot-box" class="hidden mt-6">
+    <input id="reset-user" placeholder="Tên đăng nhập"
+        class="w-full mb-3 p-2 rounded bg-gray-800 border border-gray-600">
+
+    <input id="new-pass" placeholder="Mật khẩu mới"
+        type="password"
+        class="w-full mb-3 p-2 rounded bg-gray-800 border border-gray-600">
+
+    <button onclick="resetPassword()"
+        class="w-full bg-brand-orange py-2 rounded font-bold">
+        Cập nhật mật khẩu
+    </button>
+</div>
 </section>
 <!-- END: Login Form Card -->
 <!-- BEGIN: Footer Copyright -->

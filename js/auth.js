@@ -159,21 +159,18 @@ document.getElementById("monthBtn").onclick = () => filterData("month");
 // ================= INIT =================
 renderTable();
 
-const pageButtons = document.querySelectorAll(".pagination-btn");
+// ===== LOGOUT =====
+function logout() {
+  localStorage.removeItem("user");
+  localStorage.removeItem("token");
 
-pageButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
+  window.location.href = "Login.html";
+}
+// ===== CHECK LOGIN =====
+function checkAuth() {
+  const user = localStorage.getItem("user");
 
-    // bỏ active tất cả
-    pageButtons.forEach(b => {
-      b.classList.remove("bg-primary", "text-black", "font-bold");
-      b.classList.add("border", "border-primary/20");
-    });
-
-    // thêm active
-    if (!btn.dataset.page.includes("prev") && !btn.dataset.page.includes("next")) {
-      btn.classList.add("bg-primary", "text-black", "font-bold");
-      btn.classList.remove("border");
-    }
-  });
-});
+  if (!user) {
+    window.location.href = "Login.html";
+  }
+}

@@ -1,0 +1,7 @@
+#activeMenuBg {
+  transition: all 0.3s ease;
+}
+
+.menu-item {
+  transition: color 0.2s ease;
+}

@@ -77,7 +77,22 @@
     .then(res => res.text())
     .then(data => {
       document.getElementById("sidebar").innerHTML = data;
-    });
+        const currentPage = window.location.pathname.split("/").pop();
+
+  document.querySelectorAll(".menu-item").forEach(item => {
+    const link = item.getAttribute("href");
+
+    // So sánh chính xác tên file
+    if (link && link.split("/").pop() === currentPage) {
+      item.classList.add(
+        "bg-primary",
+        "text-white",
+        "shadow-lg",
+        "font-semibold"
+      );
+    }
+  });
+});
 </script>
 
 <!-- Main Content Area -->
@@ -110,11 +125,11 @@
 <input class="w-full pl-10 pr-4 py-2 bg-stone-50 dark:bg-stone-800 border-none rounded-lg focus:ring-2 focus:ring-primary text-sm" placeholder="Tìm kiếm tên món ăn..." type="text"/>
 </div>
 <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
-<button class="px-4 py-2 rounded-lg bg-primary text-background-dark text-sm font-medium whitespace-nowrap">Tất cả</button>
-<button class="px-4 py-2 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-sm font-medium whitespace-nowrap transition-colors">Món chính</button>
-<button class="px-4 py-2 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-sm font-medium whitespace-nowrap transition-colors">Khai vị</button>
-<button class="px-4 py-2 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-sm font-medium whitespace-nowrap transition-colors">Đồ uống</button>
-<button class="px-4 py-2 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-sm font-medium whitespace-nowrap transition-colors">Tráng miệng</button>
+<button  data-type="all"class="px-4 py-2 rounded-lg bg-primary text-background-dark text-sm font-medium whitespace-nowrap">Tất cả</button>
+<button data-type="Món chính" class="px-4 py-2 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-sm font-medium whitespace-nowrap transition-colors">Món chính</button>
+<button data-type="Khai vị" class="px-4 py-2 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-sm font-medium whitespace-nowrap transition-colors">Khai vị</button>
+<button data-type="Đồ uống" class="px-4 py-2 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-sm font-medium whitespace-nowrap transition-colors">Đồ uống</button>
+<button data-type="Tráng miệng" class="px-4 py-2 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-sm font-medium whitespace-nowrap transition-colors">Tráng miệng</button>
 </div>
 </div>
 <!-- Table Container -->
@@ -132,13 +147,13 @@
 </thead>
 <tbody class="divide-y divide-stone-100 dark:divide-stone-800">
 <!-- Row 1 -->
-<tr class="hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
+<!-- <tr class="hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
 <td class="px-6 py-4">
 <div class="flex items-center gap-3">
 <div class="size-12 rounded-lg bg-stone-100 dark:bg-stone-800 overflow-hidden flex-shrink-0">
 <img class="w-full h-full object-cover" data-alt="Bát phở bò truyền thống thơm ngon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAux7MCvs27Lh_P44fhyh5RuKyguKCPipkRBqHWoFF0cOavj_CG6szRUiyJ8cZaqG4zbyRInWwuUU2H13YlyuH3p3HIKxO9yu1d0pYZJsG5o6xFXRaGTMNN05JtYOiVuMdzDYDhp8TyJIO32ffV-pHNdJpVi6yIrEUj2ZtikmcJ5FaEq456-jwqtf43GedDTRJwmCSF6Ifr7oiKRfvow5UdUMOEn6jcnveRuUKYMkuw8I-z8oDFiacr-oo_m89tUrkdPUsY4kLQ0sc"/>
-</div>
-<div>
+</div> -->
+<!-- <div>
 <p class="font-semibold">Phở Bò Tái Lăn</p>
 <p class="text-xs text-stone-500">Đặc sản Hà Nội</p>
 </div>
@@ -154,8 +169,8 @@
 <span class="ml-3 text-sm font-medium text-stone-600 dark:text-stone-400 min-w-[70px]">Đang bán</span>
 </label>
 </div>
-</td>
-<td class="px-6 py-4 text-right">
+</td> -->
+<!-- <td class="px-6 py-4 text-right">
 <div class="flex items-center justify-end gap-2">
 <button class="p-2 text-stone-500 hover:text-primary transition-colors">
 <span class="material-symbols-outlined">edit</span>
@@ -165,9 +180,9 @@
 </button>
 </div>
 </td>
-</tr>
+</tr> -->
 <!-- Row 2 -->
-<tr class="hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
+<!-- <tr class="hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
 <td class="px-6 py-4">
 <div class="flex items-center gap-3">
 <div class="size-12 rounded-lg bg-stone-100 dark:bg-stone-800 overflow-hidden flex-shrink-0">
@@ -200,9 +215,9 @@
 </button>
 </div>
 </td>
-</tr>
+</tr> -->
 <!-- Row 3 -->
-<tr class="hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
+<!-- <tr class="hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
 <td class="px-6 py-4">
 <div class="flex items-center gap-3">
 <div class="size-12 rounded-lg bg-stone-100 dark:bg-stone-800 overflow-hidden flex-shrink-0">
@@ -235,9 +250,9 @@
 </button>
 </div>
 </td>
-</tr>
+</tr> -->
 <!-- Row 4 -->
-<tr class="hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
+<!-- <tr class="hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
 <td class="px-6 py-4">
 <div class="flex items-center gap-3">
 <div class="size-12 rounded-lg bg-stone-100 dark:bg-stone-800 overflow-hidden flex-shrink-0">
@@ -273,7 +288,7 @@
 </tr>
 </tbody>
 </table>
-</div>
+</div> -->
 <!-- Pagination Footer -->
 <div class="px-6 py-4 bg-stone-50 dark:bg-stone-800/50 flex items-center justify-between border-t border-stone-100 dark:border-stone-800">
 <p class="text-sm text-stone-500">Hiển thị 1-4 trên 24 món</p>
@@ -293,4 +308,6 @@
 </div>
 </main>
 </div>
-</body></html>
+</body>
+<script src="../js/menumanager.js"></script>
+</html>

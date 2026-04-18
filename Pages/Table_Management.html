@@ -40,7 +40,22 @@
     .then(res => res.text())
     .then(data => {
       document.getElementById("sidebar").innerHTML = data;
-    });
+        const currentPage = window.location.pathname.split("/").pop();
+
+  document.querySelectorAll(".menu-item").forEach(item => {
+    const link = item.getAttribute("href");
+
+    // So sánh chính xác tên file
+    if (link && link.split("/").pop() === currentPage) {
+      item.classList.add(
+        "bg-primary",
+        "text-white",
+        "shadow-lg",
+        "font-semibold"
+      );
+    }
+  });
+});
 </script>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
 <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">

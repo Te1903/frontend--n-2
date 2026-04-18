@@ -1,49 +1,67 @@
-document.addEventListener("DOMContentLoaded", () => {
+// ===== SEARCH =====
+const searchInput = document.querySelector("input[placeholder='Search ID...']");
+const rows = document.querySelectorAll("tbody tr");
 
-  const menu = document.getElementById("sidebarMenu");
-  const items = document.querySelectorAll(".menu-item");
-  const bg = document.getElementById("activeMenuBg");
+if (searchInput) {
+    searchInput.addEventListener("input", function () {
+      const keyword = this.value.toLowerCase();
 
-  if (!menu || !items.length || !bg) return; // tránh lỗi null
+      document.querySelectorAll("tbody tr").forEach(row => {
+        const id = row.children[0].innerText.toLowerCase();
 
-  function moveBg(el) {
-    const rect = el.getBoundingClientRect();
-    const parentRect = menu.getBoundingClientRect();
-
-    bg.style.top = (rect.top - parentRect.top) + "px";
-    bg.style.height = rect.height + "px";
-    bg.style.left = "0px";
-    bg.style.width = "100%";
-  }
-
-  // 👉 active theo URL
-  const currentPage = window.location.pathname.split("/").pop();
-
-  let activeItem = items[0];
-
-  items.forEach(item => {
-    const link = item.getAttribute("href");
-
-    if (link && link.split("/").pop() === currentPage) {
-      activeItem = item;
-    }
-
-    item.addEventListener("mouseenter", () => moveBg(item));
-
-    item.addEventListener("click", () => {
-      activeItem = item;
-      moveBg(item);
+        row.style.display = id.includes(keyword) ? "" : "none";
+      });
     });
+}
+
+// ===== VIEW DETAIL =====
+document.querySelectorAll(".btn-detail").forEach(btn => {
+  btn.addEventListener("click", function () {
+    const id = this.closest("tr").children[0].innerText;
+    alert("Chi tiết hóa đơn: " + id);
   });
-
-  // 👉 khi rời chuột → quay về item active
-  menu.addEventListener("mouseleave", () => {
-    moveBg(activeItem);
-  });
-
-  // 👉 chạy lần đầu
-  setTimeout(() => {
-    moveBg(activeItem);
-  }, 50);
-
 });
+
+// ===== PAYMENT =====
+document.querySelectorAll(".btn-payment").forEach(btn => {
+  btn.addEventListener("click", function () {
+    const row = this.closest("tr");
+    const status = row.querySelector("span");
+
+    status.innerText = "Đã thanh toán";
+
+    this.remove();
+  });
+});
+
+// ===== PAGINATION =====
+const rowsPerPage = 3;
+let currentPage = 1;
+
+function showPage(page) {
+ const rows = document.querySelectorAll("tbody tr");
+
+  rows.forEach((row, index) => {
+    row.style.display =
+      index >= (page - 1) * rowsPerPage && index < page * rowsPerPage
+        ? ""
+        : "none";
+  });
+}
+// đang xuất
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      if (confirm("Bạn có chắc muốn đăng xuất?")) {
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+        window.location.href = "../Login.html";
+      }
+    });
+  }
+});
+showPage(1);

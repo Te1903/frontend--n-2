@@ -67,12 +67,13 @@
 <!-- Right Column: Image Upload -->
 <div class="space-y-4">
 <label class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Hình ảnh món ăn</label>
-<div class="relative group h-[190px] w-full rounded-xl border-2 border-dashed border-primary/30 flex flex-col items-center justify-center bg-background-light/50 dark:bg-zinc-800/50 hover:bg-primary/5 transition-colors cursor-pointer">
-<input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+<div id="uploadBox" class="relative group h-[190px] w-full rounded-xl border-2 border-dashed border-primary/30 flex flex-col items-center justify-center bg-background-light/50 dark:bg-zinc-800/50 hover:bg-primary/5 transition-colors cursor-pointer">
+<input  id="fileInput" class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
 <span class="material-icons text-4xl text-primary/60 mb-2">cloud_upload</span>
 <p class="text-xs text-slate-500 dark:text-slate-400 text-center px-4">Kéo thả hoặc nhấp để tải ảnh lên (JPG, PNG)</p>
 <!-- Placeholder preview overlay -->
-<img class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 group-hover:opacity-10 transition-opacity" data-alt="Tươi ngon thực phẩm món ăn trang trí" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDERvb7BvMRKeiYJ-68XQrVkpVXXIzHOYU5kdY3XLFJRYJ40pisqRnXmQ3pG1zkvnkJfxAPV12nQFmFKS4D0Ic8b9HC0oUmKXcAZajawcXeMtvI7_xwxI-qf94-lOFpzcf1gyU21b5HYKqQBEhT96lFs_2r6jhFKAqzlEVyqkuxGBYZ-bwRSZtZIN9wauvueL1Fjjvsx9p-xqyazTfLfTojanJ6NI1_SuNJqLWMZTCgsGM6dvFciP7szjMIyOki1qc5KSB5WMHmtYQ"/>
+ <img id="previewImg"
+     class="absolute inset-0 w-full h-full object-cover rounded-xl hidden z-10"/>
 </div>
 </div>
 </div>
@@ -100,8 +101,10 @@
 <!-- Modal Footer / Buttons -->
 <div class="flex flex-col sm:flex-row gap-3 pt-4">
 <a class="ml-64 flex-1 px-6 py-3 rounded-lg border border-primary/30 text-primary font-semibold hover:bg-primary/5 transition-colors" href="Menu_Management.html" type="button">Hủy</a>
-<button class="flex-[2] px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-transform active:scale-95 shadow-lg shadow-primary/20" type="submit">Thêm món</button>
+<button class="flex-[2] px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-transform active:scale-95 shadow-lg shadow-primary/20" id="addBtn" type="button">Thêm món</button>
 </div>
 </form>
 </div>
-</body></html>
+</body>
+<script src="../js/addmenu.js"></script>
+</html>

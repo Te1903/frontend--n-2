@@ -17,10 +17,14 @@ const users = {
   }
 };
 
-// 🔥 ROLE HIỆN TẠI (tab đang chọn)
+// =====================
+// 🔥 ROLE HIỆN TẠI
+// =====================
 let currentRole = "admin";
 
-// 🔥 CHUYỂN TAB ADMIN / STAFF
+// =====================
+// 🔥 CHUYỂN TAB
+// =====================
 function switchRole(role) {
   const adminTab = document.getElementById('admin-tab');
   const staffTab = document.getElementById('staff-tab');
@@ -39,7 +43,9 @@ function switchRole(role) {
   }
 }
 
-// 🔥 LOGIN
+// =====================
+// 🔥 LOGIN (CHUẨN)
+// =====================
 function login() {
   let user = document.getElementById("username").value.trim();
   let pass = document.getElementById("password").value.trim();
@@ -50,13 +56,17 @@ function login() {
     return;
   }
 
+  // 🔥 Ưu tiên password mới (nếu đã reset)
+  const savedPass = localStorage.getItem("user_" + user);
+  const correctPass = savedPass ? savedPass : users[user].pass;
+
   // ❌ Sai mật khẩu
-  if (users[user].pass !== pass) {
+  if (pass !== correctPass) {
     showError();
     return;
   }
 
-  // ❌ Sai role (admin mà login vào staff hoặc ngược lại)
+  // ❌ Sai role
   if (currentRole === "admin" && users[user].role !== "admin") {
     alert("Bạn phải đăng nhập bằng tài khoản ADMIN!");
     return;
@@ -67,24 +77,31 @@ function login() {
     return;
   }
 
-  // ✅ OK → lưu
+  // ✅ OK
   localStorage.setItem("role", users[user].role);
   localStorage.setItem("username", user);
 
-  // 👉 chuyển trang
   window.location.href = users[user].page;
 }
 
+// =====================
+// 🔥 SUBMIT FORM
+// =====================
+document.getElementById('login-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  login();
+});
+
+// =====================
 // 🔥 POPUP LỖI
+// =====================
 function showError() {
-  document.getElementById("popup").style.display = "flex";
+  alert("Sai tài khoản hoặc mật khẩu!");
 }
 
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-}
-
+// =====================
 // 🔥 SHOW/HIDE PASSWORD
+// =====================
 function togglePassword() {
   const input = document.getElementById('password');
   const icon = document.getElementById('password-icon');
@@ -98,8 +115,41 @@ function togglePassword() {
   }
 }
 
-// 🔥 SUBMIT FORM
-document.getElementById('login-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  login();
-});
+// =====================
+// 🔥 NÚT TRANG CHỦ
+// =====================
+function goHome() {
+  window.location.href = "../index.html";
+}
+
+// =====================
+// 🔥 HIỆN FORM QUÊN MẬT KHẨU
+// =====================
+function showForgot() {
+  document.getElementById("forgot-box").classList.toggle("hidden");
+}
+
+// =====================
+// 🔥 RESET PASSWORD
+// =====================
+function resetPassword() {
+  const user = document.getElementById("reset-user").value.trim();
+  const newPass = document.getElementById("new-pass").value.trim();
+
+  // ❌ user không tồn tại
+  if (!users[user]) {
+    alert("Tài khoản không tồn tại!");
+    return;
+  }
+
+  // ❌ chưa nhập
+  if (!newPass) {
+    alert("Vui lòng nhập mật khẩu mới!");
+    return;
+  }
+
+  // ✅ lưu pass mới
+  localStorage.setItem("user_" + user, newPass);
+
+  alert("Cập nhật mật khẩu thành công!");
+}

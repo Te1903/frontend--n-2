@@ -29,71 +29,37 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
 <div class="flex min-h-screen">
-<!-- Sidebar Navigation -->
-<!-- <aside class="w-64 border-r border-primary/10 bg-white dark:bg-background-dark flex flex-col fixed h-full">
-<div class="p-6">
-<div class="flex items-center gap-3">
-<div class="size-10 rounded-lg bg-primary flex items-center justify-center text-white">
-<span class="material-symbols-outlined">restaurant</span>
-</div>
-<div>
-<h1 class="text-lg font-bold leading-tight">Admin Dash</h1>
-<p class="text-xs text-slate-500 dark:text-primary/60">Management Portal</p>
-</div>
-</div>
-</div>
-<nav class="flex-1 px-4 space-y-1">
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary text-white font-medium" href="#">
-<span class="material-symbols-outlined">dashboard</span>
-<span>Dashboard</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="Table_Management.html">
-<span class="material-symbols-outlined">table_restaurant</span>
-<span>Bàn ăn</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="Invoice_management.html">
-<span class="material-symbols-outlined">receipt_long</span>
-<span>Hóa đơn</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="Menu_Management.html">
-<span class="material-symbols-outlined">menu_book</span>
-<span>Thực đơn</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="Employee_management.html">
-<span class="material-symbols-outlined">group</span>
-<span>Nhân viên</span>
-</a>
-</nav>
-<div class="p-4 border-t border-primary/10">
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">settings</span>
-<span>Cài đặt</span>
-</a>
-<div class="mt-4 flex items-center gap-3 px-3">
-<div class="size-8 rounded-full bg-slate-200 dark:bg-primary/20" data-alt="User avatar profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATZVXdv7cIkDYh8ayOyUq9DoSKlBNRmLURDK1g5TFoSaJTCkE3rsJx9cgAxdJYp9IXdQcjTAqGlQpZoqGD_OMTSmuTjElrFY-NdgPhDuiAbhFKSOQU7yAtjYRp8LVBPd1xAJt4VlWv1VIbXKZA0wzDa4XZtMSY2Ivks39Y0LSB-Uf_lRqVtemCpwPE2PMx5X6xdQEGWOevQ1LWrROw-INAJ4q42Nl8MrAqlYoXlv1WAHKCLrT1a94V018OFYHGmWv4A9zHj9FMj0s");'></div>
-<div class="flex-1 min-w-0">
-<p class="text-sm font-medium truncate">Manager Name</p>
-</div>
-<span class="material-symbols-outlined text-sm">logout</span>
-</div>
-</div>
-</aside> -->
-
 <div id="sidebar"></div>
 <script>
   fetch("sidebar.html")
     .then(res => res.text())
     .then(data => {
       document.getElementById("sidebar").innerHTML = data;
-    });
+        const currentPage = window.location.pathname.split("/").pop();
+
+  document.querySelectorAll(".menu-item").forEach(item => {
+    const link = item.getAttribute("href");
+
+    // So sánh chính xác tên file
+    if (link && link.split("/").pop() === currentPage) {
+      item.classList.add(
+        "bg-primary",
+        "text-white",
+        "shadow-lg",
+        "font-semibold"
+      );
+    }
+  });
+});
+    
 </script>
 
 <!-- Main Content -->
 <main class="flex-1 ml-64 p-8">
 <header class="flex flex-wrap justify-between items-end gap-4 mb-8">
 <div class="flex flex-col gap-1">
-<h2 class="text-3xl font-black tracking-tight">Invoice Management</h2>
-<p class="text-slate-500 dark:text-slate-400">Review and process all restaurant billing activity.</p>
+<h2 class="text-3xl font-black tracking-tight">Quản lý hóa đơn</h2>
+<p class="text-slate-500 dark:text-slate-400">Theo dõi và xử lý toàn bộ hóa đơn của quán.</p>
 </div>
 <div class="flex gap-3">
 <button class="flex items-center gap-2 px-4 py-2 border border-primary/20 bg-primary/5 hover:bg-primary/10 text-primary rounded-lg text-sm font-semibold transition-colors">
@@ -105,23 +71,23 @@
 <!-- Stats Overview -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 <div class="p-6 rounded-xl border border-primary/10 bg-primary/5 flex flex-col gap-2">
-<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Revenue</p>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Tổng doanh thu</p>
 <div class="flex items-baseline gap-2">
-<p class="text-2xl font-bold">$12,450.00</p>
+<p class="text-2xl font-bold">12,450.00</p>
 <span class="text-xs font-bold text-emerald-500">+12.5%</span>
 </div>
 </div>
 <div class="p-6 rounded-xl border border-primary/10 bg-primary/5 flex flex-col gap-2">
-<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Pending Invoices</p>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Hóa đơn chưa thanh toán</p>
 <div class="flex items-baseline gap-2">
 <p class="text-2xl font-bold">14</p>
 <span class="text-xs font-bold text-rose-500">-2.1%</span>
 </div>
 </div>
 <div class="p-6 rounded-xl border border-primary/10 bg-primary/5 flex flex-col gap-2">
-<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Paid Today</p>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Hóa đơn đã thanh toán hôm nay</p>
 <div class="flex items-baseline gap-2">
-<p class="text-2xl font-bold">$3,200.00</p>
+<p class="text-2xl font-bold">3,200.00  </p>
 <span class="text-xs font-bold text-emerald-500">+5.4%</span>
 </div>
 </div>
@@ -129,9 +95,9 @@
 <!-- Invoices Table Container -->
 <div class="bg-primary/5 border border-primary/10 rounded-xl overflow-hidden">
 <div class="p-4 border-b border-primary/10 flex justify-between items-center bg-primary/5">
-<h3 class="font-bold text-sm uppercase tracking-wider text-primary">Recent Invoices</h3>
+<h3 class="font-bold text-sm uppercase tracking-wider text-primary">Hóa đơn gần đây</h3>
 <div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]">search</span>
+<span class=" searchInput material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]">search</span>
 <input class="pl-10 pr-4 py-1.5 bg-background-dark/50 border border-primary/20 rounded-lg text-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none" placeholder="Search ID..." type="text"/>
 </div>
 </div>
@@ -139,12 +105,12 @@
 <table class="w-full text-left">
 <thead>
 <tr class="bg-background-dark/30">
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Invoice ID</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Table #</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Time</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Total</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Status</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest text-right">Actions</th>
+<th>Mã hóa đơn</th>
+<th>Bàn</th>
+<th>Thời gian</th>
+<th>Tổng tiền</th>
+<th>Trạng thái</th>
+<th class="text-center">Hành động</th>
 </tr>
 </thead>
 <tbody class="divide-y divide-primary/5">
@@ -152,62 +118,73 @@
 <td class="px-6 py-4 text-sm font-semibold">INV-001</td>
 <td class="px-6 py-4 text-sm text-slate-400">T-05</td>
 <td class="px-6 py-4 text-sm text-slate-400">12:30 PM</td>
-<td class="px-6 py-4 text-sm font-bold text-primary">$145.00</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">145.00</td>
 <td class="px-6 py-4">
-<span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Paid</span>
+<span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Đã Thanh Toán</span>
 </td>
-<td class="px-6 py-4 text-right space-x-2">
-<button class="text-xs font-bold text-primary hover:underline">View Details</button>
+<td class="px-6 py-4 text-center space-x-2">
+<button class="btn-detail text-xs font-bold text-primary hover:underline whitespace-nowrap">
+  Xem chi tiết
+</button>
+<button class="btn-payment bg-primary text-background-dark px-3 py-1 rounded text-[11px] font-black uppercase hover:bg-primary/80"> thanh toán</button>
 </td>
 </tr>
 <tr class="hover:bg-primary/5 transition-colors group">
 <td class="px-6 py-4 text-sm font-semibold">INV-002</td>
 <td class="px-6 py-4 text-sm text-slate-400">T-12</td>
 <td class="px-6 py-4 text-sm text-slate-400">01:15 PM</td>
-<td class="px-6 py-4 text-sm font-bold text-primary">$88.50</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">88.50</td>
 <td class="px-6 py-4">
-<span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-full bg-rose-500/10 text-rose-500 border border-rose-500/20">Unpaid</span>
+<span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-full bg-rose-500/10 text-rose-500 border border-rose-500/20">Chưa Thanh Toán</span>
 </td>
-<td class="px-6 py-4 text-right space-x-3">
-<button class="text-xs font-bold text-primary hover:underline">View Details</button>
-<button class="bg-primary text-background-dark px-3 py-1 rounded text-[11px] font-black uppercase hover:bg-primary/80">Payment</button>
+<td class="px-6 py-4 text-center space-x-2">
+<button class="btn-detail text-xs font-bold text-primary hover:underline whitespace-nowrap">
+  Xem chi tiết
+</button>
+<button class="btn-payment bg-primary text-background-dark px-3 py-1 rounded text-[11px] font-black uppercase hover:bg-primary/80"> thanh toán</button>
 </td>
 </tr>
 <tr class="hover:bg-primary/5 transition-colors group">
 <td class="px-6 py-4 text-sm font-semibold">INV-003</td>
 <td class="px-6 py-4 text-sm text-slate-400">T-02</td>
 <td class="px-6 py-4 text-sm text-slate-400">01:45 PM</td>
-<td class="px-6 py-4 text-sm font-bold text-primary">$210.00</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">210.00</td>
 <td class="px-6 py-4">
-<span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Paid</span>
+<span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Đã Thanh Toán</span>
 </td>
-<td class="px-6 py-4 text-right space-x-2">
-<button class="text-xs font-bold text-primary hover:underline">View Details</button>
+<td class="px-6 py-4 text-center space-x-2">
+<button class="btn-detail text-xs font-bold text-primary hover:underline whitespace-nowrap">
+  Xem chi tiết
+</button>
 </td>
 </tr>
 <tr class="hover:bg-primary/5 transition-colors group">
 <td class="px-6 py-4 text-sm font-semibold">INV-004</td>
 <td class="px-6 py-4 text-sm text-slate-400">T-08</td>
 <td class="px-6 py-4 text-sm text-slate-400">02:10 PM</td>
-<td class="px-6 py-4 text-sm font-bold text-primary">$55.00</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">55.00</td>
 <td class="px-6 py-4">
-<span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-full bg-rose-500/10 text-rose-500 border border-rose-500/20">Unpaid</span>
+<span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-full bg-rose-500/10 text-rose-500 border border-rose-500/20">chưa thanh toán</span>
 </td>
-<td class="px-6 py-4 text-right space-x-3">
-<button class="text-xs font-bold text-primary hover:underline">View Details</button>
-<button class="bg-primary text-background-dark px-3 py-1 rounded text-[11px] font-black uppercase hover:bg-primary/80">Payment</button>
+<td class="px-6 py-4 text-center space-x-3">
+<button class="btn-detail text-xs font-bold text-primary hover:underline whitespace-nowrap">
+  Xem chi tiết
+</button>
+<button class="btn-payment bg-primary text-background-dark px-3 py-1 rounded text-[11px] font-black uppercase hover:bg-primary/80"> thanh toán</button>
 </td>
 </tr>
 <tr class="hover:bg-primary/5 transition-colors group">
 <td class="px-6 py-4 text-sm font-semibold">INV-005</td>
 <td class="px-6 py-4 text-sm text-slate-400">T-22</td>
 <td class="px-6 py-4 text-sm text-slate-400">02:45 PM</td>
-<td class="px-6 py-4 text-sm font-bold text-primary">$312.20</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">312.20</td>
 <td class="px-6 py-4">
-<span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Paid</span>
+<span class="px-2.5 py-1 text-[11px] font-bold uppercase rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Đã Thanh Toán</span>
 </td>
-<td class="px-6 py-4 text-right space-x-2">
-<button class="text-xs font-bold text-primary hover:underline">View Details</button>
+<td class="px-6 py-4 text-center space-x-2">
+<button class="btn-detail text-xs font-bold text-primary hover:underline whitespace-nowrap">
+  Xem chi tiết
+</button>
 </td>
 </tr>
 </tbody>
@@ -227,4 +204,6 @@
 </div>
 </main>
 </div>
-</body></html>
+</body>
+<script src="../js/invoice.js"></script>
+</html>
