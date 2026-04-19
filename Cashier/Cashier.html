@@ -215,7 +215,7 @@ function toggleMenu() {
 <tbody class="divide-y divide-white/5">
 <tr class="group">
 <td class="py-4">
-<p class="font-medium">Lẩu Cá Kèo Lá Giang</p>
+<p class="font-medium">Thăn bò sốt vang</p>
 <p class="text-xs text-slate-500 italic">Nhiều rau, không cay</p>
 </td>
 <td class="py-4 text-center">01</td>
@@ -223,19 +223,19 @@ function toggleMenu() {
 <td class="py-4 text-right font-semibold">450.000đ</td>
 </tr>
 <tr>
-<td class="py-4"><p class="font-medium">Sườn Nướng Muối Ớt (Size L)</p></td>
+<td class="py-4"><p class="font-medium">Gỏi Ngó Sen Tôm Thịt</p></td>
 <td class="py-4 text-center">01</td>
 <td class="py-4 text-right">380.000đ</td>
 <td class="py-4 text-right font-semibold">380.000đ</td>
 </tr>
 <tr>
-<td class="py-4"><p class="font-medium">Rau Muống Xào Tỏi</p></td>
+<td class="py-4"><p class="font-medium">Tôm hùm bỏ lò</p></td>
 <td class="py-4 text-center">02</td>
 <td class="py-4 text-right">65.000đ</td>
 <td class="py-4 text-right font-semibold">130.000đ</td>
 </tr>
 <tr>
-<td class="py-4"><p class="font-medium">Bia Heineken (Lon)</p></td>
+<td class="py-4"><p class="font-medium">Salad hoàng gia</p></td>
 <td class="py-4 text-center">06</td>
 <td class="py-4 text-right">35.000đ</td>
 <td class="py-4 text-right font-semibold">210.000đ</td>
@@ -386,25 +386,25 @@ function toggleMenu() {
 const tableData = {
     "05": {
         items: [
-            { name: "Lẩu Cá Kèo", qty: 1, price: 450000 },
-            { name: "Sườn nướng", qty: 1, price: 380000 }
+            { name: "Thăn bò sốt vang", qty: 1, price: 450000 },
+            { name: "salad hoàng gia", qty: 1, price: 150000 }
         ]
     },
     "12": {
         items: [
-            { name: "Cơm chiên", qty: 2, price: 80000 },
-            { name: "Trà đá", qty: 2, price: 5000 }
+            { name: "Tôm hùm bỏ lò", qty: 2, price: 890000 },
+            { name: "cá hồi áp chảo", qty: 2, price: 380000 }
         ]
     },
     "21": {
         items: [
-            { name: "Bia", qty: 5, price: 35000 }
+            { name: "Kem bơ hạt dẻ", qty: 5, price: 95000 }
         ]
     },
     "takeaway": {
     items: [
-        { name: "Cơm gà", qty: 1, price: 85000 },
-        { name: "Trà sữa", qty: 1, price: 30000 }
+        { name: "Rượu vang đỏ chile", qty: 1, price: 850000 },
+        { name: "Mỳ ý hải sản", qty: 1, price: 220000 }
     ]
 }
 };
@@ -606,7 +606,8 @@ function saveInvoice() {
         table: document.querySelector(".table-item.bg-primary span").innerText,
         time: new Date().toLocaleTimeString(),
         total: document.getElementById("total-money").innerText,
-        method: "Tiền mặt" // hoặc QR nếu bạn chọn
+        method: "Tiền mặt", // hoặc QR nếu bạn chọn
+        items: items 
     };
 
     // lấy danh sách cũ
